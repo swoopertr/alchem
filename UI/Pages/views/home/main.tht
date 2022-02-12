@@ -1,0 +1,4 @@
+<div><% this.name %></div>
+<div><% this.restName %></div>
+<div><% this.orderData.orderName %></div>
+<div><% JSON.stringify(this.orderData) %></div>

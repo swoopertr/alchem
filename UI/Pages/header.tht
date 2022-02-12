@@ -1,0 +1,28 @@
+<!--main header-->
+
+	<!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="virt/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="virt/vendor/animate/animate.compat.css">
+    <link rel="stylesheet" href="virt/vendor/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="virt/vendor/boxicons/css/boxicons.min.css" />
+    <link rel="stylesheet" href="virt/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="virt/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="virt/css/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="virt/css/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="virt/css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="virt/vendor/modernizr/modernizr.js"></script>
+
+    <script type="text/javascript" src="/virt/scripts/main.js"></script>
+
+<!--main header END-->

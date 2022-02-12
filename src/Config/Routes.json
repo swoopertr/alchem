@@ -1,0 +1,38 @@
+{
+  "/": {
+    "get": {
+      "controller": "data",
+      "function": "list",
+      "isCached": false
+    }
+  },
+  "home": {
+    "get": {
+      "controller": "home",
+      "function": "main",
+      "isCached": false
+    }
+  },
+  "getChars":{
+    "get":{
+      "controller": "user",
+      "function": "getChars",
+      "isCached": false
+    }
+  
+  },
+  "chars": {
+    "get": {
+      "controller": "user",
+      "function": "chars",
+      "isCached": false
+    }
+  },
+  "login":{
+    "get":{
+      "controller": "user",
+      "function": "login",
+      "isCached": false
+    }
+  }
+}

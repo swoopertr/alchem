@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="fixed">
+<head>
+
+    <!-- Basic -->
+	<meta charset="UTF-8">
+
+    <title><%proj.Title%></title>
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <script type="text/javascript" src="/virt/scripts/util.js"></script>
+    <%header%>
+    <!-- PAGE HEADER START -->
+    <%page.header%>
+    <!-- PAGE HEADER END -->
+</head>
+<body>
+  
+<!-- PAGE BODY START -->
+<%page.body%>
+<!-- PAGE BODY END -->
+
+<!-- PAGE FOOTER START -->
+<%page.footer%>
+<!-- PAGE FOOTER END -->
+<%footer%>
+
+</html>
