@@ -9,7 +9,7 @@ settings.DdosLimitOptions = {
     requestLimit:20,
     blockSeconds: 30
 };
-settings.tokenExpireTimeLimit= 6;
+settings.tokenExpireTimeLimit = 6;
 settings.superAdminGroupId = 3;
 settings.cpuCount = 1;
 var numCPUs = (settings.cpuCount === 0) ? require('os').cpus().length : settings.cpuCount;
@@ -25,11 +25,12 @@ settings.jsonPath = "/src/Config/Routes.json";
 settings.errorController = './Controller/error';
 settings.ServerPort = process.env.PORT || 8081;
 settings.postGreDb = {
-    user: 'postgres',
-    pass: '1234',
-    ip: 'localhost',//desktop,mac
+    user: 'alchemadmin',
+    pass: 'alchempass',
+    ip: '31.210.52.10',//desktop,mac
     port: '5432',//home, desktop, mac
     dbname: 'alchemtech'
 };
-settings.PostGreConnection = 'postgres://' + settings.postGreDb.user + ':' + settings.postGreDb.pass + '@' + settings.postGreDb.ip + ':' + settings.postGreDb.port + '/' + settings.postGreDb.dbname;
+settings.PostGreConnection = 'postgres://' + settings.postGreDb.user + ':' + settings.postGreDb.pass + '@' 
+    + settings.postGreDb.ip + ':' + settings.postGreDb.port + '/' + settings.postGreDb.dbname ;//+ '?sslmode=yes';//+ '?sslmode=disable';
 module.exports = settings;

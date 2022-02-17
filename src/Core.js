@@ -51,6 +51,11 @@ var getfileContentImg = function (res, filePath) {
     });
 };
 
+var getfileContentImgAsync = function (res, filePath) {
+    var data = fs.readFileSync(dir + filePath);
+    res.end(data);
+}
+
 var getfileContent = function (res, filePath) { 
     fs.readFile(dir + filePath, function (err, content) {
         if (err) {
@@ -59,6 +64,12 @@ var getfileContent = function (res, filePath) {
         res.write(content);
         res.end();
     });
+};
+
+var getfileContentAsync = function (res, filePath) {
+    var content =  fs.readFileSync(dir + filePath);
+    res.write(content);
+    res.end();
 };
 
 var initRouteConfigWatcher = function () {
@@ -270,8 +281,15 @@ var defineEmailValidation = function () {
         return re.test(String(this).toLowerCase());
     }
 }
+var redirect = function (res, path) {
+    res.writeHead(302, {Location: path});
+    res.end();
+}
 
 var core = {
+    getfileContentAsync:getfileContentAsync,
+    getfileContentImgAsync:getfileContentImgAsync,
+    redirect:redirect,
     queryStringToObject:queryStringToObject,
     getfileContentImg: getfileContentImg,
     getfileContent: getfileContent,

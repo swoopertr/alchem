@@ -34,5 +34,33 @@
       "function": "login",
       "isCached": false
     }
+  },
+  "login_post":{
+    "post":{
+      "controller": "user",
+      "function": "login_post",
+      "isCached": false
+    }
+  },
+  "getusers":{
+    "get":{
+      "controller": "user",
+      "function": "getUsers",
+      "isCached": false
+    }
+  },
+  "admin":{
+    "get":{
+      "controller": "admin",
+      "function": "admin",
+      "isCached": false
+    }
+  },
+  "fud":{
+    "get":{
+      "controller": "fud",
+      "function": "fud",
+      "isCached": false
+    }
   }
 }

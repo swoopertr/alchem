@@ -45,3 +45,14 @@ exports.TheHeaderJPEG = {
   'Accept-Ranges': 'bytes',
   'Cache-Control': noCacheHeader
 };
+exports.TheHeaderWoff = {
+  'Content-Type': 'font/woff',
+  'Accept-Ranges': 'bytes',
+  'Cache-Control': noCacheHeader
+}
+exports.TheHeaderWoff2 = {
+  'Content-Type': 'font/woff2',
+  'Accept-Ranges': 'bytes',
+  'Cache-Control': noCacheHeader
+}
+

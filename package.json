@@ -1,14 +1,14 @@
 {
-  "name": "nottebook",
+  "name": "alchem_techs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "tunckiral@fiyuu.com.tr, sebaharkumcol@fiyuu.com.tr, berkayabi@gmail.com",
+  "author": "tunckiral@fiyuu.com.tr",
   "license": "ISC",
   "dependencies": {
-    "pg": "^8.6.0"
+    "pg": "8.7.3"
   }
 }

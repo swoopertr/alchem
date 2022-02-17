@@ -1,18 +1,29 @@
 var pg =  require('./../Repository/postgre');
 
 var workDefinition = {
-    getAll: function(cb){
+    getAll: function(cb, cbErr){
         const query = { // change the query
-            text: 'select * from "UserGroupDefinitions"',
+            text: 'SELECT * FROM public."Users"',
             values: [],
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
+    getUsernameAndPassword: function(username, password, cb){
+        const query = { 
+            text: 'SELECT * FROM public."Users" WHERE email = $1 AND password = $2',
+            values: [username, password]
         };
         pg.query(query, function (result) {
             cb && cb(result);
         });
     },
     getById: function(id, cb){
-        const query = { // change the query
-            text: 'select * from "UserGroupDefinitions" where "Id" =$1;',
+        const query = {
+            text: 'select * from public."Users" where "Id" =$1;',
             values: [id]
         };
         pg.query(query, function (result) {
@@ -26,6 +37,15 @@ var workDefinition = {
         };
         pg.query(query, function (result) {
             cb && cb(result[0].Id);
+        });
+    },
+    updateUserToken: function name(userId, token, cb) {
+        const query = { 
+            text: 'update public."Users" set "token"=$2, "token_exp" =$3 where "Id"=$1;',
+            values: [userId, token, new Date(new Date().getTime() + (1000 * 60 * 60 * 24))]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
         });
     },
     updateUser: function(user, cb){

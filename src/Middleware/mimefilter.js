@@ -3,7 +3,8 @@ var route = require('./../route');
 var defaults = require('./../Config/Defaults/Default');
 var setting = require('./../Config/setting');
 var header = require('./../Middleware/header');
-
+var Sessions = require('./../Middleware/session');
+var sessionHandler = new Sessions(null, {expires: setting.sessionExpireTime});//10 mins.
 var mimeRequest = {
     catchMime: function (req, res) {
         if (req.url === '/favicon.ico') {
@@ -14,44 +15,58 @@ var mimeRequest = {
             return false;
         }
 
-        core.checkVirtual(req.url, function (isVirtual) {
+        core.checkVirtual(req.url, async function (isVirtual) {
             if (isVirtual) {
                 var filePath = req.url.replace(setting.virtualRootPath, setting.rootPath);
                 var ext = core.getExtention(req.url);
                 switch (ext) {
                     case 'css':
                         res.writeHead(200, defaults.TheHeaderCss);
-                        core.getfileContent(res, filePath);
+                        await core.getfileContentAsync(res, filePath);
                         break;
                     case 'js':
                         res.writeHead(200, defaults.TheHeaderJavascript);
-                        core.getfileContent(res, filePath);
+                        await core.getfileContentAsync(res, filePath);
                         break;
                     case 'png':
                         res.writeHead(200, defaults.TheHeaderPNG);
-                        core.getfileContentImg(res, filePath);
+                        await core.getfileContentImgAsync(res, filePath);
                         break;
                     case 'jpeg':
                         res.writeHead(200, defaults.TheHeaderJPEG);
-                        core.getfileContentImg(res, filePath);
+                        await core.getfileContentImgAsync(res, filePath);
                         break;
                     case 'jpg':
                         res.writeHead(200, defaults.TheHeaderJPG);
-                        core.getfileContentImg(res, filePath);
+                        await core.getfileContentImgAsync(res, filePath);
                         break;
                     case '.html':
                         res.writeHead(200, defaults.TheHeaderHtml);
-                        core.getfileContentImg(res, filePath);
+                        await core.getfileContentImgAsync(res, filePath);
                         break;   
+                    case 'woff':
+                        res.writeHead(200, defaults.TheHeaderWoff); 
+                        await core.getfileContentImgAsync(res, filePath);
+                        break;
+                    case 'woff2':
+                        res.writeHead(200, defaults.TheHeaderWoff2);
+                        await core.getfileContentImgAsync(res, filePath);
+                        break;
                 }
             }
             else {
                 //adding general header.
-                header.addHeader(res, [
+              /*  header.addHeader(res, [
                     {key: 'kings-header',value: 'kingValue'}
                 ], function (resp) {
                     route.guideRequest(req, resp);
                 });
+                */
+                sessionHandler.httpRequest(req, res, function (err, sess) {
+                    req.sess = sess
+                    route.guideRequest(req, res);
+                });
+
               }
         });
 
