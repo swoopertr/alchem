@@ -1,23 +1,44 @@
-let token_cache = {};
+let tokens = require('./../Tokens/token');
+
+
+let getunExpiredTokens = async function () {
+    global.token.token_cache = {};
+    let results = await tokens.async.getUnexpiredTokens();
+    let len = results.length;
+    for (let i = 0; i < len; i++) {
+        let item = results[i];
+        global.token.token_cache[item.token] = {
+            expire: item.token_exp,
+            type: item["Type"],
+            userName: item["Name"],
+        };
+    }
+};
+
 
 var dataCache = {
+    init: async function () {
+        global.token = {};
+        await getunExpiredTokens();
+    },
+
     token: {
         check_token: function (token, cb) {
-            if (token_cache[token]) {
-                cb && cb(token_cache[token]);
+            if (global.token.token_cache[token]) {
+                cb && cb(global.token.token_cache[token]);
             } else {
                 cb && cb(null);
             }
         },
-        add_token: function (token, expire, type, cb) {
-            token_cache[token] = {
+        add_token: function (token, expire, name, type) {
+            global.token.token_cache[token] = {
                 expire: expire,
-                type : type
+                type: type,
+                userName: name,
             };
-            cb && cb(token_cache[token]);
         },
         remove_token: function (token, cb) {
-            delete token_cache[token];
+            delete global.token.token_cache[token];
             cb && cb();
         }
     }

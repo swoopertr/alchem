@@ -4,7 +4,7 @@ var core = require('./src/Core');
 var mimeCore = require('./src/Middleware/mimefilter');
 var render = require('./src/Middleware/render');
 var cluster = require('cluster');
-
+var dataCache = require('./src/Data/Cache/dataCache');
 
 if (cluster.isMaster) {
     for (var i = 0; i < setting.cpuCount; i++) {
@@ -13,7 +13,7 @@ if (cluster.isMaster) {
 }else {
     render.init();
     render.initWatcher();
-    
+    dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {
         http.createServer(function (req, res) {
             res.socket.setNoDelay();

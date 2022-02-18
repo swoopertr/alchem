@@ -1,7 +1,6 @@
 var render = require('./../Middleware/render');
 var userBusiness = require('./../Bussines/userBusiness');
 var view = require('./../Middleware/ViewPack');
-var core = require('./../Core');
 
 var user_api = {
     getChars: function(req, res){
@@ -44,11 +43,18 @@ var user_api = {
         });
     },
     checkToken: function(req, res){
-        req.on('end', function () {
-            var token = req.headers.token;
-            userBusiness.checkToken(token, function(result){
-                render.renderData(res, result);
-            });
+        var token = req.headers.token;
+        var userPageType = req.headers.userpagetype;
+        userBusiness.checkToken(token, function(result){
+            if(result != null){
+                if(result["type"] == userPageType){
+                    render.renderData(res, {status : "success"});
+                }else{
+                    render.renderData(res, {status : "fail"});
+                }
+            }else{
+                render.renderData(res, {status : "fail"});
+            }
         });
     }
 };

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="fixed">
+<html class="fixed">
 <head>
 
     <!-- Basic -->
@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
     <script type="text/javascript" src="/virt/scripts/util.js"></script>
+    
     <%header%>
     <!-- PAGE HEADER START -->
     <%page.header%>
@@ -26,5 +27,5 @@
 <%page.footer%>
 <!-- PAGE FOOTER END -->
 <%footer%>
-
+</body>
 </html>

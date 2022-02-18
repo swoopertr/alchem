@@ -23,6 +23,6 @@
     <!-- Head Libs -->
     <script src="virt/vendor/modernizr/modernizr.js"></script>
 
-    <script type="text/javascript" src="/virt/scripts/main.js"></script>
+    <script src="/virt/scripts/main.js"></script>
 
 <!--main header END-->

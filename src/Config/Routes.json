@@ -42,6 +42,13 @@
       "isCached": false
     }
   },
+  "checktoken":{
+    "get":{
+      "controller": "user",
+      "function": "checkToken",
+      "isCached": false
+    }
+  },
   "getusers":{
     "get":{
       "controller": "user",
