@@ -29,8 +29,6 @@ var dataAccess = {
                     }
                     break;
             }
-            await client.end();
-
         } catch (e) {
             console.log({e});
             cbErr && cbErr(e);

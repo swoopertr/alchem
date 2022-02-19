@@ -15,14 +15,14 @@ console.log('this is main.js');
                 name:'userPageType',
                 value: userPageType
             }];
-        util.getRequest('checktoken', check_obj, function(result){
+        util.getRequest('/checktoken', check_obj, function(result){
             result = JSON.parse(result);
             if(result.status == 'success'){
                 console.log('checktoken success');
                 document.getElementById('login_user_name').innerHTML = util.cookie.get('userName');
             }else{
                 console.log('checktoken fail');
-                document.location.href = 'login';
+                document.location.href = '/login';
             }
         });
     };
@@ -36,7 +36,7 @@ console.log('this is main.js');
         util.cookie.remove('email');
         util.cookie.remove('usertype');
       
-        document.location.href = 'login';
+        document.location.href = '/login';
     });
 
 

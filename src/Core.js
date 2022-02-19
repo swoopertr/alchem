@@ -107,7 +107,7 @@ var queryStringToObject = function (search) {
        return  JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) {
             return key === "" ? value : decodeURIComponent(value)
         });
-    };
+};
 
 var request = {
     get: function (baseUri, path, headers, cb){
@@ -263,6 +263,7 @@ var defineFriendlyDate = function () {
         return (d<= 9 ? '0' + d : d) + '-' + (m<=9 ? '0' + m : m) + '-' + y + ' ' +(h<=9 ? '0' + h : h) + ':' + (mi<=9 ? '0' + mi : mi) + ':' + (s<=9 ? '0' + s : s);
     }
 };
+
 var defineTokenValidation = function () {
     String.prototype.validateToken = function (){
         if (this === undefined){
@@ -281,12 +282,45 @@ var defineEmailValidation = function () {
         return re.test(String(this).toLowerCase());
     }
 }
+
 var redirect = function (res, path) {
     res.writeHead(302, {Location: path});
     res.end();
 }
 
+var parseCookies = function(request) {
+    const list = {};
+    const cookieHeader = request.headers?.cookie;
+    if (!cookieHeader) return list;
+
+    var cookies = cookieHeader.split(';');
+    var len = cookies.length;
+    for (let i = 0; i < len; i++) {
+        var cookie = cookies[i];
+        let [ name, ...rest] = cookie.split(`=`);
+        name = name?.trim();
+        if (!name) return;
+        const value = rest.join(`=`).trim();
+        if (!value) return;
+        list[name] = decodeURIComponent(value); 
+    }
+   /*
+    cookieHeader.split(`;`).forEach(function(cookie) {
+        let [ name, ...rest] = cookie.split(`=`);
+        name = name?.trim();
+        if (!name) return;
+        const value = rest.join(`=`).trim();
+        if (!value) return;
+        list[name] = decodeURIComponent(value);
+    });
+    */
+
+    return list;
+}
+
 var core = {
+
+    parseCookies:parseCookies,
     getfileContentAsync:getfileContentAsync,
     getfileContentImgAsync:getfileContentImgAsync,
     redirect:redirect,

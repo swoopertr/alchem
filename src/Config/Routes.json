@@ -63,6 +63,13 @@
       "isCached": false
     }
   },
+  "admin/urunler":{
+    "get":{
+      "controller": "admin",
+      "function": "productList",
+      "isCached": false
+    }
+  },
   "fud":{
     "get":{
       "controller": "fud",
