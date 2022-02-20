@@ -31,9 +31,10 @@ var workDefinition = {
         });
     },
     insertUser: function(user, cb){
-        const query = { // change the query
-            text: 'insert into "UserGroupDefinitions" ("GroupName", "Status") values($1, $2) RETURNING "Id";', 
-            values: [groupname, status]
+        const query = { 
+            text: `INSERT INTO public."Users" ("Name", "Type", "Status", email, password, "lastLogin", token, token_exp, "PhoneNumber") 
+                VALUES ($1, 2, 1, $2, $3, null, null, null, $4) RETURNING "Id";`, 
+            values: [user.name, user.email, user.password, user.phone]
         };
         pg.query(query, function (result) {
             cb && cb(result[0].Id);

@@ -77,7 +77,7 @@
 
         <section role="main" class="content-body card-margin">
             <header class="page-header">
-                <h2>Ürün Ekle / Güncelle</h2>
+                <h2>Füd Ekle / Güncelle</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
@@ -89,7 +89,7 @@
 
                         <li><span>Admin</span></li>
 
-                        <li><span>Ürün Ekle - Güncelle</span></li>
+                        <li><span>Füd Ekle - Güncelle</span></li>
 
                     </ol>
 
@@ -107,57 +107,40 @@
                                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                 </div>
 
-                                <h2 class="card-title">Ürün Ekle / Güncelle</h2>
+                                <h2 class="card-title">Füd Ekle / Güncelle</h2>
                             </header>
                             <div class="card-body">
-                                <form class="form-horizontal form-bordered" action="/admin-urun-guncelle" method="post" enctype="multipart/form-data" >
-                                    <input type="hidden" class="form-control" id="productId" name="productId">
-                                    <div class="form-group row pb-4">
-                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Ürün İsmi</label>
-                                        <div class="col-lg-6">
-                                            <input type="text" class="form-control" name="ProductName" id="ProductName">
-                                        </div>
-                                    </div>
+                                <div class="form-horizontal form-bordered" >
                                     
+                                    <input type="hidden" class="form-control" id="fudId" />
                                     <div class="form-group row pb-4">
-                                        <label class="col-lg-3 control-label text-lg-end pt-2">Ürün Resmi</label>
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="FudName">Füd Ad Soyad</label>
                                         <div class="col-lg-6">
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <div class="input-append">
-                                                    <div class="uneditable-input">
-                                                        <i class="fas fa-file fileupload-exists"></i>
-                                                        <span class="fileupload-preview"></span>
-                                                    </div>
-                                                    <span class="btn btn-default btn-file">
-                                                        <span class="fileupload-exists">Değiştir</span>
-                                                        <span class="fileupload-new">Dosya Seç</span>
-                                                        <input id="ProductImage" name="ProductImage" type="file" />
-                                                    </span>
-                                                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Sil</a>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" id="FudName" />
                                         </div>
                                     </div>
 
                                     <div class="form-group row pb-4">
-                                        <label class="col-lg-3 control-label text-lg-end pt-2">Ürün Sunumu</label>
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="Email">E-mail</label>
                                         <div class="col-lg-6">
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <div class="input-append">
-                                                    <div class="uneditable-input">
-                                                        <i class="fas fa-file fileupload-exists"></i>
-                                                        <span class="fileupload-preview"></span>
-                                                    </div>
-                                                    <span class="btn btn-default btn-file">
-                                                        <span class="fileupload-exists">Değiştir</span>
-                                                        <span class="fileupload-new">Dosya Seç</span>
-                                                        <input id="filePath" name="filePath" type="file" />
-                                                    </span>
-                                                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Sil</a>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control"  id="Email" />
                                         </div>
                                     </div>
+
+                                    <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="password">Şifre</label>
+                                        <div class="col-lg-6">
+                                            <input type="password" class="form-control" id="password" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="phone">Telefon</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="phone" />
+                                        </div>
+                                    </div>
+                                   
 
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="selectStatus">Durum</label>
@@ -172,10 +155,10 @@
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
                                         <div class="col-lg-6">
-                                            <input type="submit" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
+                                            <input id="btnFudAdd" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
                                         </div>
                                     </div>
-                                </form>
+                                </div>
 
                             </div>
                         </section>
@@ -280,4 +263,4 @@
 <!-- Theme Initialization Files -->
 <script src="/virt/js/theme.init.js"></script>
 
-<script src="/virt/scripts/admin_urun_guncelle.js"></script>
+<script src="/virt/scripts/admin_fud_guncelle.js"></script>

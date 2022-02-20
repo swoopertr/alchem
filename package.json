@@ -9,6 +9,7 @@
   "author": "tunckiral@fiyuu.com.tr",
   "license": "ISC",
   "dependencies": {
+    "formidable": "^2.0.1",
     "pg": "8.7.3"
   }
 }

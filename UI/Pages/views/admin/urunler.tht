@@ -13,7 +13,7 @@
 
         </div>
 
-        <!-- start: search & user box -->
+        <!-- start: user box -->
         <div class="header-right">
 
             <span class="separator"></span>
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <!-- end: search & user box -->
+        <!-- end: user box -->
     </header>
     <!-- end: header -->
 
@@ -73,9 +73,6 @@
                                 <ul class="nav nav-children">
                                     <li class="nav-active">
                                         <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/urun-ekle">- Ürün Ekle</a>
                                     </li>
                                     <li>
                                         <a class="nav-link" href="/admin/fud-ekle">- Füd Ekle</a>
@@ -130,6 +127,13 @@
                         <h2 class="card-title">Ürünler</h2>
                     </header>
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/urun/guncelle?id=0" role="button">Ekle <i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
@@ -142,6 +146,7 @@
                                     <th>Aksiyon</th>
                                 </tr>
                             </thead>
+
                             <tbody id="product_list">
                                 <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                     <tr data-id="<% this.list[i].Id %>" >

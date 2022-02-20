@@ -77,10 +77,30 @@
       "isCached": false
     }
   },
+  "admin-urun-guncelle":{
+    "file": true,
+    "post":{
+      "controller": "admin",
+      "function": "productUpdate_post",
+      "isCached": false
+    }
+  },
+  "admin/fuds":{ 
+    "get":{
+      "controller": "admin",
+      "function": "fuds",
+      "isCached": false
+    }
+  },
   "admin/fud-ekle":{
     "get":{
       "controller": "admin",
       "function": "fudAdd",
+      "isCached": false
+    },
+    "post":{
+      "controller": "admin",
+      "function": "fudAdd_post",
       "isCached": false
     }
   },

@@ -1,6 +1,7 @@
 var fs = require('fs');
 var setting = require('./Config/setting');
 var dir = process.cwd();
+var formidable = require('formidable');
 
 var GenerateGUID = function () {
     return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -226,7 +227,26 @@ var postHandler = function (req, res) {
     var routePath = routeName[1].split('?')[0];
     if (routes.hasOwnProperty(routePath)) {
         var item = routes[routePath];
-        if (item.hasOwnProperty('file')) {
+        if (item.hasOwnProperty('file')) { //todo
+            const form = formidable({ uploadDir: setting.downloadFolder }); // upload directory
+            let files = [];
+            let fields = [];
+
+            form
+            .on('field', (fieldName, value) => {
+              console.log(fieldName, value);
+              fields.push({ fieldName, value });
+            })
+            .on('file', (fieldName, file) => {
+              console.log(fieldName, file);
+              files.push({ fieldName, file });
+            })
+            .on('end', () => {
+                req.formData = { fields, files };
+            });
+      
+            form.parse(req);
+
             return;
         }
     }

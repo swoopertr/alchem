@@ -9,6 +9,7 @@ settings.DdosLimitOptions = {
     requestLimit:20,
     blockSeconds: 30
 };
+settings.downloadFolder = '/Users/ariftunckiral/Free/alchemtechs/UI/assets/files/';
 settings.tokenExpireTimeLimit = 6;
 settings.superAdminGroupId = 3;
 settings.cpuCount = 1;
@@ -24,6 +25,9 @@ settings.partials= settings.root + 'Pages/Partials/';
 settings.jsonPath = "/src/Config/Routes.json";
 settings.errorController = './Controller/error';
 settings.ServerPort = process.env.PORT || 8081;
+
+
+
 settings.postGreDb = {
     user: 'alchemadmin',
     pass: 'alchempass',
