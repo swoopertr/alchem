@@ -28,6 +28,10 @@ var mimeRequest = {
                         res.writeHead(200, defaults.TheHeaderJavascript);
                         await core.getfileContentAsync(res, filePath);
                         break;
+                    case 'txt':
+                        res.writeHead(200, defaults.TheHeaderTXT);
+                        await core.getfileContentAsync(res, filePath);    
+                        break;
                     case 'png':
                         res.writeHead(200, defaults.TheHeaderPNG);
                         await core.getfileContentImgAsync(res, filePath);
@@ -52,6 +56,10 @@ var mimeRequest = {
                         res.writeHead(200, defaults.TheHeaderWoff2);
                         await core.getfileContentImgAsync(res, filePath);
                         break;
+                    case 'pdf':
+                        res.writeHead(200, defaults.TheHeaderPdf);
+                        await core.getfileContentImgAsync(res, filePath);
+                        break;
                 }
             }
             else {
@@ -62,10 +70,9 @@ var mimeRequest = {
                     route.guideRequest(req, resp);
                 });
                 */
-                sessionHandler.httpRequest(req, res, function (err, sess) {
-                    req.sess = sess
-                    route.guideRequest(req, res);
-                });
+             
+                route.guideRequest(req, res);
+            
 
               }
         });

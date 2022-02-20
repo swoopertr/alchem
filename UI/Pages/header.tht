@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/virt/vendor/boxicons/css/boxicons.min.css" />
     <link rel="stylesheet" href="/virt/vendor/magnific-popup/magnific-popup.css" />
     <link rel="stylesheet" href="/virt/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="/virt/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/virt/css/theme.css" />

@@ -1,1 +1,1 @@
-deneme text
+prod1 deneme

@@ -75,9 +75,6 @@
                                         <a class="nav-link" href="admin/urunler">- Ürün Listesi</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" href="admin/urun-ekle">- Ürün Ekle</a>
-                                    </li>
-                                    <li>
                                         <a class="nav-link" href="admin/fud-ekle">- Füd Ekle</a>
                                     </li>
                                     <li>

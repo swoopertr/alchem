@@ -55,4 +55,9 @@ exports.TheHeaderWoff2 = {
   'Accept-Ranges': 'bytes',
   'Cache-Control': noCacheHeader
 }
+exports.TheHeaderPdf = {
+  'Content-Type': 'application/pdf',
+  'Accept-Ranges': 'bytes',
+  'Cache-Control': noCacheHeader
+}
 

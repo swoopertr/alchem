@@ -70,6 +70,20 @@
       "isCached": false
     }
   },
+  "admin/urun/guncelle":{
+    "get":{
+      "controller": "admin",
+      "function": "productUpdate",
+      "isCached": false
+    }
+  },
+  "admin/fud-ekle":{
+    "get":{
+      "controller": "admin",
+      "function": "fudAdd",
+      "isCached": false
+    }
+  },
   "fud":{
     "get":{
       "controller": "fud",
