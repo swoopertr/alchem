@@ -1,7 +1,7 @@
 const core = require('../Core');
-var productData = require('./../data/Products/products');
-var fudData = require('./../data/Fud/fud');
-var dataCache = require('./../data/Cache/dataCache');
+var productData = require('./../Data/Products/products');
+var fudData = require('./../Data/Fud/fud');
+var dataCache = require('./../Data/Cache/dataCache');
 
 var fudBussiness = {
     fuds: function(cb){

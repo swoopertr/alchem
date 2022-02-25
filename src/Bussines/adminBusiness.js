@@ -1,7 +1,7 @@
 var core = require('./../Core');
-var dataCache = require('./../data/Cache/dataCache');
-var products = require('./../data/Products/products');
-var users = require('./../data/Users/users');
+var dataCache = require('./../Data/Cache/dataCache');
+var products = require('./../Data/Products/products');
+var users = require('./../Data/Users/users');
 
 var adminBussiness = {
     getProducts: function(cb){

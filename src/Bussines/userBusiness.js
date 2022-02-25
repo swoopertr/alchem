@@ -1,6 +1,6 @@
 const core = require('../Core');
-var userData = require('./../data/Users/users');
-var dataCache = require('./../data/Cache/dataCache');
+var userData = require('./../Data/Users/users');
+var dataCache = require('./../Data/Cache/dataCache');
 
 var userBusiness = {
     getChars : function(cb){
