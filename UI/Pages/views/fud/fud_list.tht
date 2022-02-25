@@ -1,0 +1,205 @@
+<section class="body">
+
+    <!-- start: header -->
+    <header class="header">
+        <div class="logo-container">
+            <a href="" class="logo">
+                <img src="/virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
+            </a>
+
+            <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+            </div>
+
+        </div>
+
+        <!-- start: user box -->
+        <div class="header-right">
+
+            <span class="separator"></span>
+
+            <div id="userbox" class="userbox">
+                <a href="#" data-bs-toggle="dropdown">
+                    <figure class="profile-picture">
+                        <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
+                    </figure>
+                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                        <span id="login_user_name" class="name"></span>
+                        <span class="role">Yönetici</span>
+                    </div>
+
+                    <i class="fa custom-caret"></i>
+                </a>
+
+                <div class="dropdown-menu">
+                    <ul class="list-unstyled mb-2">
+                        <li class="divider"></li>
+                        <li>
+                            <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end: user box -->
+    </header>
+    <!-- end: header -->
+
+    <div class="inner-wrapper">
+        <!-- start: sidebar -->
+        <aside id="sidebar-left" class="sidebar-left">
+
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    Navigation
+                </div>
+                <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <div class="nano">
+                <div class="nano-content">
+                    <nav id="menu" class="nav-main" role="navigation">
+
+                        <ul class="nav nav-main">
+                            
+                            <li class="nav-parent nav-expanded">
+                                
+                                <a class="nav-link" href="#">
+                                    <i class="bx bx-home-alt" aria-hidden="true"></i>
+                                    <span>Füd Listesi</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li >
+                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
+                                    </li>
+                                    <li class="nav-active">
+                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </aside>
+        <!-- end: sidebar -->
+
+        <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>Füd Listesi</h2>
+
+                <div class="right-wrapper text-end">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a href="index.html">
+                                <i class="bx bx-home-alt"></i>
+                            </a>
+                        </li>
+
+                        <li><span>Yönetici Sayfası</span></li>
+
+                        <li><span>Füd Listesi</span></li>
+
+                    </ol>
+
+                    <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                </div>
+            </header>
+
+            <!-- start: page -->
+            <div class="alert alert-info">
+                Bu sayfada füd göreceksiniz.
+            </div>
+            <div class="col">
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Füd Listesi</h2>
+                    </header>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/fud/guncelle?id=0" role="button">Ekle <i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+
+                            <thead>
+                                <tr>
+                                    <th>İsim</th>
+                                    <th>Durumu</th>
+                                    <th>Aksiyon</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="product_list">
+                                <% for (var i = 0 ; i< this.list.length ;i++) { %>
+                                    <tr data-id="<% this.list[i].Id %>" >
+                                        <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].Status ==1 ? 'Aktif':'Pasif' %></td>
+                                        <td>
+                                            <a href="/admin/fud/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_fud" class="on-default"><i class="far fa-trash-alt"></i></a>
+                                        </td>
+                                     </tr>      
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+	      
+            <!-- end: page -->
+        </section>
+    </div>
+
+    <aside id="sidebar-right" class="sidebar-right">
+        <div class="nano">
+            <div class="nano-content">
+                <a href="#" class="mobile-close d-md-none">
+                    Collapse <i class="fas fa-chevron-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </aside>
+</section>
+
+<!-- Vendor -->
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+<!-- Specific Page Vendor -->
+
+<!-- Theme Base, Components and Settings -->
+<script src="/virt/js/theme.js"></script>
+
+<!-- Theme Custom -->
+<script src="/virt/js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="/virt/js/theme.init.js"></script>
+
+<script src="/virt/scripts/admin_urunler_page.js"></script>
+

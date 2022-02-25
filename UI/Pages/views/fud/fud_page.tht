@@ -25,7 +25,7 @@
                     </figure>
                     <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
                         <span id="login_user_name" class="name"></span>
-                        <span class="role">Yönetici</span>
+                        <span class="role">Füd</span>
                     </div>
 
                     <i class="fa custom-caret"></i>
@@ -72,16 +72,13 @@
                                 </a>
                                 <ul class="nav nav-children">
                                     <li>
-                                        <a class="nav-link" href="admin/urunler">- Ürün Listesi</a>
+                                        <a class="nav-link" href="fud/checkin">- Eczane Listesi</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
+                                        <a class="nav-link" href="/fud/urunler">- Ürün Listesi</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" href="admin/rapor">- Rapor</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="admin/surveys">- Anketler</a>
+                                        <a class="nav-link" href="/surveys">- Anket Listesi</a>
                                     </li>
                                 </ul>
                             </li>
@@ -95,7 +92,7 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Yönetici Sayfası</h2>
+                <h2>Füd Sayfası</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
@@ -105,7 +102,7 @@
                             </a>
                         </li>
 
-                        <li><span>Yönetici Sayfası</span></li>
+                        <li><span>Füd Sayfası</span></li>
 
                         <li><span>Ana Ekran</span></li>
 

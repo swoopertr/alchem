@@ -13,13 +13,13 @@
       "isCached": false
     }
   },
-  "getChars":{
-    "get":{
+  "getChars": {
+    "get": {
       "controller": "user",
       "function": "getChars",
       "isCached": false
     }
-  
+
   },
   "chars": {
     "get": {
@@ -28,86 +28,95 @@
       "isCached": false
     }
   },
-  "login":{
-    "get":{
+  "login": {
+    "get": {
       "controller": "user",
       "function": "login",
       "isCached": false
     }
   },
-  "login_post":{
-    "post":{
+  "login_post": {
+    "post": {
       "controller": "user",
       "function": "login_post",
       "isCached": false
     }
   },
-  "checktoken":{
-    "get":{
+  "checktoken": {
+    "get": {
       "controller": "user",
       "function": "checkToken",
       "isCached": false
     }
   },
-  "getusers":{
-    "get":{
+  "getusers": {
+    "get": {
       "controller": "user",
       "function": "getUsers",
       "isCached": false
     }
   },
-  "admin":{
-    "get":{
+  "admin": {
+    "get": {
       "controller": "admin",
       "function": "admin",
       "isCached": false
     }
   },
-  "admin/urunler":{
-    "get":{
-      "controller": "admin",
+  "admin/urunler": {
+    "get": {
+      "controller": "product",
       "function": "productList",
       "isCached": false
     }
   },
-  "admin/urun/guncelle":{
-    "get":{
-      "controller": "admin",
+  "admin/urun/guncelle": {
+    "get": {
+      "controller": "product",
       "function": "productUpdate",
       "isCached": false
     }
   },
-  "admin-urun-guncelle":{
+  "admin-urun-guncelle": {
     "file": true,
-    "post":{
-      "controller": "admin",
+    "post": {
+      "controller": "product",
       "function": "productUpdate_post",
       "isCached": false
     }
   },
-  "admin/fuds":{ 
-    "get":{
-      "controller": "admin",
+  "admin/fud-listesi": {
+    "get": {
+      "controller": "fud",
       "function": "fuds",
       "isCached": false
     }
   },
-  "admin/fud-ekle":{
-    "get":{
-      "controller": "admin",
-      "function": "fudAdd",
-      "isCached": false
-    },
-    "post":{
-      "controller": "admin",
-      "function": "fudAdd_post",
+  "admin/fud/guncelle": {
+    "get": {
+      "controller": "fud",
+      "function": "fudUpdate",
       "isCached": false
     }
   },
-  "fud":{
-    "get":{
+  "admin/fud-ekle": {
+    "post": {
       "controller": "fud",
-      "function": "fud",
+      "function": "fudUpdate_post",
+      "isCached": false
+    }
+  },
+  "fud": {
+    "get": {
+      "controller": "fud",
+      "function": "fud_page",
+      "isCached": false
+    }
+  },
+  "fud/urunler": {
+    "get": {
+      "controller": "fud",
+      "function": "fud_productList",
       "isCached": false
     }
   }

@@ -27,7 +27,7 @@ var dataCache = {
             if (global.token.token_cache[token]) {
                 cb && cb(global.token.token_cache[token]);
             } else {
-                cb && cb(null);
+                cb && cb(false);
             }
         },
         add_token: function (token, expire, name, type) {
