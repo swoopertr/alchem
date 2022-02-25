@@ -1,5 +1,4 @@
 const core = require('../Core');
-var RaM  = require('./../data/ExternalApi/RickAndMorty');
 var userData = require('./../data/Users/users');
 var dataCache = require('./../data/Cache/dataCache');
 
