@@ -12,7 +12,7 @@ if (cluster.isMaster) {
     }
 }else {
     render.init();
-    //render.initWatcher();
+    render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {
         http.createServer(function (req, res) {

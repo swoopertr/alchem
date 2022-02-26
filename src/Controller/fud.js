@@ -62,13 +62,11 @@ var fud = {
                 req.formData.id = id;
                 adminBussiness.addFud(req.formData, function (result) {
                     let newFudId = result;
-                    render.renderData(res, {
-                        newFudId
-                    });
+                    render.renderData(res, { newFudId });
                 });
             } else { //update
                 adminBussiness.updateFud(req.formData, function (result) {d
-
+                    render.renderData(res, { newFudId });
                 });
             }
 

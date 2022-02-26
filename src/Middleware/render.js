@@ -8,19 +8,23 @@ var view = require('./ViewPack');
 var dir = process.cwd();
 
 var initWatchfiles = function () {
-    var opt = {
-        recursive: true
-    };
-    fs.watch(dir + setting.root, opt, function (err, content) {
-        if (!global.fsTimeout) {
-            global.fsTimeout = setTimeout(function () {
-                render.init(function () {
-                    console.log('files reloaded');
-                    delete global.fsTimeout;
-                });
-            }, 2000);
-        }
-    });
+    try {
+        var opt = {
+            recursive: true
+        };
+        fs.watch(dir + setting.root, opt, function (err, content) {
+            if (!global.fsTimeout) {
+                global.fsTimeout = setTimeout(function () {
+                    render.init(function () {
+                        console.log('files reloaded');
+                        delete global.fsTimeout;
+                    });
+                }, 2000);
+            }
+        });
+    } catch (error) {
+        console.warn(error);
+    }
 };
 
 var render = {
@@ -36,7 +40,7 @@ var render = {
             core.getFileNames(dir + setting.allViewFolder, function (listfiles) {
                 for (var i = 0; i < listfiles.length; i++) {
                     var content = fs.readFileSync(dir + setting.allViewFolder + listfiles[i].controller + '/' + listfiles[i].view + '.tht', "utf8");
-                    console.log('content >> ' + dir + setting.allViewFolder + listfiles[i].controller + '/' + listfiles[i].view + '.tht readed' );
+                    console.log('content >> ' + dir + setting.allViewFolder + listfiles[i].controller + '/' + listfiles[i].view + '.tht readed');
                     preCache(content, function (ManuplatedContent) {
                         if (view.views.hasOwnProperty(listfiles[i].controller)) {
                             view.views[listfiles[i].controller][listfiles[i].view] = ManuplatedContent;
@@ -71,17 +75,17 @@ var render = {
                 res.writeHead(200, defaults.TheHeaderText);
                 break;
             default:
-                res.writeHead(200, defaults.TheHeaderJson);//default -> json
+                res.writeHead(200, defaults.TheHeaderJson); //default -> json
                 break;
         }
         res.write(JSON.stringify(data));
         res.end();
     },
-    renderFail : function (res, statusCode, error , errorDetail){
+    renderFail: function (res, statusCode, error, errorDetail) {
         res.writeHead(statusCode, defaults.TheHeaderJson);
         var result = {
             error: error,
-            errorDetail:errorDetail
+            errorDetail: errorDetail
         };
         res.end(JSON.stringify(result));
     }
@@ -108,17 +112,18 @@ var dataRender = function (html, data, cb) {
     cb && cb(html);
 };
 
-var tengine = function(html, options) {
+var tengine = function (html, options) {
     var re = /<%([^%>]+)?%>/g,
         reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,
         code = 'var r=[];\n',
-        cursor = 0, match;
-    var add = function(line, js) {
-        js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
+        cursor = 0,
+        match;
+    var add = function (line, js) {
+        js ? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
             (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
         return add;
     }
-    while(match = re.exec(html)) {
+    while (match = re.exec(html)) {
         add(html.slice(cursor, match.index))(match[1], true);
         cursor = match.index + match[0].length;
     }
@@ -142,7 +147,7 @@ var getHtmlheader = function (cb) {
 };
 
 var getHtmlfooter = function (cb) {
-    core.readFile(dir + setting.viewFolder + 'footer.tht',function (content) {
+    core.readFile(dir + setting.viewFolder + 'footer.tht', function (content) {
         cache.set("::footer", content);
         cb && cb();
     });
