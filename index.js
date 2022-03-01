@@ -6,6 +6,7 @@ var render = require('./src/Middleware/render');
 var cluster = require('cluster');
 var dataCache = require('./src/Data/Cache/dataCache');
 
+
 if (cluster.isMaster) {
     for (var i = 0; i < setting.cpuCount; i++) {
         cluster.fork();
@@ -15,6 +16,7 @@ if (cluster.isMaster) {
     render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {
+        
         http.createServer(function (req, res) {
             res.socket.setNoDelay();
             core.postHandler(req, res);

@@ -57,15 +57,15 @@ var fud = {
 
         req.on('end', function () {
             let qs = url.parse(req.url, true).query;
-            let id = qs.id || 0;
+            let id = req.formData.id;
             if (id == 0) { //insert
                 req.formData.id = id;
-                adminBussiness.addFud(req.formData, function (result) {
+                fudBusiness.addFud(req.formData, function (result) {
                     let newFudId = result;
                     render.renderData(res, { newFudId });
                 });
             } else { //update
-                adminBussiness.updateFud(req.formData, function (result) {d
+                fudBusiness.updateFud(req.formData, function (result) {d
                     render.renderData(res, { newFudId });
                 });
             }

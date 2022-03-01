@@ -51,8 +51,8 @@ var workDefinition = {
     },
     updateUser: function(user, cb){
         const query = { // change the query
-            text: 'update "UserGroupDefinitions" set "GroupName"=$2, "Status"=$3 where "Id"=$1;',
-            values: [groupid, groupname, status]
+            text: 'update public."Users" set "GroupName"=$2, "Status"=$3 where "Id"=$1;',
+            values: [user.Id, user.status]
         };
         pg.query(query, function (result) {
             cb && cb(result);

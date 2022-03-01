@@ -8,11 +8,6 @@ var adminBussiness = {
         products.getproducts(function(result){
             cb && cb(result);
         });
-    }, 
-    addFud: function(fud_obj, cb){
-        users.insertUser(fud_obj, function(result){
-            cb && cb(result);
-        });
     }
 };
 

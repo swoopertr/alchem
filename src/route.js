@@ -8,7 +8,7 @@ function RouteGuider(req, res) {
         routePath = routePath.substring(1);
     }
     if (routePath == "") {
-        routePath = "home";
+        routePath = "login";
     }
     if (global.routes.hasOwnProperty(routePath)) {
         if (global.routes[routePath].hasOwnProperty(verbName)) {

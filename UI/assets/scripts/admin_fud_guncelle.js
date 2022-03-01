@@ -6,22 +6,31 @@ check_login();
     //todo post data
     $(document).ready(function(){
 
+        //check if loaded with querystring id
+
+        let qsObject =  util.qsObject();
+
+
+        if(qsObject.id){
+            
+        }
 
         $('#btnFudAdd').click(function(){
-            
             
             var fud_id = $('#fudId').val();
             var fud_name = $('#FudName').val();
             var fud_email = $('#Email').val();
             var pass = $('#password').val();
             var phone = $('#phone').val();
+            var status = $('[name="selectStatus"]').val();
 
             var post_obj = {
-                id: fud_id,
+                id: (fud_id == "") ? 0 : fud_id,
                 name: fud_name,
                 email: fud_email,
                 password: pass,
-                phone: phone             
+                phone: phone,
+                status: status
             };
             console.log({post_obj});
             
@@ -32,7 +41,11 @@ check_login();
             ];
 
             util.postJsonRequest('/admin/fud-ekle',post_obj, check_obj, function(result){
-                console.log(result);
+                if(result.newFudId){
+                    window.location.href = '/admin/fud/gucelle?id=' + result.newFudId;
+                }else{
+                    console.log(result);    
+                }
             });
 
         });
