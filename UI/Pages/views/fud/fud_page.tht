@@ -151,7 +151,7 @@
 <!-- Theme Initialization Files -->
 <script src="virt/js/theme.init.js"></script>
 
-<script src="virt/scripts/admin_page.js"></script>
+<script src="virt/scripts/admin_fud_page.js"></script>
 
 
 

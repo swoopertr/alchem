@@ -156,8 +156,9 @@
                                         <td><% this.list[i].Status %></td>
                                         <td>
                                             <a href="/admin/urun/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                                            <span> | </span>
                                             <a href="#" data-id="<% this.list[i].Id %>" class="delete_product" class="on-default"><i class="far fa-trash-alt"></i></a>
-                                            <span class="separator"></span>
+                                            <span> | </span>
                                             <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Anket ekle<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      

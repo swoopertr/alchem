@@ -2,6 +2,7 @@ var fs = require('fs');
 var setting = require('./Config/setting');
 var dir = process.cwd();
 var formidable = require('formidable');
+var events = require('events');
 
 var GenerateGUID = function () {
     return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -223,45 +224,51 @@ var postHandler = function (req, res) {
     if (req.method !== "POST") {
         return;
     }
+    var cookies = parseCookies(req);
+    var token = cookies.token;
+    if(token == undefined){
+        redirect(res, '/login');
+        return;
+    }
+
     var routeName = req.url.split('/');
     var routePath = routeName[1].split('?')[0];
-    if (routes.hasOwnProperty(routePath)) {
+        if (routes.hasOwnProperty(routePath)) {
         var item = routes[routePath];
-        if (item.hasOwnProperty('file')) { //todo
+        if (item.hasOwnProperty('file') && item.file) { //todo
             const form = formidable({ uploadDir: setting.downloadFolder }); // upload directory
             let files = [];
             let fields = [];
 
-            form
-            .on('field', (fieldName, value) => {
-              console.log(fieldName, value);
-              fields.push({ fieldName, value });
-            })
-            .on('file', (fieldName, file) => {
-              console.log(fieldName, file);
-              files.push({ fieldName, file });
-            })
-            .on('end', () => {
+            form.parse(req, (err, fields, files) => {
+                if (err) {
+                  res.writeHead(err.httpCode || 400, { 'Content-Type': 'text/plain' });
+                  res.end(String(err));
+                  return;
+                }
                 req.formData = { fields, files };
+              });
+            form.on('end', () => {
+                //console.log('Form upload complete');
+                global.events.emit(token + 'form_posted_end');
             });
-      
-            form.parse(req);
-
             return;
+        } else {
+            req.on('data', function (data) {
+                if (req.url)
+                    if (!req.formData) {
+                        req.formData = Buffer.from(data); //new Buffer(data, 'utf-8');
+                    }
+            });
+            req.on('end', function () {
+                var body = req.formData.toString('utf-8');
+                body = body.replace(/\+/g, ' ');
+                req.formData = JSON.parse(body);
+                //console.log(req.formData);
+            });
         }
     }
-    req.on('data', function (data) {
-        if (req.url)
-            if (!req.formData) {
-                req.formData = Buffer.from(data); //new Buffer(data, 'utf-8');
-            }
-    });
-    req.on('end', function () {
-        var body = req.formData.toString('utf-8');
-        body = body.replace(/\+/g, ' ');
-        req.formData = JSON.parse(body);
-        //console.log(req.formData);
-    });
+    
 };
 
 var getCallerIP = function(req) {
@@ -338,6 +345,12 @@ var parseCookies = function(request) {
     return list;
 }
 
+var emitter_definitions = function(){
+    var emitter = new events.EventEmitter();
+    global.events = emitter;
+};
+
+
 var core = {
 
     parseCookies:parseCookies,
@@ -358,6 +371,7 @@ var core = {
     getCallerIP:getCallerIP,
     request: request,
     initRouter: function (cb) {
+        emitter_definitions();
         loadRouteFile();
         initRouteConfigWatcher();
         defineFriendlyDate();

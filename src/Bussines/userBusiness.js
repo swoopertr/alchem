@@ -41,7 +41,7 @@ var userBusiness = {
                     }else {
                         var token = core.GenerateToken();
                         userData.updateUserToken(user.Id, token, function(result){
-                            dataCache.token.add_token(token, new Date(new Date().getTime() + (1000 * 60 * 60 * 24)),result["type"], function(){
+                            dataCache.token.add_token(token, new Date(new Date().getTime() + (1000 * 60 * 60 * 24)),user["Name"],user["Type"], function(){
                                 cb && cb({
                                     token: token,
                                     type: user["Type"],

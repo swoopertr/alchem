@@ -3,6 +3,7 @@ var view = require('./../Middleware/ViewPack');
 var header = require('./../Middleware/header');
 var userBusiness = require('./../Bussines/userBusiness');
 var adminBussiness = require('./../Bussines/adminBusiness');
+var productBussines = require('./../Bussines/productBusiness');
 var core = require('./../Core');
 var url = require('url');
 var formidable = require('formidable');
@@ -56,10 +57,19 @@ var product = {
             core.redirect(res, '/login');
             return;
         }
+        global.events.once(token + 'form_posted_end', function(){
+            
+            productBussines.ins_update_product(req.formData, 
+                function(){
+                    render.renderData(res, {"success": "true"})
+                },
+                function(){
+                    render.renderData(res, {"error": "error"});
+                });
+            core.redirect(res, 'admin/urun/guncelle?id=1');
 
-        req.on('end', function () {
-             console.log( req.formData);  
         });
+        
     }
 };
 

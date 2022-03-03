@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "start_daemon": "nodemon index.js"
   },
   "author": "tunckiral@fiyuu.com.tr",
   "license": "ISC",
