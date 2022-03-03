@@ -224,16 +224,11 @@ var postHandler = function (req, res) {
     if (req.method !== "POST") {
         return;
     }
-    var cookies = parseCookies(req);
-    var token = cookies.token;
-    if(token == undefined){
-        redirect(res, '/login');
-        return;
-    }
+    
 
     var routeName = req.url.split('/');
     var routePath = routeName[1].split('?')[0];
-        if (routes.hasOwnProperty(routePath)) {
+    if (routes.hasOwnProperty(routePath)) {
         var item = routes[routePath];
         if (item.hasOwnProperty('file') && item.file) { //todo
             const form = formidable({ uploadDir: setting.downloadFolder }); // upload directory
@@ -242,12 +237,12 @@ var postHandler = function (req, res) {
 
             form.parse(req, (err, fields, files) => {
                 if (err) {
-                  res.writeHead(err.httpCode || 400, { 'Content-Type': 'text/plain' });
-                  res.end(String(err));
-                  return;
+                    res.writeHead(err.httpCode || 400, { 'Content-Type': 'text/plain' });
+                    res.end(String(err));
+                    return;
                 }
                 req.formData = { fields, files };
-              });
+                });
             form.on('end', () => {
                 //console.log('Form upload complete');
                 global.events.emit(token + 'form_posted_end');
