@@ -57,19 +57,24 @@ var product = {
             core.redirect(res, '/login');
             return;
         }
-        global.events.once(token + 'form_posted_end', function(){
-            console.log('form_posted_end');
-            productBussines.ins_update_product(req.formData, 
-                function(result){
-                    render.renderData(res, {
-                        "success": "true", 
-                        "result": result
+        try {
+            global.events.once(token + 'form_posted_end', function(){
+                console.log('form_posted_end');
+                productBussines.ins_update_product(req.formData, 
+                    function(result){
+                        render.renderData(res, {
+                            "success": "true", 
+                            "result": result
+                        });
+                    },
+                    function(){
+                        render.renderData(res, {"error": "error"});
                     });
-                },
-                function(){
-                    render.renderData(res, {"error": "error"});
-                });
-        });
+            });    
+        } catch (error) {
+            console.log(error);
+        }
+        
         
     }
 };

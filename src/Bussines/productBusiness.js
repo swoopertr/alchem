@@ -4,6 +4,9 @@ var fs = require('fs');
 
 var bussines_product= {
     ins_update_product: function (data, cb, cbErr) {
+        try {
+            
+        
         var tmp_data = {};
         
         if(data.files.image != undefined){
@@ -32,6 +35,9 @@ var bussines_product= {
             function (err) {
                 cbErr && cbErr(err);
             });
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

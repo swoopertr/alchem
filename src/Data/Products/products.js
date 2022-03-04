@@ -14,6 +14,9 @@ var workDefinition = {
         });
     },
     ins_update_product: function (data, cb, cbErr) {
+        try {
+            
+        
         let query;
         if (data.id == "0") { //insert
             query = { 
@@ -33,6 +36,9 @@ var workDefinition = {
             console.log(err);
             cbErr && cbErr(err);
         });
+    } catch (error) {
+        console.log(error);
+    }
     },
     async: { // async versions of the above
         getproducts: function () {
