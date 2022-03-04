@@ -27,8 +27,10 @@ var workDefinition = {
             };
         }
         pg.query(query, function (result) {
+            console.log("result", result);
             cb && cb(result);
         }, function (err) {
+            console.log(err);
             cbErr && cbErr(err);
         });
     },

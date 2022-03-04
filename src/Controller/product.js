@@ -58,16 +58,17 @@ var product = {
             return;
         }
         global.events.once(token + 'form_posted_end', function(){
-            
+            console.log('form_posted_end');
             productBussines.ins_update_product(req.formData, 
-                function(){
-                    render.renderData(res, {"success": "true"})
+                function(result){
+                    render.renderData(res, {
+                        "success": "true", 
+                        "result": result
+                    });
                 },
                 function(){
                     render.renderData(res, {"error": "error"});
                 });
-            core.redirect(res, 'admin/urun/guncelle?id=1');
-
         });
         
     }
