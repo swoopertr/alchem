@@ -41,8 +41,8 @@ check_login();
             ];
 
             util.postJsonRequest('/admin/fud-ekle',post_obj, check_obj, function(result){
-                if(result.newFudId){
-                    window.location.href = '/admin/fud/gucelle?id=' + result.newFudId;
+                if(JSON.parse(result).newFudId){
+                    window.location.href = 'admin/fud/guncelle?id=' + JSON.parse(result).newFudId;
                 }else{
                     console.log(result);    
                 }

@@ -63,6 +63,7 @@ var fud = {
                 fudBusiness.addFud(req.formData, function (result) {
                     let newFudId = result;
                     render.renderData(res, { newFudId });
+                    
                 });
             } else { //update
                 fudBusiness.updateFud(req.formData, function (result) {d
