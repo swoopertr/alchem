@@ -9,7 +9,7 @@ settings.DdosLimitOptions = {
     requestLimit:20,
     blockSeconds: 30
 };
-settings.downloadFolder = '/Users/ariftunckiral/Free/alchemtechs/UI/assets/files/';
+settings.downloadFolder = process.cwd() + '/UI/assets/files/';
 settings.tokenExpireTimeLimit = 6;
 settings.superAdminGroupId = 3;
 settings.cpuCount = 1;

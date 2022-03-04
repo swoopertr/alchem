@@ -225,15 +225,12 @@ var postHandler = function (req, res) {
         return;
     }
     
-
     var routeName = req.url.split('/');
     var routePath = routeName[1].split('?')[0];
     if (routes.hasOwnProperty(routePath)) {
         var item = routes[routePath];
         if (item.hasOwnProperty('file') && item.file) { //todo
             const form = formidable({ uploadDir: setting.downloadFolder }); // upload directory
-            let files = [];
-            let fields = [];
 
             form.parse(req, (err, fields, files) => {
                 if (err) {
