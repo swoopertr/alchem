@@ -230,6 +230,8 @@ var postHandler = function (req, res) {
     if (routes.hasOwnProperty(routePath)) {
         var item = routes[routePath];
         if (item.hasOwnProperty('file') && item.file) { //todo
+            var cookies = core.parseCookies(req);
+            var token = cookies.token;
             const form = formidable({ uploadDir: setting.downloadFolder }); // upload directory
 
             form.parse(req, (err, fields, files) => {
@@ -241,7 +243,7 @@ var postHandler = function (req, res) {
                 req.formData = { fields, files };
                 });
             form.on('end', () => {
-                //console.log('Form upload complete');
+                console.log('Form upload complete');
                 global.events.emit(token + 'form_posted_end');
             });
             return;
