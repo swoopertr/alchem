@@ -2,6 +2,17 @@ var pg = require('./../Repository/postgre');
 
 
 var workDefinition = {
+    getproduct: function (id, cb, cbErr) {
+        const query = {
+            text: 'select * from public."Products" where "Id" = $1',
+            values: [id]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     getproducts: function (cb, cbErr) {
         const query = {
             text: 'select * from public."Products"',
@@ -17,7 +28,7 @@ var workDefinition = {
         try {
     
         let query;
-        if (data.id == "0") { //insert
+        if (data.Id == "0") { //insert
             query = { 
                 text: 'INSERT INTO public."Products"("Name", "CreatedAt", "Status", "FilePath", image) VALUES ( $1, $2, $3, $4, $5) RETURNING "Id";',
                 values: [data.name, data.createdAt, data.status, data.filePath, data.image]
@@ -25,7 +36,7 @@ var workDefinition = {
         }else{ //update
             query = {
                 text: 'UPDATE public."Products" SET "Name" = $2, "Status" = $3, "FilePath" = $4, image = $5 WHERE "Id" = $1;',
-                values: [data.id, data.name, data.status, data.filePath, data.image]
+                values: [data.Id, data.Name, data.Status, data.FilePath, data.image]
             };
         }
         pg.query(query, function (result) {

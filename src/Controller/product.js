@@ -48,7 +48,40 @@ var product = {
         let qs = url.parse(req.url, true).query;
         let id = qs.id;
         //todo get data from db
-        render.renderHtml(res, view.views["product"]["update_product"], {});
+        if(id==0){
+            var data = {
+                data: {
+                    id:0,
+                    name: "",
+                    image:"",
+                    filePath:"",
+                    active: 1
+                }
+            }
+            render.renderHtml(res, view.views["product"]["update_product"], data);
+        }else{
+            productBussines.getProduct(id, function(result){
+                var data;
+                if(result.length == 0){
+                    data = {
+                        data: {
+                            Id:0,
+                            Name: "",
+                            image:"",
+                            filePath:"",
+                            active: 0
+                        }
+                    }
+                }else{
+                    var data = {
+                        data: result[0]
+                    }
+                }
+                
+                render.renderHtml(res, view.views["product"]["update_product"], data);
+            });
+        }
+        
     },
     productUpdate_post: function (req, res) {
         console.log("productUpdate_post");
@@ -71,7 +104,6 @@ var product = {
         } catch (error) {
             console.log(error);
         }
-        
         
     }
 };

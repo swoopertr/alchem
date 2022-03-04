@@ -45,20 +45,32 @@ var readFile = function (file, cb) {
 };
 
 var getfileContentImg = function (res, filePath) {
-    fs.readFile(dir + filePath, function (err, data) {
-        if (err) {
-            console.log(err);
-        }
-        res.end(data);
-    });
+    try {
+        fs.readFile(dir + filePath, function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            res.end(data);
+        });    
+    } catch (error) {
+        res.write("");
+        res.end();
+    }
+    
 };
 
 var getfileContentImgAsync = function (res, filePath) {
-    var data = fs.readFileSync(dir + filePath);
-    res.end(data);
+    try {
+        var data = fs.readFileSync(dir + filePath);
+        res.end(data);
+    } catch (error) {
+        res.write("");
+        res.end();
+    }
 }
 
 var getfileContent = function (res, filePath) { 
+   try {
     fs.readFile(dir + filePath, function (err, content) {
         if (err) {
             console.log(err);
@@ -66,12 +78,23 @@ var getfileContent = function (res, filePath) {
         res.write(content);
         res.end();
     });
+   } catch (error) {
+    res.write("");
+    res.end();
+   }
+   
 };
 
 var getfileContentAsync = function (res, filePath) {
-    var content =  fs.readFileSync(dir + filePath);
-    res.write(content);
-    res.end();
+    try {
+        var content =  fs.readFileSync(dir + filePath);
+        res.write(content);
+        res.end();    
+    } catch (error) {
+        res.write("");
+        res.end();
+    }
+    
 };
 
 var initRouteConfigWatcher = function () {
