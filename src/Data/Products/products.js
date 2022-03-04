@@ -15,8 +15,7 @@ var workDefinition = {
     },
     ins_update_product: function (data, cb, cbErr) {
         try {
-            
-        
+    
         let query;
         if (data.id == "0") { //insert
             query = { 

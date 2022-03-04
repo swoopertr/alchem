@@ -51,6 +51,7 @@ var product = {
         render.renderHtml(res, view.views["product"]["update_product"], {});
     },
     productUpdate_post: function (req, res) {
+        console.log("productUpdate_post");
         var cookies = core.parseCookies(req);
         var token = cookies.token;
         if(token == undefined){
