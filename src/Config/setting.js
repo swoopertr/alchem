@@ -10,6 +10,7 @@ settings.DdosLimitOptions = {
     blockSeconds: 30
 };
 settings.downloadFolder = process.cwd() + '/UI/assets/files/';
+console.log("downloadFolder:" + settings.downloadFolder);
 settings.tokenExpireTimeLimit = 6;
 settings.superAdminGroupId = 3;
 settings.cpuCount = 1;
