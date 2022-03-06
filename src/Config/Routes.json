@@ -133,5 +133,12 @@
       "function": "survey_add",
       "isCached": false
     }
+  },
+  "admin/survey_add": {
+    "post": {
+      "controller": "survey",
+      "function": "survey_add_post",
+      "isCached": false
+    }
   }
 }

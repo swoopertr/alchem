@@ -36,12 +36,24 @@ var survey = {
         let id = qs.id; // product id
 
         let product = await productBusiness.async.getProduct(id);
-        data.product = product[0];
+        data.product = product[0] ?? {};
         
         let survey =  await surveyBussiness.async.getSurvey(id);
-        data.survey = survey[0];
+        data.survey = survey[0] ?? {};
         
         render.renderHtml(res, view.views["survey"]["survey_add_update"], data);
+    },
+    survey_add_post: async function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function () {
+            
+        });
     }
 
 };
