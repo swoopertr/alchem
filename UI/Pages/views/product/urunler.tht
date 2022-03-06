@@ -153,13 +153,13 @@
                                         <td><img style="width: 80px;" src="/virt/<% this.list[i].image %>" class="card-img-top" alt="<% this.list[i].image %>"></td>
                                         <td><a target="_blank" href="/virt/<% this.list[i].FilePath %>">-Dosya-</a></td>
                                         <td><% this.list[i].Name %></td>
-                                        <td><% this.list[i].Status %></td>
+                                        <td><% (this.list[i].Status==1)?"Aktif":"Pasif" %></td>
                                         <td>
                                             <a href="/admin/urun/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
                                             <span> | </span>
                                             <a href="#" data-id="<% this.list[i].Id %>" class="delete_product" class="on-default"><i class="far fa-trash-alt"></i></a>
                                             <span> | </span>
-                                            <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Anket ekle<i class="far fa-ball-alt"></i></a>
+                                            <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Anket ekle / güncelle<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>

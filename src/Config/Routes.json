@@ -119,5 +119,19 @@
       "function": "fud_productList",
       "isCached": false
     }
+  },
+  "delete_product": {
+    "get": {
+      "controller": "product",
+      "function": "delete_product",
+      "isCached": false
+    }
+  },
+  "admin/urun-anket-ekle": {
+    "get": {
+      "controller": "survey",
+      "function": "survey_add",
+      "isCached": false
+    }
   }
 }

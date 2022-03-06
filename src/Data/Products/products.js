@@ -26,29 +26,46 @@ var workDefinition = {
     },
     ins_update_product: function (data, cb, cbErr) {
         try {
-    
-        let query;
-        if (data.Id == "0") { //insert
-            query = { 
-                text: 'INSERT INTO public."Products"("Name", "CreatedAt", "Status", "FilePath", image) VALUES ( $1, $2, $3, $4, $5) RETURNING "Id";',
-                values: [data.name, data.createdAt, data.status, data.filePath, data.image]
-            };
-        }else{ //update
-            query = {
-                text: 'UPDATE public."Products" SET "Name" = $2, "Status" = $3, "FilePath" = $4, image = $5 WHERE "Id" = $1;',
-                values: [data.Id, data.Name, data.Status, data.FilePath, data.image]
-            };
+
+            let query;
+            if (data.Id == "0") { //insert
+                query = {
+                    text: 'INSERT INTO public."Products"("Name", "CreatedAt", "Status", "FilePath", image) VALUES ( $1, $2, $3, $4, $5) RETURNING "Id";',
+                    values: [data.Name, data.CreatedAt, data.Status, data.FilePath, data.image]
+                };
+            } else { //update
+                query = {
+                    text: 'UPDATE public."Products" SET "Name" = $2, "Status" = $3, "FilePath" = $4, image = $5 WHERE "Id" = $1;',
+                    values: [data.Id, data.Name, data.Status, data.FilePath, data.image]
+                };
+            }
+            pg.query(query, function (result) {
+                console.log("result", result);
+                cb && cb(result);
+            }, function (err) {
+                console.log(err);
+                cbErr && cbErr(err);
+            });
+        } catch (error) {
+            console.log(error);
         }
-        pg.query(query, function (result) {
-            console.log("result", result);
-            cb && cb(result);
-        }, function (err) {
-            console.log(err);
-            cbErr && cbErr(err);
-        });
-    } catch (error) {
-        console.log(error);
-    }
+    },
+    delete_product: function (id, cb, cbErr) {
+        try {
+            query = {
+                text: 'UPDATE public."Products" SET "Status" = 3 WHERE "Id" = $1;',
+                values: [id]
+            };
+            pg.query(query, function (result) {
+                console.log("result", result);
+                cb && cb(result);
+            }, function (err) {
+                console.log(err);
+                cbErr && cbErr(err);
+            });
+        } catch (error) {
+            console.log(error);
+        }
     },
     async: { // async versions of the above
         getproducts: function () {

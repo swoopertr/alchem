@@ -1,0 +1,199 @@
+<section class="body">
+
+<!-- start: user box -->
+<div class="header-right">
+
+    <span class="separator"></span>
+
+    <div id="userbox" class="userbox">
+        <a href="#" data-bs-toggle="dropdown">
+            <figure class="profile-picture">
+                <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
+            </figure>
+            <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                <span id="login_user_name" class="name"></span>
+                <span class="role">Yönetici</span>
+            </div>
+
+            <i class="fa custom-caret"></i>
+        </a>
+
+        <div class="dropdown-menu">
+            <ul class="list-unstyled mb-2">
+                <li class="divider"></li>
+                <li>
+                    <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end: user box -->
+
+    <div class="inner-wrapper">
+        <!-- start: sidebar -->
+        <aside id="sidebar-left" class="sidebar-left">
+
+        <div class="sidebar-header">
+            <div class="sidebar-title">
+                Navigation
+            </div>
+            <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+            </div>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content">
+                <nav id="menu" class="nav-main" role="navigation">
+
+                    <ul class="nav nav-main">
+                        
+                        <li class="nav-parent nav-expanded">
+                            
+                            <a class="nav-link" href="#">
+                                <i class="bx bx-home-alt" aria-hidden="true"></i>
+                                <span>Admin Anasayfa</span>
+                            </a>
+                            <ul class="nav nav-children">
+                                <li class="nav-active">
+                                    <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
+                                </li>
+                                <li>
+                                     <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="/admin/rapor">- Rapor</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        </aside>
+        <!-- end: sidebar -->
+
+        <section role="main" class="content-body card-margin">
+            <header class="page-header">
+                <h2>Anket Ekle / Güncelle</h2>
+
+                <div class="right-wrapper text-end">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a href="/admin">
+                                <i class="bx bx-home-alt"></i>
+                            </a>
+                        </li>
+                        <li><span>Admin</span></li>
+                        <li><span>Anket Ekle - Güncelle</span></li>
+                    </ol>
+
+                    <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                </div>
+            </header>
+
+            <!-- start: page -->
+                <div class="row">
+                    <div class="col">
+                        <section class="card">
+                            <header class="card-header">
+                                <div class="card-actions">
+                                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                                </div>
+
+                                <h2 class="card-title"><% this.product.Name %> -> Anket Ekle / Güncelle</h2>
+                            </header>
+                            <div class="card-body">
+                                
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <a id="btn-add-product" class="btn btn-primary" href="/admin/survey/questions?id=<% this.product.Id %>" role="button">Sorular <i class="fas fa-ball-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <form class="form-horizontal form-bordered" action="/admin-urun-guncelle" method="post" enctype="multipart/form-data" >
+                                    <input type="hidden" class="form-control" id="productId" name="Id" value="<% this.data.Id ?? 0 %>">
+                                    <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Anket İsmi</label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" name="Name" id="ProductName" value="<% this.survey.Name %>">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="selectStatus">Durum</label>
+                                        <div class="col-lg-6">
+                                            <select id="status" name="Status" class="form-control mb-3" >
+                                                <option value="1">Aktif</option>
+                                                <option value="0">Pasif</option>
+                                            </select>
+                                        </div>
+                                        <script>
+                                            var status_select_value = "<% this.survey.Status %>";
+                                            if(status_select_value == ""){
+                                                status_select_value = "1";
+                                            }
+                                            document.getElementById('status').value = status_select_value;
+                                        </script>
+                                    </div>
+
+                                    <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
+                                        <div class="col-lg-6">
+                                            <input type="submit" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+             
+            <!-- end: page -->
+        </section>
+    </div>
+
+    <aside id="sidebar-right" class="sidebar-right">
+        <div class="nano">
+            <div class="nano-content">
+                <a href="#" class="mobile-close d-md-none">
+                    Collapse <i class="fas fa-chevron-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </aside>
+</section>
+
+<!-- Vendor -->
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+<!-- Specific Page Vendor -->
+<script src="/virt/vendor/autosize/autosize.js"></script>
+<script src="/virt/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="/virt/js/theme.js"></script>
+
+<!-- Theme Custom -->
+<script src="/virt/js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="/virt/js/theme.init.js"></script>
+
+<script src="/virt/scripts/survey_add_update.js"></script>

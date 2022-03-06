@@ -14,18 +14,18 @@ var bussines_product = {
         try {
             var tmp_data = {};
             tmp_data.Id = data.fields.Id == '' ? 0 : Number(data.fields.Id);
-           
+
             if (tmp_data.Id != 0) {
-                tmp_data =  await bussines_product.async.getProduct(tmp_data.Id);
-                if(tmp_data.length == 0){
+                tmp_data = await bussines_product.async.getProduct(tmp_data.Id);
+                if (tmp_data.length == 0) {
                     tmp_data.Id = 0;
-                }else{
+                } else {
                     tmp_data = tmp_data[0];
                 }
             }
-            
+
             if (data.files.image != undefined) {
-                if(data.files.image.size > 0){
+                if (data.files.image.size > 0) {
                     fs.renameSync(data.files.image.filepath, data.files.image.filepath + '.jpg');
                     tmp_data.image = 'files/' + data.files.image.newFilename + '.jpg';
                     console.log("image", tmp_data.image);
@@ -33,13 +33,13 @@ var bussines_product = {
             }
 
             if (data.files.FilePath != undefined) {
-                if(data.files.FilePath.size > 0){
+                if (data.files.FilePath.size > 0) {
                     fs.renameSync(data.files.FilePath.filepath, data.files.FilePath.filepath + '.pdf');
                     tmp_data.FilePath = 'files/' + data.files.FilePath.newFilename + '.pdf';
                     console.log("filePath", tmp_data.filePath);
                 }
             }
-            
+
             tmp_data.Name = data.fields.Name;
             if (tmp_data.Id == 0) {
                 tmp_data.CreatedAt = new Date();
@@ -58,6 +58,13 @@ var bussines_product = {
         } catch (error) {
             console.log(error);
         }
+    },
+    delete_product: async function (id, cb, cbErr) {
+        data_product.delete_product(id, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
     },
     async: {
         getProduct: function (id) {
