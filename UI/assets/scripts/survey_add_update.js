@@ -11,6 +11,7 @@ check_login();
         var productId = $('#productId').val(); 
         var surveyName = $('#SurveyName').val();
         var surveyStatus = $('#status').val();
+        
         console.log("upd_ins_survey");
         console.log("productId: " + productId);
         console.log("SurveyName: " + surveyName);
@@ -21,22 +22,11 @@ check_login();
             surveyName: surveyName,
             surveyStatus: surveyStatus
         };
-        util.postJsonRequest('login_post', data, undefined, function (result) {
-            result= JSON.parse(result);
-            util.cookie.add('token', result.token);
-            util.cookie.add('userName', result.userName);
-            util.cookie.add('email', result.email);
-            util.cookie.add('usertype', result.type);
-            
-            if (result.type == 1) {
-                window.location.href = '/admin';
-            } else if (result.type == 2) {
-                window.location.href = '/fud';
+        util.postJsonRequest('/admin/survey_add', data, undefined, function (result) {
+            if (result == 1){
+                alert('Güncellendi');
             }
-            console.log(result);
+            console.log('Güncellendi')
         });
-
-
     }
-
 })();

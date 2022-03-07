@@ -12,6 +12,27 @@ var survey_data= {
             cbErr && cbErr(err);
         });
     },
+    update_survey : async function(data,cb,cbErr){
+        let product_survey = await survey_data.async.get_survey_by_productId(data.productId);
+        let query;
+        if(product_survey.length > 0){ // make update
+            query = {
+                text: `update "Survey" set "Name" = $1, "Status" = $2 where "ProductId" = $3;`,
+                values: [data.surveyName, data.surveyStatus, data.productId]
+            };
+        } else { // make insert
+            query = {
+                text: `insert into "Survey" ("Name", "Status", "ProductId") values ($1, $2, $3);`,
+                values: [data.surveyName, data.surveyStatus, data.productId]
+            };
+        }
+
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         get_survey_by_productId : function(id){
             return new Promise(function(resolve,reject){

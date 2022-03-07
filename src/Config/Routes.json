@@ -140,5 +140,12 @@
       "function": "survey_add_post",
       "isCached": false
     }
+  },
+  "admin/survey/questions": {
+    "get": {
+      "controller": "survey",
+      "function": "survey_question_list",
+      "isCached": false
+    }
   }
 }

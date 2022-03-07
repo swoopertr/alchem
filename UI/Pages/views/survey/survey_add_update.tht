@@ -116,7 +116,7 @@
                                         </div>
                                     </div>
                                 <div class="form-horizontal form-bordered" action="/admin-survey-update" method="post" enctype="multipart/form-data" >
-                                    <input type="hidden" class="form-control" id="productId" name="Id" value="<% this.product.Id %>"">
+                                    <input type="hidden" class="form-control" id="productId" name="productId" value="<% this.product.Id %>"">
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="SurveyName">Anket İsmi</label>
                                         <div class="col-lg-6">

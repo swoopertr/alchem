@@ -1,28 +1,20 @@
 var render = require('./../Middleware/render');
 var view = require('./../Middleware/ViewPack');
-var header = require('./../Middleware/header');
-var userBusiness = require('./../Bussines/userBusiness');
-var adminBussiness = require('./../Bussines/adminBusiness');
 var productBusiness = require('./../Bussines/productBusiness');
 var surveyBussiness = require('./../Bussines/surveyBusiness');
+var surveyQuestionsBusiness = require('./../Bussines/surveyQuestionBusiness');
 var core = require('./../Core');
 var url = require('url');
 const { async } = require('../Data/Products/products');
 
 
 var survey = {
-    survey_list: function (req, res) {
+    survey_add: async function (req, res) {
         var cookies = core.parseCookies(req);
-        var token = cookies.token;
-        if (token == undefined) {
+        if(cookies == undefined){
             core.redirect(res, '/login');
             return;
         }
-
-        render.renderHtml(res, view.views["survey"]["survey_list"], {});
-    },
-    survey_add: async function (req, res) {
-        var cookies = core.parseCookies(req);
         var token = cookies.token;
         if (token == undefined) {
             core.redirect(res, '/login');
@@ -52,8 +44,43 @@ var survey = {
         }
 
         req.on('end', function () {
-            
+            console.log(req.formData);
+            surveyBussiness.updateSurvey(req.formData, function (result) {
+                render.renderData(res, result);
+            }, function (err) {
+                render.renderData(res, err);
+            });
         });
+    },
+    survey_questions : async function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        
+        
+        var data = {
+            data: {}
+        };
+        
+        let qs = url.parse(req.url, true).query;
+        let id = qs.id;
+
+        surveyQuestionsBusiness.getQuestionsBySurveyId(req.query.id, function (result) {
+            data.data = result;
+            render.renderHtml(res, view.views["survey"]["survey_questions"], data);
+        }, function (err) {
+            render.renderFail(res, 500, err);
+        });
+
+
     }
 
 };

@@ -11,6 +11,13 @@ var survey_product = {
             cbErr && cbErr(err);
         });
     },
+    updateSurvey: function(data, cb, cbErr){
+        data_survey.update_survey(data, function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         getSurvey: function(id){
             return new Promise(function(resolve,reject){
@@ -19,6 +26,17 @@ var survey_product = {
                 },function(err){
                     reject(err);
                 });
+            });
+        },
+        updateSurvey: function (data) {
+            return new Promise(function (resolve, reject) {
+                survey_product.updateSurvey(data,
+                    function (result) {
+                        resolve(result);
+                    },
+                    function (err) {
+                        reject(err);
+                    });
             });
         }
     }
