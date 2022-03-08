@@ -130,7 +130,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/urun/guncelle?surveyId=0" role="button">Yeni Soru Ekle <i class="fas fa-plus"></i></a>
+                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/survey/guncelle?surveyId=<% this.id %>&questionId=0" role="button">Yeni Soru Ekle <i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -149,11 +149,11 @@
                                     <tr data-id="<% this.list[i].Id %>" >
                                         <td><% this.list[i].Question %></td>
                                         <td>
-                                            <a href="/admin/urun/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="/admin/survey/guncelle?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
                                             <span> | </span>
-                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_product" class="on-default"><i class="far fa-trash-alt"></i></a>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_question" class="on-default"><i class="far fa-trash-alt"></i></a>
                                             <span> | </span>
-                                            <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Cevap güncelle<i class="far fa-ball-alt"></i></a>
+                                            <a href="/admin/survey/answer?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" target="_blank">Cevap güncelle<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>

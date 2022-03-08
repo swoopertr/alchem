@@ -10,6 +10,22 @@ var survey_questions = {
         }, function (err) {
             cbErr && cbErr(err);
         });
+    },
+    getQuestion : function(id, cb, cbErr){
+        data_survey_question.getQuestion(id, function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
+    upd_insert_question: function (data, cb, cbErr) {
+        data_survey_question.upd_insert_question(data,
+            function (result) {
+                cb && cb(result);
+            },
+            function (err) {
+                cbErr && cbErr(err);
+            });
     }
 };
 

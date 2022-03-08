@@ -74,12 +74,69 @@ var survey = {
         let id = qs.id;
 
         surveyQuestionsBusiness.getQuestionsBySurveyId(id, function (result) {
+            data.id = id;
             data.list = result;
             render.renderHtml(res, view.views["surveyQuestions"]["survey_question_list"], data);
         }, function (err) {
             render.renderFail(res, 500, err);
         });
 
+
+    },
+    survey_question_upd_insert : async function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+           
+        var data = {
+            data: {}
+        };
+
+        let qs = url.parse(req.url, true).query;
+        let surveyId = qs.surveyId;
+        let questionId = qs.questionId;
+        data.surveyId = surveyId;
+
+        if(questionId == 0){ // insert
+            render.renderHtml(res, view.views["surveyQuestions"]["survey_question_add"], data);
+        }
+        else{ // update
+            surveyQuestionsBusiness.getQuestion(questionId, function (result) {
+                data.data = result[0];
+                render.renderHtml(res, view.views["surveyQuestions"]["survey_question_add"], data);
+            });
+        }
+    },
+    survey_question_upd_insert_post : async function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function () {
+            console.log(req.formData);
+            surveyQuestionsBusiness.upd_insert_question(req.formData, 
+                function (result) {
+                    render.renderData(res, result);
+                }, 
+                function (err) {    
+                    render.renderData(res, err);
+                });
+
+        });
 
     }
 
