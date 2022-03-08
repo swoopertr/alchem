@@ -16,6 +16,7 @@ check_login();
         util.postJsonRequest('/admin/survey/questiondelete', {questionId: questionId}, undefined, function (result) {
             if (result == 1){
                 alert('Soru silindi');
+                window.location.reload();
             }
         } );
     }
