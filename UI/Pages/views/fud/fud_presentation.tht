@@ -1,0 +1,264 @@
+<section class="body">
+
+    <!-- start: user box -->
+    <div class="header-right">
+    
+        <span class="separator"></span>
+    
+        <div id="userbox" class="userbox">
+            <a href="#" data-bs-toggle="dropdown">
+                <figure class="profile-picture">
+                    <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
+                </figure>
+                <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                    <span id="login_user_name" class="name"></span>
+                    <span class="role">Füd</span>
+                </div>
+    
+                <i class="fa custom-caret"></i>
+            </a>
+    
+            <div class="dropdown-menu">
+                <ul class="list-unstyled mb-2">
+                    <li class="divider"></li>
+                    <li>
+                        <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end: user box -->
+    
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            <aside id="sidebar-left" class="sidebar-left">
+    
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    Navigation
+                </div>
+                <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+    
+            <div class="nano">
+                <div class="nano-content">
+                    <nav id="menu" class="nav-main" role="navigation">
+    
+                        <ul class="nav nav-main">
+                            
+                            <li class="nav-parent nav-expanded">
+                                
+                                <a class="nav-link" href="#">
+                                    <i class="bx bx-home-alt" aria-hidden="true"></i>
+                                    <span>Admin Anasayfa</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li class="nav-active">
+                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+    
+            </aside>
+            <!-- end: sidebar -->
+    
+            <section role="main" class="content-body card-margin">
+                <header class="page-header">
+                    <h2>FÜD Sunum Yap</h2>
+    
+                    <div class="right-wrapper text-end">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="/admin">
+                                    <i class="bx bx-home-alt"></i>
+                                </a>
+                            </li>
+                            <li><span>FÜD</span></li>
+                            <li><span>Sunum Yap</span></li>
+                        </ol>
+                        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                    </div>
+                </header>
+    
+                <!-- start: page -->
+                    <div class="row">
+                        <div class="col">
+                            <section class="card">
+                                <header class="card-header">
+                                    <div class="card-actions">
+                                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                                    </div>
+                                    <h2 class="card-title">Sunum Yap</h2>
+                                </header>
+                                <div class="card-body">
+                                    <div class="form-horizontal form-bordered" >
+                                        
+                                        <input type="hidden" class="form-control" id="fudId" />
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="FudName">Eczane</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="FudName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2">Eczaneler </label>
+                                            <div class="col-lg-6">
+                                                <select data-plugin-selectTwo class="form-control populate placeholder" data-plugin-options='{ "placeholder": "Select a State", "allowClear": true }'>
+                                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                        <option value="AK">Alaska</option>
+                                                        <option value="HI">Hawaii</option>
+                                                    </optgroup>
+                                                    <optgroup label="Pacific Time Zone">
+                                                        <option value="CA">California</option>
+                                                        <option value="NV">Nevada</option>
+                                                        <option value="OR">Oregon</option>
+                                                        <option value="WA">Washington</option>
+                                                    </optgroup>
+                                                    <optgroup label="Mountain Time Zone">
+                                                        <option value="AZ">Arizona</option>
+                                                        <option value="CO">Colorado</option>
+                                                        <option value="ID">Idaho</option>
+                                                        <option value="MT">Montana</option>
+                                                        <option value="NE">Nebraska</option>
+                                                        <option value="NM">New Mexico</option>
+                                                        <option value="ND">North Dakota</option>
+                                                        <option value="UT">Utah</option>
+                                                        <option value="WY">Wyoming</option>
+                                                    </optgroup>
+                                                    <optgroup label="Central Time Zone">
+                                                        <option value="AL">Alabama</option>
+                                                        <option value="AR">Arkansas</option>
+                                                        <option value="IL">Illinois</option>
+                                                        <option value="IA">Iowa</option>
+                                                        <option value="KS">Kansas</option>
+                                                        <option value="KY">Kentucky</option>
+                                                        <option value="LA">Louisiana</option>
+                                                        <option value="MN">Minnesota</option>
+                                                        <option value="MS">Mississippi</option>
+                                                        <option value="MO">Missouri</option>
+                                                        <option value="OK">Oklahoma</option>
+                                                        <option value="SD">South Dakota</option>
+                                                        <option value="TX">Texas</option>
+                                                        <option value="TN">Tennessee</option>
+                                                        <option value="WI">Wisconsin</option>
+                                                    </optgroup>
+                                                    <optgroup label="Eastern Time Zone">
+                                                        <option value="CT">Connecticut</option>
+                                                        <option value="DE">Delaware</option>
+                                                        <option value="FL">Florida</option>
+                                                        <option value="GA">Georgia</option>
+                                                        <option value="IN">Indiana</option>
+                                                        <option value="ME">Maine</option>
+                                                        <option value="MD">Maryland</option>
+                                                        <option value="MA">Massachusetts</option>
+                                                        <option value="MI">Michigan</option>
+                                                        <option value="NH">New Hampshire</option>
+                                                        <option value="NJ">New Jersey</option>
+                                                        <option value="NY">New York</option>
+                                                        <option value="NC">North Carolina</option>
+                                                        <option value="OH">Ohio</option>
+                                                        <option value="PA">Pennsylvania</option>
+                                                        <option value="RI">Rhode Island</option>
+                                                        <option value="SC">South Carolina</option>
+                                                        <option value="VT">Vermont</option>
+                                                        <option value="VA">Virginia</option>
+                                                        <option value="WV">West Virginia</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="Email">İletişim</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  id="Email" />
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="selectStatus">Durum</label>
+                                            <div class="col-lg-6">
+                                                <select name="selectStatus" class="form-control mb-3">
+                                                    <option value="1">Aktif</option>
+                                                    <option value="0">Pasif</option>
+                                                </select>
+                                            </div>
+                                        </div>
+    
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
+                                            <div class="col-lg-6">
+                                                <input id="btnFudAdd" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+    
+                 
+                <!-- end: page -->
+            </section>
+        </div>
+    
+        <aside id="sidebar-right" class="sidebar-right">
+            <div class="nano">
+                <div class="nano-content">
+                    <a href="#" class="mobile-close d-md-none">
+                        Collapse <i class="fas fa-chevron-right"></i>
+                    </a>
+    
+                    <div class="sidebar-right-wrapper">
+    
+                        
+    
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+    
+    <!-- Vendor -->
+    <script src="/virt/vendor/jquery/jquery.js"></script>
+    <script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/virt/vendor/popper/umd/popper.min.js"></script>
+    <script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/virt/vendor/common/common.js"></script>
+    <script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    
+    <!-- Specific Page Vendor -->
+    <script src="/virt/vendor/select2/js/select2.js"></script>
+    <script src="/virt/vendor/autosize/autosize.js"></script>
+    <script src="/virt/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+    
+    <!-- Theme Base, Components and Settings -->
+    <script src="/virt/js/theme.js"></script>
+    
+    <!-- Theme Custom -->
+    <script src="/virt/js/custom.js"></script>
+    
+    <!-- Theme Initialization Files -->
+    <script src="/virt/js/theme.init.js"></script>
+    
+    <script src="/virt/scripts/admin_fud_presentation_page.js"></script>

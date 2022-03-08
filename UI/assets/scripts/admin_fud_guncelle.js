@@ -8,13 +8,7 @@ check_login();
 
         //check if loaded with querystring id
 
-        let qsObject =  util.qsObject();
-
-
-        if(qsObject.id){
-            
-        }
-
+        
         $('#btnFudAdd').click(function(){
             
             var fud_id = $('#fudId').val();

@@ -80,6 +80,16 @@ var fud = {
             };
             render.renderHtml(res, view.views["fud"]["fud_products"], data);
         });
+    },
+    fud_presentation :function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        render.renderHtml(res, view.views["fud"]["fud_presentation"], {});
     }
 };
 module.exports = fud;

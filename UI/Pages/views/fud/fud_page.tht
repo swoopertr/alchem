@@ -72,13 +72,13 @@
                                 </a>
                                 <ul class="nav nav-children">
                                     <li>
-                                        <a class="nav-link" href="/fud/checkin">- Eczane Listesi</a>
+                                        <a class="nav-link" href="/fud/presentation">- Sunum Yap</a>
                                     </li>
                                     <li>
                                         <a class="nav-link" href="/fud/urunler">- Ürün Listesi</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" href="/surveys">- Anket Listesi</a>
+                                        <a class="nav-link" href="/checkin">- Check-in</a>
                                     </li>
                                 </ul>
                             </li>
@@ -151,7 +151,7 @@
 <!-- Theme Initialization Files -->
 <script src="virt/js/theme.init.js"></script>
 
-<script src="virt/scripts/admin_fud_page.js"></script>
+<script src="virt/scripts/admin_fud_presentation_page.js"></script>
 
 
 
