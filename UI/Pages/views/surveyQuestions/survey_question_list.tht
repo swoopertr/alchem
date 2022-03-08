@@ -151,7 +151,7 @@
                                         <td>
                                             <a href="/admin/survey/guncelle?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
                                             <span> | </span>
-                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_question" class="on-default"><i class="far fa-trash-alt"></i></a>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_question on-default" ><i class="far fa-trash-alt"></i></a>
                                             <span> | </span>
                                             <a href="/admin/survey/answer?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" target="_blank">Cevap güncelle<i class="far fa-ball-alt"></i></a>
                                         </td>

@@ -26,6 +26,15 @@ var survey_questions = {
             function (err) {
                 cbErr && cbErr(err);
             });
+    },
+    deleteQuestion: function(questionId, cb, cbErr){
+        data_survey_question.deleteQuestion(questionId,
+            function(result){
+                cb && cb(result);
+            },
+            function(err){
+                cbErr && cbErr(err);
+            });
     }
 };
 

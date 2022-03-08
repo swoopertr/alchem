@@ -138,6 +138,29 @@ var survey = {
 
         });
 
+    },
+    survey_question_delete: function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        req.on('end', function () {
+           console.log(req.formData.questionId);
+            surveyQuestionsBusiness.deleteQuestion(req.formData.questionId, 
+                function (result) {
+                    render.renderData(res, result);
+                }, 
+                function (err) {    
+                    render.renderData(res, err);
+                });
+
+        });
     }
 
 };

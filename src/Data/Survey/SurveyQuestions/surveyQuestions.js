@@ -42,6 +42,17 @@ var survey_questions = {
             cbErr && cbErr(err);
         });
     },
+    deleteQuestion: function(questionId, cb, cbErr){
+        const query = {
+            text: 'delete from public."SurveyQuestions" where "Id" = $1',
+            values: [questionId]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        }); 
+    },
     async: {
         getQuestionsBySurveyId : function(surveyId){
             return new Promise(function(resolve,reject){
@@ -61,6 +72,17 @@ var survey_questions = {
                     },
                     function (err) {
                         reject(err);
+                    });
+            });
+        },
+        deleteQuestion : function(questionId){
+            return new Promise(function (resolve, reject) {
+                survey_questions.deleteQuestion(questionId,
+                    function (result) {
+                        resolve(result);
+                    },
+                    function(err){
+                        reject(err);s
                     });
             });
         }
