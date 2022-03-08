@@ -127,14 +127,7 @@
                         <h2 class="card-title">Füd Listesi</h2>
                     </header>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/fud/guncelle?id=0" role="button">Ekle <i class="fas fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
+                       
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
                             <thead>

@@ -75,14 +75,9 @@
                                         <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
-                                    </li>
-                                    <li>
                                         <a class="nav-link" href="/admin/rapor">- Rapor</a>
                                     </li>
-                                    <li>
-                                        <a class="nav-link" href="/surveys">- Anket Listesi</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                         </ul>
@@ -207,5 +202,5 @@
 <!-- Theme Initialization Files -->
 <script src="/virt/js/theme.init.js"></script>
 
-<script src="/virt/scripts/admin_urunler_page.js"></script>
+<script src="/virt/scripts/admin_fud_urunler_page.js"></script>
 

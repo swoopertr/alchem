@@ -173,4 +173,4 @@
     <!-- Theme Initialization Files -->
     <script src="/virt/js/theme.init.js"></script>
     
-    <script src="/virt/scripts/admin_survey_question_update.js"></script>
+    <script src="/virt/scripts/admin_survey_question_option_update.js"></script>
