@@ -52,7 +52,7 @@ var survey = {
             });
         });
     },
-    survey_questions : async function(req, res){
+    survey_question_list : async function(req, res){
         var cookies = core.parseCookies(req);
         if(cookies == undefined){
             core.redirect(res, '/login');
@@ -69,13 +69,13 @@ var survey = {
         var data = {
             data: {}
         };
-        
+
         let qs = url.parse(req.url, true).query;
         let id = qs.id;
 
-        surveyQuestionsBusiness.getQuestionsBySurveyId(req.query.id, function (result) {
-            data.data = result;
-            render.renderHtml(res, view.views["survey"]["survey_questions"], data);
+        surveyQuestionsBusiness.getQuestionsBySurveyId(id, function (result) {
+            data.list = result;
+            render.renderHtml(res, view.views["surveyQuestions"]["survey_question_list"], data);
         }, function (err) {
             render.renderFail(res, 500, err);
         });

@@ -104,7 +104,7 @@
 
                         <li><span>Yönetici Sayfası</span></li>
 
-                        <li><span>Ankey Soruları</span></li>
+                        <li><span>Anket Soruları</span></li>
 
                     </ol>
 
@@ -124,13 +124,13 @@
                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
 
-                        <h2 class="card-title">Ürünler</h2>
+                        <h2 class="card-title">Sorular</h2>
                     </header>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="mb-3">
-                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/urun/guncelle?id=0" role="button">Ekle <i class="fas fa-plus"></i></a>
+                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/urun/guncelle?surveyId=0" role="button">Yeni Soru Ekle <i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -139,10 +139,7 @@
 
                             <thead>
                                 <tr>
-                                    <th>Resim</th>
-                                    <th>Dosya</th>
-                                    <th>Ürün</th>
-                                    <th>Durumu</th>
+                                    <th>Soru</th>
                                     <th>Aksiyon</th>
                                 </tr>
                             </thead>
@@ -150,16 +147,13 @@
                             <tbody id="product_list">
                                 <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                     <tr data-id="<% this.list[i].Id %>" >
-                                        <td><img style="width: 80px;" src="/virt/<% this.list[i].image %>" class="card-img-top" alt="<% this.list[i].image %>"></td>
-                                        <td><a target="_blank" href="/virt/<% this.list[i].FilePath %>">-Dosya-</a></td>
-                                        <td><% this.list[i].Name %></td>
-                                        <td><% (this.list[i].Status==1)?"Aktif":"Pasif" %></td>
+                                        <td><% this.list[i].Question %></td>
                                         <td>
                                             <a href="/admin/urun/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
                                             <span> | </span>
                                             <a href="#" data-id="<% this.list[i].Id %>" class="delete_product" class="on-default"><i class="far fa-trash-alt"></i></a>
                                             <span> | </span>
-                                            <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Anket ekle / güncelle<i class="far fa-ball-alt"></i></a>
+                                            <a href="/admin/urun-anket-ekle?id=<% this.list[i].Id %>" target="_blank">Cevap güncelle<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>
