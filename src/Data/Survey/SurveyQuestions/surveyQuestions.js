@@ -25,10 +25,10 @@ var survey_questions = {
         });
     },
     upd_insert_question: function(data, cb, cbErr){
-        if(data.questionId == 0){ // insert
+        if(data.questionId == undefined){ // insert
             query = {
-                text: `insert into "SurveyQuestions" ("Question", "Status","Order", "SurveyId") values ($1, 1, 0, $2);`,
-                values: [data.question, data.surveyStatus]
+                text: `insert into "SurveyQuestions" ("Question", "Status", "Order", "SurveyId") values ($1, 1, 0, $2);`,
+                values: [data.question, data.surveyId]
             };
         }else{ // update
             query = {

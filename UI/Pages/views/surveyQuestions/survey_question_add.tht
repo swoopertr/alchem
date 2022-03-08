@@ -113,7 +113,7 @@
                                     <form class="form-horizontal form-bordered" action="/admin-urun-guncelle" method="post" enctype="multipart/form-data" >
                                         <input type="hidden" class="form-control" id="surveyId" name="surveyId" value="<% this.surveyId %>">
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Soru İsmi</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Soru</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" name="question" id="question" value="<% this.data.Name %>">
                                             </div>
@@ -122,7 +122,7 @@
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
                                             <div class="col-lg-6">
-                                                <input type="submit" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
+                                                <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
                                             </div>
                                         </div>
                                     </form>
