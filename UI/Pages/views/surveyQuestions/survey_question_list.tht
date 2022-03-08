@@ -153,7 +153,7 @@
                                             <span> | </span>
                                             <a href="#" data-id="<% this.list[i].Id %>" class="delete_question on-default" ><i class="far fa-trash-alt"></i></a>
                                             <span> | </span>
-                                            <a href="/admin/survey/answer?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" target="_blank">Cevap güncelle<i class="far fa-ball-alt"></i></a>
+                                            <a href="/admin/survey/answer?surveyId=<% this.id %>&questionId=<% this.list[i].Id %>" target="_blank">Cevap Şıkları<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>

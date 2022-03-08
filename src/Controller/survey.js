@@ -161,6 +161,35 @@ var survey = {
                 });
 
         });
+    },
+    survey_question_answer_list: function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        var data = {
+            data: {}
+        };
+
+        let qs = url.parse(req.url, true).query;
+        let surveyId = qs.surveyId;
+        let questionId = qs.questionId;
+
+        surveyQuestionsBusiness.getAnswersByQuestionId(questionId, function (result) {
+            data.questions = result;
+            data.questionId = questionId;
+            data.surveyId = surveyId;
+            render.renderHtml(res, view.views["surveyQuestionOptions"]["question_list"], data);
+        });
+
+
     }
 
 };

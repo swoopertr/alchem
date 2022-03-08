@@ -11,10 +11,10 @@ var survey_questions = {
             cbErr && cbErr(err);
         });
     },
-    getQuestion : function(id, cb, cbErr){
-        data_survey_question.getQuestion(id, function(result){
+    getQuestion: function (id, cb, cbErr) {
+        data_survey_question.getQuestion(id, function (result) {
             cb && cb(result);
-        }, function(err){
+        }, function (err) {
             cbErr && cbErr(err);
         });
     },
@@ -27,12 +27,21 @@ var survey_questions = {
                 cbErr && cbErr(err);
             });
     },
-    deleteQuestion: function(questionId, cb, cbErr){
+    deleteQuestion: function (questionId, cb, cbErr) {
         data_survey_question.deleteQuestion(questionId,
-            function(result){
+            function (result) {
                 cb && cb(result);
             },
-            function(err){
+            function (err) {
+                cbErr && cbErr(err);
+            });
+    },
+    getAnswersByQuestionId: function (questionId, cb, cbErr) {
+        data_survey_question.getQuestionOptionssBySurveyId(questionId,
+            function (result) {
+                cb && cb(result);
+            },
+            function (err) {
                 cbErr && cbErr(err);
             });
     }

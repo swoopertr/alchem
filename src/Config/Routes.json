@@ -168,5 +168,12 @@
       "function": "survey_question_delete",
       "isCached": false
     }
+  },
+  "admin/survey/answer": {
+    "get": {
+      "controller": "survey",
+      "function": "survey_question_answer_list",
+      "isCached": false
   }
+}
 }
