@@ -25,11 +25,22 @@ var survey_questions = {
         });
     },
     upd_insert_question: function(data, cb, cbErr){
-        if(data){
-
-        }else{
-            
+        if(data.questionId == 0){ // insert
+            query = {
+                text: `insert into "SurveyQuestions" ("Question", "Status","Order", "SurveyId") values ($1, 1, 0, $2);`,
+                values: [data.question, data.surveyStatus]
+            };
+        }else{ // update
+            query = {
+                text: `update "SurveyQuestions" set "Question"= $2 where "Id"=$1 ;`,
+                values: [data.questionId, data.question]
+            };
         }
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
     },
     async: {
         getQuestionsBySurveyId : function(surveyId){
