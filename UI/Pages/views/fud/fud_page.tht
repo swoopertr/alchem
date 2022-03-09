@@ -110,37 +110,35 @@
             <!-- start: page -->
 
 
-            <div class="col-lg-6">
-                <div class="row mb-3">
-            <div class="col-xl-3">
-                <section class="card card-featured-left card-featured-primary mb-3">
-                    <div class="card-body">
-                        <div class="widget-summary">
-                            <a href ="/fud/checkin" >
-                                <div class="widget-summary-col widget-summary-col-icon">
-                                    <div class="summary-icon" style="background-color: #dce3cf;">
-                                        <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
-                                    </div>
-                                </div>
-                                <div class="widget-summary-col">
-                                    <div class="summary">
-                                        <h4 class="title">Check-in</h4>
-                                        <div class="info">
-                                            <strong class="amount" style="color: #7d990e;">Check-in</strong>
-                                            <span class="text-primary"> &ThickSpace; </span>
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
+                                    <a href ="/fud/checkin" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
+                                            </div>
                                         </div>
-                                    </div>
-                                  
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Check-in</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Check-in</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </section>
                     </div>
-                </section>
+                </div>
             </div>
-
-        </div>
-
-    </div>
 
 
 

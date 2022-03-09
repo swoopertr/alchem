@@ -3,8 +3,7 @@ userPageType = 2;
 check_login();
 
 (function() {
-
-    
+   
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -19,4 +18,7 @@ function showPosition(position) {
 }
 
 getLocation();
+
+
+
 })();
