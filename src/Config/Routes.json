@@ -183,10 +183,10 @@
       "isCached": false
     }
   },
-  "fud/presentation": {
+  "fud/checkin": {
     "get": {
       "controller": "fud",
-      "function": "fud_presentation",
+      "function": "fud_checkin",
       "isCached": false
     }
   }

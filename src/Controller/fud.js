@@ -81,7 +81,7 @@ var fud = {
             render.renderHtml(res, view.views["fud"]["fud_products"], data);
         });
     },
-    fud_presentation :function (req, res) {
+    fud_checkin :function (req, res) {
         var cookies = core.parseCookies(req);
         var token = cookies.token;
         if (token == undefined) {
@@ -89,7 +89,7 @@ var fud = {
             return;
         }
         
-        render.renderHtml(res, view.views["fud"]["fud_presentation"], {});
+        render.renderHtml(res, view.views["fud"]["fud_checkin"], {});
     }
 };
 module.exports = fud;
