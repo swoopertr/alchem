@@ -15,6 +15,15 @@ var mimeRequest = {
             return false;
         }
 
+        if(req.url === '/.well-known/pki-validation/2A5AD09BC6E54D82679670C955AABA1F.txt'){
+            res.writeHead(200, defaults.TheHeaderTXT);
+            res.write(`5ED387D2251ADD7908F4650985C43A33A307F4287825BCA166CD11079EDF0D8B
+comodoca.com
+8a6fc4b430ac1d5`);
+            res.end();
+            return;
+        }
+
         core.checkVirtual(req.url, async function (isVirtual) {
             if (isVirtual) {
                 var filePath = req.url.replace(setting.virtualRootPath, setting.rootPath);
