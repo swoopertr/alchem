@@ -77,7 +77,7 @@
                             <div class="form-group row pb-4">
                                 <label class="col-lg-6 control-label text-lg-end" for="inputDefault"></label>
                                 <div class="col-lg-6">
-                                    <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
+                                    <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Cevapları Gönder" />
                                 </div>
                             </div>
                         </div>
