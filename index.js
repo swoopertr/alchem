@@ -6,6 +6,7 @@ var mimeCore = require('./src/Middleware/mimefilter');
 var render = require('./src/Middleware/render');
 var cluster = require('cluster');
 var dataCache = require('./src/Data/Cache/dataCache');
+var fs = require('fs');
 
 
 if (cluster.isMaster) {
