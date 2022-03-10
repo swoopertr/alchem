@@ -3,6 +3,7 @@ var view = require('./../Middleware/ViewPack');
 var fudBusiness = require('./../Bussines/fudBussiness');
 var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
 var userBusiness = require('./../Bussines/userBusiness');
+var surveyBusiness = require('./../Bussines/surveyBusiness');
 
 var core = require('./../Core');
 var url = require('url');
@@ -44,6 +45,7 @@ var fud = {
 
         render.renderHtml(res, view.views["fud"]["fud_add"], {});
 
+        
     },
     fudUpdate_post: function (req, res) {
         var cookies = core.parseCookies(req);
@@ -159,6 +161,41 @@ var fud = {
             render.renderHtml(res, view.views["fud"]["fud_pharmacylist"], data);
         });
 
+    },
+    fud_generatetoken: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        let qs = url.parse(req.url, true).query;
+        let id = qs.id; //product id
+
+        userBusiness.getUserByToken(token, async function (user) {
+            if (user.length > 0) {
+             var selected_pharmacy = req.formData.PharmacyId;
+             var uniqueValue = core.GenerateToken();
+           
+            var survey = await surveyBusiness.async.getSurvey(id);
+            var data = {
+                PharmacyId :selected_pharmacy,
+                uniqueValue,
+                surveyId:survey[0].Id,
+                expiredAt : new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),
+                userId: user[0].Id
+            };
+            surveyBusiness.generateLink(data, function (result) {
+                if(result != "0"){
+                    render.renderData(res, { uniqueValue });
+                }
+            });
+            
+             
+            }
+                
+        });
     }
     
 };

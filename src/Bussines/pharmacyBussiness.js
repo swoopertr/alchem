@@ -6,6 +6,11 @@ var pharmacyBusiness = {
         pharmacyData.getPharmacies(function (result) {
             cb && cb(result);
         });
+    },
+    getPharmacyById:function(id, cb){
+        pharmacyData.getPharmacyById(id, function(result){
+            cb && cb(result);
+        });
     }
 }
 

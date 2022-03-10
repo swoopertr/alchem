@@ -1,6 +1,7 @@
 const core = require('../Core');
 var data_product = require('./../Data/Products/products');
 var data_survey = require('./../Data/Survey/survey');
+var SendedSurveys = require('./../Data/SendedSurvey/sendedSurvey');
 var fs = require('fs');
 
 var survey_product = {
@@ -18,6 +19,13 @@ var survey_product = {
             cbErr && cbErr(err);
         });
     },
+    generateLink : function(data, cb, cbErr){
+        SendedSurveys.insert(data,function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         getSurvey: function(id){
             return new Promise(function(resolve,reject){
@@ -30,7 +38,7 @@ var survey_product = {
         },
         updateSurvey: function (data) {
             return new Promise(function (resolve, reject) {
-                survey_product.updateSurvey(data,
+                SendedSurveys.updateSurvey(data,
                     function (result) {
                         resolve(result);
                     },

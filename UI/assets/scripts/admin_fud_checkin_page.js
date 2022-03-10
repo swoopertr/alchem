@@ -31,7 +31,7 @@ check_login();
                 saveCheckin(function(result){
                     if(result != "0") {
                         alert('Check in success');
-                        document.getElementById('btnCheckins').disabled = true;
+                        document.getElementById('btnCheckin').disabled = true;
                         document.getElementById('btnGoPresent').disabled = false;
                     }
                 });
@@ -70,6 +70,7 @@ check_login();
 
         util.postJsonRequest('/fud/savecheckin', post_obj, check_obj, function (result) {
             if (result != "0") {
+                util.cookie.add("selected_pharmacy", PharmacyId, 1440);
                 cb && cb(result);
             } 
         });

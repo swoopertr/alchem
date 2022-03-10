@@ -3,6 +3,7 @@ var view = require('./../Middleware/ViewPack');
 var productBusiness = require('./../Bussines/productBusiness');
 var surveyBussiness = require('./../Bussines/surveyBusiness');
 var surveyQuestionsBusiness = require('./../Bussines/surveyQuestionBusiness');
+var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
 var core = require('./../Core');
 var url = require('url');
 const { async } = require('../Data/Products/products');
@@ -190,7 +191,43 @@ var survey = {
         });
 
 
-    }
+    },
+    survey_send: function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        var data = {
+            data: {}
+        };
+        ;
+        pharmacyBusiness.getPharmacyById(parseInt(cookies.selected_pharmacy), function(pharmacy){
+            data.pharmacy = pharmacy[0];
+            render.renderHtml(res, view.views["survey"]["presentation_question"], data);
+        });
+        
+
+    },
+    survey_evaluate: function(req, res){
+    
+        var data = {
+            data: {}
+        };
+        ;
+        pharmacyBusiness.getPharmacyById(parseInt(cookies.selected_pharmacy), function(pharmacy){
+            data.pharmacy = pharmacy[0];
+            render.renderHtml(res, view.views["survey"]["evaluate_question"], data);
+        });
+        
+
+    } 
 
 };
 

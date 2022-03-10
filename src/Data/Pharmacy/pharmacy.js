@@ -13,6 +13,17 @@ var workDefinition = {
             cbErr && cbErr(err);
         });
     },
+    getPharmacyById: function (id, cb, cbErr) {
+        const query = {
+            text: 'select * from public."Pharmacies" where "Id" = $1',
+            values: [id]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
   
     async: { // async versions of the above functions
      

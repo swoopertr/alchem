@@ -215,5 +215,26 @@
       "function": "fud_pharmacylist",
       "isCached": false
     }
+  },
+  "survey/send-survey": {
+    "get": {
+      "controller": "survey",
+      "function": "survey_send",
+      "isCached": false
+    }
+  },
+  "fud/generatetoken":{
+    "post":{
+      "controller": "fud",
+      "function": "fud_generatetoken",
+      "isCached": false
+    }
+  },
+   "survey/evaluate":{
+    "get":{
+      "controller": "survey",
+      "function": "survey_evaluate",
+      "isCached": false
+    }
   }
 }
