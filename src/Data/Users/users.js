@@ -58,6 +58,15 @@ var workDefinition = {
             cb && cb(result);
         });
     },
+    getUserByToken : function(token, cb){
+        const query = {
+            text: 'select * from public."Users" where "token" = $1',
+            values: [token]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        });
+    },
     async: { // async versions of the above
         getAllAsync: function(){
             return new Promise((resolve, reject) => {
@@ -86,7 +95,15 @@ var workDefinition = {
                     resolve(result);
                 });
             });
+        },
+        getUserByTokenAsync: function(token){
+            return new Promise((resolve, reject) => {
+                workDefinition.getUserByToken(token, function (result) {
+                    resolve(result);
+                });
+            });
         }
+
     } 
 };
 

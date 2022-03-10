@@ -2,6 +2,7 @@ const core = require('../Core');
 var productData = require('./../Data/Products/products');
 
 var fudData = require('./../Data/Fud/fud');
+var checkInData = require('./../Data/CheckIn/checkIn');
 var dataCache = require('./../Data/Cache/dataCache');
 
 var fudBussiness = {
@@ -22,6 +23,16 @@ var fudBussiness = {
     },
     updateFud: function(fud_obj, cb){
         fudData.updateUser(fud_obj, function(result){
+            cb && cb(result);
+        });
+    },
+    addPharmacy : function(fud_obj, cb){
+        fudData.addPharmacy(fud_obj, function(result){
+            cb && cb(result);
+        });
+    },
+    checkin : function(checkin, cb){
+        checkInData.saveCheckin(checkin, function(result){
             cb && cb(result);
         });
     }

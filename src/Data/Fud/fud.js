@@ -58,6 +58,29 @@ var workDefinition = {
             cb && cb(result);
         });
     },
+    addPharmacy: function(checkin, cb){
+        const query = { 
+            text: `insert into "Pharmacies" ("Name", "Contact", "Phone", "Status", "lng", "lat", "isChecked", "CellPhone", "email", "glncode", "Country", "City", "Town", "Street") 
+                                     values ($1,     $2,        $3,      1,        $4,    $5,    0,            $6,          $7,     $8,        $9,        $10,    $11,    $12) RETURNING "Id";`, 
+            values: [
+                checkin.pharmacyName,       // 1
+                checkin.nameSurname,        // 2
+                checkin.officePhone,        // 3
+                checkin.lng,                // 4
+                checkin.lat,                // 5
+                checkin.gsm,                // 6
+                checkin.email,              // 7
+                checkin.glnCode,            // 8
+                checkin.country,            // 9
+                checkin.city,               // 10
+                checkin.town,               // 11
+                checkin.street              // 12
+            ]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result[0].Id);
+        });
+    },
     async: { // async versions of the above
         getAllAsync: function(){
             return new Promise((resolve, reject) => {

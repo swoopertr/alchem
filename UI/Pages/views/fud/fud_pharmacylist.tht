@@ -4,7 +4,7 @@
     <header class="header">
         <div class="logo-container">
             <a href="" class="logo">
-                <img src="virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
+                <img src="/virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
             </a>
 
             <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -13,7 +13,7 @@
 
         </div>
 
-        <!-- start: search & user box -->
+        <!-- start: user box -->
         <div class="header-right">
 
             <span class="separator"></span>
@@ -21,11 +21,11 @@
             <div id="userbox" class="userbox">
                 <a href="#" data-bs-toggle="dropdown">
                     <figure class="profile-picture">
-                        <img src="virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="virt/img/!logged-user.jpg" />
+                        <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
                     </figure>
                     <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
                         <span id="login_user_name" class="name"></span>
-                        <span class="role">Füd</span>
+                        <span class="role">Yönetici</span>
                     </div>
 
                     <i class="fa custom-caret"></i>
@@ -35,13 +35,13 @@
                     <ul class="list-unstyled mb-2">
                         <li class="divider"></li>
                         <li>
-                            <a id="btnLogout" role="menuitem" tabindex="-1" href="admin/logout"><i class="bx bx-power-off"></i> Logout</a>
+                            <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- end: search & user box -->
+        <!-- end: user box -->
     </header>
     <!-- end: header -->
 
@@ -68,21 +68,18 @@
                                 
                                 <a class="nav-link" href="#">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Admin Anasayfa</span>
+                                    <span>Eczane Listesi</span>
                                 </a>
                                 <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="/fud/savepharmacy">- Eczane Kayıt</a>
+                                    <li >
+                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
                                     </li>
-
-                                    <li>
-                                        <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
+                                    <li class="nav-active">
+                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
                                     </li>
-
                                     <li>
-                                        <a class="nav-link" href="/fud/checkin">- Check-in</a>
+                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
                                     </li>
-                                    
                                 </ul>
                             </li>
                         </ul>
@@ -95,7 +92,7 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Füd Sayfası</h2>
+                <h2>Eczane Listesi</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
@@ -107,7 +104,7 @@
 
                         <li><span>Füd Sayfası</span></li>
 
-                        <li><span>Ana Ekran</span></li>
+                        <li><span>Eczane Listesi</span></li>
 
                     </ol>
 
@@ -116,40 +113,48 @@
             </header>
 
             <!-- start: page -->
+            <div class="alert alert-info">
+                Bu sayfada Eczaneleri göreceksiniz.
+            </div>
+            <div class="col">
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
 
+                        <h2 class="card-title">Eczane Listesi</h2>
+                    </header>
+                    <div class="card-body">
+                       
+                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
-            <div class="col-lg-12">
-                <div class="row mb-12">
-                    <div class="col-xl-12">
-                        <section class="card card-featured-left card-featured-primary mb-3">
-                            <div class="card-body">
-                                <div class="widget-summary">
-                                    <a href ="/fud/checkin" >
-                                        <div class="widget-summary-col widget-summary-col-icon">
-                                            <div class="summary-icon" style="background-color: #dce3cf;">
-                                                <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="widget-summary-col">
-                                            <div class="summary">
-                                                <h4 class="title">Check-in</h4>
-                                                <div class="info">
-                                                    <strong class="amount" style="color: #7d990e;">Check-in</strong>
-                                                    <span class="text-primary"> &ThickSpace; </span>
-                                                </div>
-                                            </div>
-                                        
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </section>
+                            <thead>
+                                <tr>
+                                    <th>İsim</th>
+                                    <th>Kontak</th>
+                                    <th>Telefon</th>
+                                    <th>Mobil</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="pharmacies_list">
+                                <% for (var i = 0 ; i< this.pharmacies.length ;i++) { %>
+                                    <tr data-id="<% this.pharmacies[i].Id %>" >
+                                        <td><% this.pharmacies[i].Name %></td>
+                                        <td><% this.pharmacies[i].Contact %></td>
+                                        <td><% this.pharmacies[i].Phone %></td>
+                                        <td><% this.pharmacies[i].CellPhone %></td>
+                                     </tr>      
+                                <% } %>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
+                </section>
             </div>
 
-
-
+	      
             <!-- end: page -->
         </section>
     </div>
@@ -167,29 +172,26 @@
 </section>
 
 <!-- Vendor -->
-<script src="virt/vendor/jquery/jquery.js"></script>
-<script src="virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-<script src="virt/vendor/popper/umd/popper.min.js"></script>
-<script src="virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="virt/vendor/common/common.js"></script>
-<script src="virt/vendor/nanoscroller/nanoscroller.js"></script>
-<script src="virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
-<script src="virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
 <!-- Specific Page Vendor -->
 
 <!-- Theme Base, Components and Settings -->
-<script src="virt/js/theme.js"></script>
+<script src="/virt/js/theme.js"></script>
 
 <!-- Theme Custom -->
-<script src="virt/js/custom.js"></script>
+<script src="/virt/js/custom.js"></script>
 
 <!-- Theme Initialization Files -->
-<script src="virt/js/theme.init.js"></script>
+<script src="/virt/js/theme.init.js"></script>
 
-<script src="virt/scripts/admin_fud_presentation_page.js"></script>
+<script src="/virt/scripts/admin_fud_page.js"></script>
 
-
-
-</body>

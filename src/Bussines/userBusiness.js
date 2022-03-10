@@ -59,12 +59,17 @@ var userBusiness = {
                     return;
                 }
             }
-            cb && cb({verify: true});
+            
             return;
         });
     },
     checkToken: function(token, cb){
         dataCache.token.check_token(token, function(data){
+            cb && cb(data);
+        });
+    },
+    getUserByToken: function(token, cb){
+        userData.getUserByToken(token, function(data){
             cb && cb(data);
         });
     }   

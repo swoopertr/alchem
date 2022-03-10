@@ -7,6 +7,7 @@ check_login();
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
+            
         } else {
             document.getElementById('btnCheckin').disabled = true;
             alert("Geolocation is not supported by this browser.");
@@ -21,42 +22,46 @@ check_login();
 
     document.getElementById('btnCheckin').addEventListener('click', function (e) {
         e.preventDefault();
-        if(document.getElementById('coordinate').value == ""){
-            alert('koordinat için izin veriniz')
-        }else{
-            var PharmacyId = $('#pharmacies').val();
-            if(PharmacyId == ''){
-                alert('Eczane seçiniz');
-            }else{
-                saveCheckin(function(result){
-                    if(result != "0") {
-                        alert('Check in success');
-                        document.getElementById('btnCheckins').disabled = true;
-                        document.getElementById('btnGoPresent').disabled = false;
-                    }
-                });
+        savePharmacy(function(result){
+            if(result != "0") {
+                alert('Check in success');
+                document.getElementById('btnCheckin').disabled = true;
+                document.getElementById('btnGoPresent').disabled = false;
             }
-            
-        }
-        
+        });
     });
 
-    document.getElementById('btnGoPresent').addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href = "/fud/urunler";
-    });
+    function savePharmacy(cb) {
 
-    function saveCheckin(cb) {
-        var PharmacyId = $('#pharmacies').val();
+        var pharmacyName = $('#pharmacyName').val();
+        var nameSurname = $('#nameSurname').val();
+        var gsm = $('#gsm').val();
+        var officePhone = $('#officePhone').val();
+        var email = $('#email').val();
+        var glnCode = $('#glnCode').val();
+        var country = $('#country').val();
+        var city = $('#city').val();
+        var street = $('#street').val();
+        var town = $('#town').val();
         var coordinate = $('#coordinate').val();
+        var town = $('#town').val();
+
         var coordinates = coordinate.split(',');
-        
         var lat = coordinates[0];
         var lng = coordinates[1];
         var post_obj = {
-            PharmacyId,
+            pharmacyName,
+            nameSurname,
+            officePhone,
+            gsm,
             lng,
-            lat
+            lat,
+            email,
+            glnCode,
+            country,
+            city,
+            town,
+            street
         };
         console.log({
             post_obj
@@ -68,7 +73,7 @@ check_login();
             { name: 'userPageType',  value: userPageType }
         ];
 
-        util.postJsonRequest('/fud/savecheckin', post_obj, check_obj, function (result) {
+        util.postJsonRequest('/fud/savepharmacy', post_obj, check_obj, function (result) {
             if (result != "0") {
                 cb && cb(result);
             } 

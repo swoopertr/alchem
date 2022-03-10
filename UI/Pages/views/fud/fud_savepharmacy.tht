@@ -61,10 +61,6 @@
                                     </li>
 
                                     <li>
-                                        <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
-                                    </li>
-
-                                    <li>
                                         <a class="nav-link" href="/fud/checkin">- Check-in</a>
                                     </li>
                                 </ul>
@@ -79,7 +75,7 @@
     
             <section role="main" class="content-body card-margin">
                 <header class="page-header">
-                    <h2>FÜD Check-in</h2>
+                    <h2>FÜD Eczane Kayıt</h2>
     
                     <div class="right-wrapper text-end">
                         <ol class="breadcrumbs">
@@ -89,7 +85,7 @@
                                 </a>
                             </li>
                             <li><span>FÜD</span></li>
-                            <li><span>Check-in</span></li>
+                            <li><span>Eczane Kayıt</span></li>
                         </ol>
                         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
                     </div>
@@ -104,7 +100,7 @@
                                         <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                         <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                     </div>
-                                    <h2 class="card-title">Check-in</h2>
+                                    <h2 class="card-title">Eczane Kayıt</h2>
                                 </header>
                                 <div class="card-body">
                                     <div class="form-horizontal form-bordered" >
@@ -112,17 +108,75 @@
                                         <input type="hidden" class="form-control" id="fudId" />
 
                                         <div class="form-group row pb-4">
-											<label class="col-lg-3 control-label text-lg-end pt-2">Eczane</label>
-											<div class="col-lg-6">
-												<select id="pharmacies" name="pharmacies" data-plugin-selectTwo class="form-control populate" title="Please select at least one state" required>
-													<option value="">Eczane Seç</option>
-                                                    <% for(var i = 0 ; i <this.pharmacies.length; i++){ %>
-                                                        <option value="<% this.pharmacies[i].Id %>" lng="<% this.pharmacies[i].lng %>" lat = "<% this.pharmacies[i].lat %>" ><% this.pharmacies[i].Name %></option>
-                                                    <% } %>  
-												</select>
-											</div>
-										</div>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="pharmacyName">Eczane</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="pharmacyName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Adı Soyadı</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="nameSurname" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="gsm">GSM</label>
+                                            <div class="col-lg-6">
+                                                <input id="gsm" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control">
+                                            </div>
+                                        </div>
                                        
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="officePhone">Ofis Telefon</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  id="officePhone" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="email">Email</label>
+                                            <div class="col-lg-6">
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="eg.: email@email.com" required="" aria-invalid="true">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="glnCode">GLN Kodu</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  id="glnCode" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="country">Ülke</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  id="country" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="city">İl</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="city" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="town">İlçe</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="town" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde.</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="street" />
+                                            </div>
+                                        </div>
+
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="coordinate">Koordinat</label>
                                             <div class="col-lg-6">
@@ -133,8 +187,8 @@
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
                                             <div class="col-lg-6">
-                                                <input id="btnCheckin" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Check-in" />
-                                                <input id="btnGoPresent" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Ürün Sunumu Seç"  disabled/>
+                                                <input id="btnCheckin" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Eczane Kayıt" />
+                                                <!--<input id="btnGoPresent" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Check-in"  disabled/>-->
                                             </div>
                                         </div>
                                     </div>
@@ -214,4 +268,4 @@
     <!-- Theme Initialization Files -->
     <script src="/virt/js/theme.init.js"></script>
     
-    <script src="/virt/scripts/admin_fud_checkin_page.js"></script>
+    <script src="/virt/scripts/admin_fud_savepharmacy_page.js"></script>

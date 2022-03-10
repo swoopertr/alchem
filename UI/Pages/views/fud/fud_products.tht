@@ -139,10 +139,9 @@
                             <thead>
                                 <tr>
                                     <th>Resim</th>
-                                    <th>Dosya</th>
+                                    <th>Sunum</th>
                                     <th>Ürün</th>
-                                    <th>Durumu</th>
-                                    <th>Aksiyon</th>
+                                    <th>Gönder</th>
                                 </tr>
                             </thead>
 
@@ -150,11 +149,10 @@
                                 <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                     <tr data-id="<% this.list[i].Id %>" >
                                         <td><img style="width: 80px;" src="/virt/<% this.list[i].image %>" class="card-img-top" alt="<% this.list[i].image %>"></td>
-                                        <td><a target="_blank" href="/virt/<% this.list[i].FilePath %>">-Dosya-</a></td>
+                                        <td><a target="_blank" href="/virt/<% this.list[i].FilePath %>">-Sunum Dosyası-</a></td>
                                         <td><% this.list[i].Name %></td>
-                                        <td><% this.list[i].Status==1 ? 'Aktif':'Pasif' %></td>
                                         <td>
-                                            <a href="/survey/send-survey?id=<% this.list[i].Id %>" target="_blank">Anket gönder<i class="far fa-ball-alt"></i></a>
+                                            <a href="/survey/send-survey?id=<% this.list[i].Id %>" target="_blank">Sunum Sorusu gönder<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>

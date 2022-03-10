@@ -1,12 +1,11 @@
 var render = require('./../Middleware/render');
 var view = require('./../Middleware/ViewPack');
-var header = require('./../Middleware/header');
 var fudBusiness = require('./../Bussines/fudBussiness');
+var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
+var userBusiness = require('./../Bussines/userBusiness');
+
 var core = require('./../Core');
 var url = require('url');
-var formidable = require('formidable');
-var fs = require('fs');
-var settings = require('./../Config/setting');
 
 var fud = {
     fud_page: function (req, res) {
@@ -32,7 +31,6 @@ var fud = {
             render.renderHtml(res, view.views["fud"]["fud_list"], data);
         });
     },
-
     fudUpdate: function (req, res) {
         var cookies = core.parseCookies(req);
         var token = cookies.token;
@@ -75,13 +73,20 @@ var fud = {
     },
     fud_productList: function (req, res) {
         fudBusiness.products(function (result) {
+            var last_result = [];
+            for(var i = 0; i < result.length; i++){
+                if(result[i].Status == 1){
+                    last_result.push(result[i]);
+                }
+            }
+
             var data = {
-                list: result
+                list: last_result
             };
             render.renderHtml(res, view.views["fud"]["fud_products"], data);
         });
     },
-    fud_checkin :function (req, res) {
+    fud_savepharmacy :function (req, res) {
         var cookies = core.parseCookies(req);
         var token = cookies.token;
         if (token == undefined) {
@@ -89,7 +94,72 @@ var fud = {
             return;
         }
         
-        render.renderHtml(res, view.views["fud"]["fud_checkin"], {});
+        render.renderHtml(res, view.views["fud"]["fud_savepharmacy"], {});
+    },
+    fud_add_pharmacy_post: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function () {
+            fudBusiness.addPharmacy(req.formData, function (result) {
+                render.renderData(res, result );
+            });
+        });
+    },
+    fud_checkin: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        pharmacyBusiness.getAllPharmacies(function (result) {
+            var data = {
+                pharmacies: result
+            };
+            render.renderHtml(res, view.views["fud"]["fud_checkin"], data);
+        });
+    },
+    fud_checkin_post: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function () {
+            userBusiness.getUserByToken(token, function(user){
+                if(user.length > 0){
+                    req.formData.UserId = user[0].Id;
+                    fudBusiness.checkin(req.formData, function (result) {
+                        render.renderData(res, result);
+                    });
+                }
+                
+            });
+        });
+    },
+    fud_pharmacylist: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        pharmacyBusiness.getAllPharmacies(function (result) {
+            var data = {
+                pharmacies: result
+            };
+            render.renderHtml(res, view.views["fud"]["fud_pharmacylist"], data);
+        });
+
     }
+    
 };
 module.exports = fud;

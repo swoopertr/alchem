@@ -183,10 +183,36 @@
       "isCached": false
     }
   },
+  "fud/savepharmacy": {
+    "get": {
+      "controller": "fud",
+      "function": "fud_savepharmacy",
+      "isCached": false
+    },
+    "post": {
+      "controller": "fud",
+      "function": "fud_add_pharmacy_post",
+      "isCached": false
+    }
+  },
   "fud/checkin": {
     "get": {
       "controller": "fud",
       "function": "fud_checkin",
+      "isCached": false
+    }
+  },
+  "fud/savecheckin": {
+    "post":{
+      "controller": "fud",
+      "function": "fud_checkin_post",
+      "isCached": false
+    }
+  },
+  "fud/pharmacylist": {
+    "get": {
+      "controller": "fud",
+      "function": "fud_pharmacylist",
       "isCached": false
     }
   }
