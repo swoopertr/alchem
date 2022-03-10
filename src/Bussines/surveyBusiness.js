@@ -26,6 +26,13 @@ var survey_product = {
             cbErr && cbErr(err);
         });
     },
+    getSendedInfo: function(id, cb, cbErr){
+        SendedSurveys.get_sended_survey_by_id(id, function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         getSurvey: function(id){
             return new Promise(function(resolve,reject){

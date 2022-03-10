@@ -1,6 +1,6 @@
 console.log('admin_fud_page.js');
-userPageType = 2;
-//check_login();
+userPageType = 1;
+check_login();
 
 (function() {
     

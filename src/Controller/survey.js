@@ -213,7 +213,6 @@ var survey = {
         });
 
     },
-
     survey_send: function(req, res){
         var cookies = core.parseCookies(req);
         if(cookies == undefined){
@@ -242,10 +241,19 @@ var survey = {
         var data = {
             data: {}
         };
+        //http://alchemlifeegitim.com/survey/evaluate?id=817s3vq05p5v45msajla88a1rwn8hs599rvb9bap9u9qagab87
         
-        pharmacyBusiness.getPharmacyById(parseInt(cookies.selected_pharmacy), function(pharmacy){
-            data.pharmacy = pharmacy[0];
-            render.renderHtml(res, view.views["survey"]["evaluate_question"], data);
+
+        let qs = url.parse(req.url, true).query;
+        let id = qs.id;
+
+        surveyBussiness.getSendedInfo(id, function (result) {
+            
+            data.id = id;
+            data.list = result;
+            render.renderHtml(res, view.views["surveyQuestions"]["survey_question_list"], data);
+        }, function (err) {
+            render.renderFail(res, 500, err);
         });
         
 

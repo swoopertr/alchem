@@ -27,6 +27,24 @@ var survey_send= {
         } catch (error) {
             console.log(error);
         }
+    },
+    get_sended_survey_by_id : function (id, cb, cbErr) {
+        try {
+            let query = {
+                text: `select * from "SendedSurveys" where "UniqueValue" = $1`,
+                values: [id]
+            };
+        
+            pg.query(query, function (result) {
+                console.log("result", result);
+                cb && cb(result);
+            }, function (err) {
+                console.log(err);
+                cbErr && cbErr(err);
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
