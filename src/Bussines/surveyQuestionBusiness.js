@@ -78,6 +78,11 @@ var survey_questions = {
                 cbErr && cbErr(err);
             });
         });
+    },
+    async: {
+        getAnswersByQuestionId: async function (questionId) {
+            return await data_survey_question.async.getQuestionOptionssBySurveyId(questionId);
+        }
     }
 };
 

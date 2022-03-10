@@ -190,6 +190,13 @@
       "isCached": false
     }
   },
+  "admin/pharmacy-list": {
+    "get": {
+      "controller": "admin",
+      "function": "pharmacy_list",
+      "isCached": false
+    }
+  },
   "fud/savepharmacy": {
     "get": {
       "controller": "fud",

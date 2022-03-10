@@ -239,7 +239,7 @@ var survey = {
     survey_evaluate: function(req, res){
     
         var data = {
-            data: {}
+            
         };
         //http://alchemlifeegitim.com/survey/evaluate?id=817s3vq05p5v45msajla88a1rwn8hs599rvb9bap9u9qagab87
         
@@ -248,10 +248,22 @@ var survey = {
         let id = qs.id;
 
         surveyBussiness.getSendedInfo(id, function (result) {
-            
-            data.id = id;
-            data.list = result;
-            render.renderHtml(res, view.views["surveyQuestions"]["survey_question_list"], data);
+            pharmacyBusiness.getPharmacyById(parseInt(result[0].PharmacyId), function(pharmacy){
+                data.pharmacy = pharmacy[0].Name;
+                data.survey = result[0].SurveyId;
+                data.id = id;
+                surveyBussiness.getSurveyQuestions(result[0].SurveyId, async function (questions) {
+                    data.questions = questions;
+                    
+                    for (let i = 0; i < data.questions.length; i++) {
+                        data.questions[i].options =  await surveyQuestionsBusiness.async.getAnswersByQuestionId(data.questions[i].Id);
+                    }
+                    
+                    render.renderHtml(res, view.views["survey"]["evaluate_question"], data);
+                });
+                
+            });
+           
         }, function (err) {
             render.renderFail(res, 500, err);
         });

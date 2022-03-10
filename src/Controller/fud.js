@@ -175,26 +175,28 @@ var fud = {
 
         userBusiness.getUserByToken(token, async function (user) {
             if (user.length > 0) {
-             var selected_pharmacy = req.formData.PharmacyId;
-             var uniqueValue = core.GenerateToken();
-           
-            var survey = await surveyBusiness.async.getSurvey(id);
-            var data = {
-                PharmacyId : selected_pharmacy,
-                uniqueValue,
-                surveyId : survey[0].Id,
-                expiredAt : new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),
-                userId : user[0].Id
-            };
-            surveyBusiness.generateLink(data, function (result) {
-                if(result != "0"){
-                    render.renderData(res, { uniqueValue });
-                }
-            });
-            
-             
+                var selected_pharmacy = req.formData.PharmacyId;
+                var uniqueValue = core.GenerateToken();
+
+                var survey = await surveyBusiness.async.getSurvey(id);
+                var data = {
+                    PharmacyId: selected_pharmacy,
+                    uniqueValue,
+                    surveyId: survey[0].Id,
+                    expiredAt: new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),
+                    userId: user[0].Id
+                };
+                surveyBusiness.generateLink(data, function (result) {
+                    if (result != "0") {
+                        render.renderData(res, {
+                            uniqueValue
+                        });
+                    }
+                });
+
+
             }
-                
+
         });
     }
     

@@ -33,6 +33,13 @@ var survey_product = {
             cbErr && cbErr(err);
         });
     },
+    getSurveyQuestions: function(surveyId, cb, cbErr){
+        data_survey.get_survey_questions(surveyId, function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         getSurvey: function(id){
             return new Promise(function(resolve,reject){

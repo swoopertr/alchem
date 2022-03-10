@@ -1,7 +1,7 @@
 var pg = require('./../Repository/postgre');
 
 var survey_data= {
-    get_survey_by_productId : function(id,cb,cbErr){
+    get_survey_by_productId : function(id, cb, cbErr){
         const query = {
             text: 'select * from public."Survey" where "ProductId" = $1',
             values: [id]
@@ -12,7 +12,7 @@ var survey_data= {
             cbErr && cbErr(err);
         });
     },
-    update_survey : async function(data,cb,cbErr){
+    update_survey : async function(data, cb, cbErr){
         let product_survey = await survey_data.async.get_survey_by_productId(data.productId);
         let query;
         if(product_survey.length > 0){ // make update
@@ -33,10 +33,30 @@ var survey_data= {
             cbErr && cbErr(err);
         });
     },
+    get_survey_questions: function(surveyId, cb, cbErr){
+        const query = {
+            text: 'select sq.* from "SurveyQuestions" sq inner join "Survey" s on sq."SurveyId" = s."ProductId" where s."Id"= $1',
+            values: [surveyId]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         get_survey_by_productId : function(id){
             return new Promise(function(resolve,reject){
                 survey_data.get_survey_by_productId(id,function(result){
+                    resolve(result);
+                },function(err){
+                    reject(err);
+                });
+            });
+        },
+        get_survey_questions: function(surveyId){
+            return new Promise(function(resolve,reject){
+                survey_data.get_survey_questions(surveyId, function(result){
                     resolve(result);
                 },function(err){
                     reject(err);

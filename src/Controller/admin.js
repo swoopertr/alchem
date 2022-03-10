@@ -27,6 +27,27 @@ var admin = {
             }
              
         });
+    },
+    pharmacy_list: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+
+        userBusiness.checkToken(token, function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{
+                adminBussiness.getPharmacyList(function(result){
+                    render.renderHtml(res, view.views["admin"]["pharmacy_list"], {
+                        pharmacies: result
+                    });
+                });
+            }
+             
+        });
     }
   
     

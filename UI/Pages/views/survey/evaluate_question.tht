@@ -1,34 +1,5 @@
 <section class="body">
 
-    <!-- start: user box -->
-    <div class="header-right">
-    
-        <span class="separator"></span>
-    
-        <div id="userbox" class="userbox">
-            <a href="#" data-bs-toggle="dropdown">
-                <figure class="profile-picture">
-                    <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
-                </figure>
-                <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-                    <span id="login_user_name" class="name"></span>
-                    <span class="role">Yönetici</span>
-                </div>
-    
-                <i class="fa custom-caret"></i>
-            </a>
-    
-            <div class="dropdown-menu">
-                <ul class="list-unstyled mb-2">
-                    <li class="divider"></li>
-                    <li>
-                        <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- end: user box -->
     
         <div class="inner-wrapper">
             <!-- start: sidebar -->
@@ -53,17 +24,9 @@
                                 
                                 <a class="nav-link" href="#">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Admin Anasayfa</span>
+                                    <span>Sorular</span>
                                 </a>
-                                <ul class="nav nav-children">
-                                    <li class="nav-active">
-                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
-                                    </li>
-                                    <li>
-                                         <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
-                                    </li>
-                               
-                                </ul>
+                                
                             </li>
                         </ul>
                     </nav>
@@ -75,61 +38,48 @@
     
             <section role="main" class="content-body card-margin">
                 <header class="page-header">
-                    <h2>Cevap Ekle / Güncelle</h2>
-    
-                    <div class="right-wrapper text-end">
-                        <ol class="breadcrumbs">
-                            <li>
-                                <a href="/admin">
-                                    <i class="bx bx-home-alt"></i>
-                                </a>
-                            </li>
-    
-                            <li><span>Admin</span></li>
-    
-                            <li><span>Cevap Güncelle</span></li>
-    
-                        </ol>
-    
-                        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
-                    </div>
+                    <h2><% this.pharmacy %></h2>               
                 </header>
     
                 <!-- start: page -->
                     <div class="row">
                         <div class="col">
-                            <section class="card">
-                                <header class="card-header">
-                                    <div class="card-actions">
-                                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                            <% for(var i = 0 ; i < this.questions.length; i++) { %>
+                                <section class="card">
+                                    <header class="card-header">
+                                        <div class="card-actions">
+                                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                                        </div>
+                                        <h2 class="card-title"><% this.questions[i].Question %> </h2>
+                                    </header>
+                                    <div class="card-body">
+                                        <div class="form-horizontal form-bordered" >
+                                            <% for(var j = 0 ; j < this.questions[i].options.length; j++) { %>
+                                                <div class="form-group row pb-4">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">
+                                                            <input name="optionsRadios" class="optionRadio"  type="radio" />
+                                                        </span>
+                                                        <input type="text" class="form-control values" value="<% this.questions[i].options[j].Option %>" disabled>
+                                                    </div>
+                                                </div>    
+                                            <% } %>
+                                        </div>
                                     </div>
-    
-                                    <h2 class="card-title">Sorular </h2>
-                                </header>
-                                <div class="card-body">
-                                    <form class="form-horizontal form-bordered" action="/admin-urun-guncelle" method="post" enctype="multipart/form-data" >
-                                        <input type="hidden" class="form-control" id="surveyQuestionId" name="surveyQuestionId" value="<% this.questionId %>">
-                                        <% for(var i = 0 ; i< this.questions.length; i++){ %>
-                                        <div class="form-group row pb-4">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text">
-                                                    <input name="optionsRadios" class="optionRadio"  type="radio" <% (this.questions.length ==0)? '' : ((this.questions[i].IsCorrect == 1)? 'checked': '') %> >
-                                                </span>
-                                                <input type="text" class="form-control values" value="<% (this.questions.length == 0)?'': (this.questions[i].Option) %>">
-                                            </div>
-                                        </div>
-                                      <% } %>
-                                        <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
-                                            <div class="col-lg-6">
-                                                <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
-                                            </div>
-                                        </div>
-                                    </form>
-    
+                                </section>
+                            <% } %>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col" >
+                            <div class="form-group row pb-4">
+                                <label class="col-lg-6 control-label text-lg-end" for="inputDefault"></label>
+                                <div class="col-lg-6">
+                                    <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
                                 </div>
-                            </section>
+                            </div>
                         </div>
                     </div>
     
@@ -138,16 +88,7 @@
             </section>
         </div>
     
-        <aside id="sidebar-right" class="sidebar-right">
-            <div class="nano">
-                <div class="nano-content">
-                    <a href="#" class="mobile-close d-md-none">
-                        Collapse <i class="fas fa-chevron-right"></i>
-                    </a>
-    
-                </div>
-            </div>
-        </aside>
+      
     </section>
     
     <!-- Vendor -->
