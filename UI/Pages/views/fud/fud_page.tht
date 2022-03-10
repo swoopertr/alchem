@@ -75,7 +75,7 @@
                                     <li>
                                         <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                         </ul>
@@ -117,17 +117,17 @@
                         <section class="card card-featured-left card-featured-primary mb-3">
                             <div class="card-body">
                                 <div class="widget-summary">
-                                    <a href ="/fud/checkin" >
+                                    <a href ="/fud/savepharmacy" >
                                         <div class="widget-summary-col widget-summary-col-icon">
                                             <div class="summary-icon" style="background-color: #dce3cf;">
-                                                <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
+                                                <img src="virt/images/save_pharmacy.png" style="width: 60px;" alt="" />
                                             </div>
                                         </div>
                                         <div class="widget-summary-col">
                                             <div class="summary">
-                                                <h4 class="title">Check-in</h4>
+                                                <h4 class="title">Eczane Kayıt</h4>
                                                 <div class="info">
-                                                    <strong class="amount" style="color: #7d990e;">Check-in</strong>
+                                                    <strong class="amount" style="color: #7d990e;">Eczane Kayıt</strong>
                                                     <span class="text-primary"> &ThickSpace; </span>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                         <section class="card card-featured-left card-featured-primary mb-3">
                             <div class="card-body">
                                 <div class="widget-summary">
-                                    <a href ="/fud/savepharmacy" >
+                                    <a href ="/fud/checkin" >
                                         <div class="widget-summary-col widget-summary-col-icon">
                                             <div class="summary-icon" style="background-color: #dce3cf;">
                                                 <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
@@ -156,9 +156,9 @@
                                         </div>
                                         <div class="widget-summary-col">
                                             <div class="summary">
-                                                <h4 class="title">Eczane Kayıt</h4>
+                                                <h4 class="title">Check-in</h4>
                                                 <div class="info">
-                                                    <strong class="amount" style="color: #7d990e;">Eczane Kayıt</strong>
+                                                    <strong class="amount" style="color: #7d990e;">Check-in</strong>
                                                     <span class="text-primary"> &ThickSpace; </span>
                                                 </div>
                                             </div>
