@@ -2,7 +2,7 @@ const core = require('../Core');
 var productData = require('./../Data/Products/products');
 
 var fudData = require('./../Data/Fud/fud');
-var checkInData = require('./../Data/CheckIn/checkIn');
+var checkInData = require('./../Data/Checkin/checkin');
 var dataCache = require('./../Data/Cache/dataCache');
 
 var fudBussiness = {
