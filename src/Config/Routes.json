@@ -176,6 +176,13 @@
       "isCached": false
     }
   },
+  "admin/survey/answer/post": {
+    "post": {
+      "controller": "survey",
+      "function": "survey_question_answer_list_post",
+      "isCached": false
+    }
+  },
   "checkin": {
     "get": {
       "controller": "user",

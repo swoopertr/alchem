@@ -180,11 +180,11 @@ var fud = {
            
             var survey = await surveyBusiness.async.getSurvey(id);
             var data = {
-                PharmacyId :selected_pharmacy,
+                PharmacyId : selected_pharmacy,
                 uniqueValue,
-                surveyId:survey[0].Id,
+                surveyId : survey[0].Id,
                 expiredAt : new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),
-                userId: user[0].Id
+                userId : user[0].Id
             };
             surveyBusiness.generateLink(data, function (result) {
                 if(result != "0"){

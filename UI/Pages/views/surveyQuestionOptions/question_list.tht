@@ -62,9 +62,7 @@
                                     <li>
                                          <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
                                     </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
-                                    </li>
+                               
                                 </ul>
                             </li>
                         </ul>
@@ -116,9 +114,9 @@
                                         <div class="form-group row pb-4">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">
-                                                    <input name="optionsRadios" type="radio" <% (this.questions[i].IsCorrect == 1)? 'checked': '' %> >
+                                                    <input name="optionsRadios" class="optionRadio"  type="radio" <% (this.questions.length ==0)? '' : ((this.questions[i].IsCorrect == 1)? 'checked': '') %> >
                                                 </span>
-                                                <input type="text" class="form-control" value="<% this.questions[i].Option %>">
+                                                <input type="text" class="form-control values" value="<% (this.questions.length == 0)?'': (this.questions[i].Option) %>">
                                             </div>
                                         </div>
                                       <% } %>
@@ -151,10 +149,7 @@
             </div>
         </aside>
     </section>
-    <script >
-        
-        var a = <% JSON.stringify(this) %>;
-    </script>
+    
     <!-- Vendor -->
     <script src="/virt/vendor/jquery/jquery.js"></script>
     <script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>

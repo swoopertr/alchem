@@ -189,9 +189,31 @@ var survey = {
             data.surveyId = surveyId;
             render.renderHtml(res, view.views["surveyQuestionOptions"]["question_list"], data);
         });
+    },
+    survey_question_answer_list_post: function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        var data = {
+            data: {}
+        };
 
+        req.on('end', function () {
+            console.log(req.formData);
+            surveyQuestionsBusiness.updateQuestionOptions(req.formData, function (result) {
+               render.renderData(res, result); 
+            });
+        });
 
     },
+
     survey_send: function(req, res){
         var cookies = core.parseCookies(req);
         if(cookies == undefined){
@@ -220,7 +242,7 @@ var survey = {
         var data = {
             data: {}
         };
-        ;
+        
         pharmacyBusiness.getPharmacyById(parseInt(cookies.selected_pharmacy), function(pharmacy){
             data.pharmacy = pharmacy[0];
             render.renderHtml(res, view.views["survey"]["evaluate_question"], data);

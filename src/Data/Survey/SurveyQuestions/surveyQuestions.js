@@ -63,7 +63,38 @@ var survey_questions = {
             cbErr && cbErr(err);
         }); 
     },
+    deleteQuestionOptions : function (questionId, cb, cbErr) {
+        const query = {
+            text: 'delete from public."SurveyQuestionsOptions" where "SurveyQuestionId" = $1',
+            values: [questionId]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });     
+    },
+    insertQuestionOptions : function (data, cb, cbErr) {
+        const query = {
+            text: 'insert into "SurveyQuestionsOptions" ("SurveyQuestionId", "Option", "IsCorrect") values ($1, $2, $3)',
+            values: [data.SurveyQuestionId, data.question, data.isCorrect]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async: {
+        insertQuestionOptions : function (data) {
+            return new Promise((resolve, reject) => {
+                survey_questions.insertQuestionOptions(data, function (result) {
+                    resolve(result);
+                }, function (err) {
+                    reject(err);
+                });
+            });
+        },
         getQuestionsBySurveyId : function(surveyId){
             return new Promise(function(resolve,reject){
                 survey_questions.getQuestionsBySurveyId(surveyId,

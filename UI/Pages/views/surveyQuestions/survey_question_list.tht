@@ -77,9 +77,7 @@
                                     <li>
                                         <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
                                     </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
-                                    </li>
+                               
                                 </ul>
                             </li>
                         </ul>

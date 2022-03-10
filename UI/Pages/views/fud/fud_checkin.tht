@@ -64,9 +64,6 @@
                                         <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
                                     </li>
 
-                                    <li>
-                                        <a class="nav-link" href="/fud/checkin">- Check-in</a>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>

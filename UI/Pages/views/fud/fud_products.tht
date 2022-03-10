@@ -74,9 +74,7 @@
                                     <li class="nav-active">
                                         <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
                                     </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/rapor">- Rapor</a>
-                                    </li>
+                          
                                     
                                     
                                 </ul>
