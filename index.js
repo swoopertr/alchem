@@ -1,5 +1,4 @@
 var http = require('http');
-var https = require('https');
 var setting = require('./src/Config/setting');
 var core = require('./src/Core');
 var mimeCore = require('./src/Middleware/mimefilter');
@@ -18,17 +17,7 @@ if (cluster.isMaster) {
     render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {
-        var https_options = {
-            key: fs.readFileSync('cert/private.key'),
-            cert: fs.readFileSync('cert/certificate.crt'),
-            ca:[
-                fs.readFileSync('cert/ca_bundle.crt')
-            ]
-        };
-
-
-
-        https.createServer(https_options ,function (req, res) {
+        http.createServer(https_options ,function (req, res) {
             res.socket.setNoDelay();
             core.postHandler(req, res);
             mimeCore.catchMime(req, res);
