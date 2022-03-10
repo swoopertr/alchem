@@ -59,7 +59,7 @@
                                                 <div class="form-group row pb-4">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">
-                                                            <input name="optionsRadios" class="optionRadio"  type="radio" />
+                                                            <input name="optionsRadios<%j%>" class="optionRadio"  type="radio" />
                                                         </span>
                                                         <input type="text" class="form-control values" value="<% this.questions[i].options[j].Option %>" disabled>
                                                     </div>
