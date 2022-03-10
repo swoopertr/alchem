@@ -5,17 +5,19 @@ check_login();
 (function () {
 
     function getLocation() {
-        if (navigator.geolocation) {
+        document.getElementById('coordinate').value = "40.54345,30.21445";
+        /*if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             document.getElementById('btnCheckin').disabled = true;
             alert("Geolocation is not supported by this browser.");
-        }
+        }*/
     }
 
     function showPosition(position) {
         console.log(position.coords.latitude + ", " + position.coords.longitude);
-        document.getElementById('coordinate').value = position.coords.latitude + "," + position.coords.longitude;
+        //document.getElementById('coordinate').value = position.coords.latitude + "," + position.coords.longitude;
+        document.getElementById('coordinate').value = "40.54345,30.21445";
     }
     getLocation();
 
