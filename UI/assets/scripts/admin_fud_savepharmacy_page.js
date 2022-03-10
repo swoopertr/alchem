@@ -24,9 +24,8 @@ check_login();
         e.preventDefault();
         savePharmacy(function(result){
             if(result != "0") {
-                alert('Check in success');
-                document.getElementById('btnCheckin').disabled = true;
-                document.getElementById('btnGoPresent').disabled = false;
+                alert('Kayıt işlemi başarılı. Anasayfaya yönlendiriliyorsunuz.');
+                window.location.href = '/fud';
             }
         });
     });
