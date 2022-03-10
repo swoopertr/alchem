@@ -17,7 +17,7 @@ if (cluster.isMaster) {
     render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {
-        http.createServer(https_options ,function (req, res) {
+        http.createServer(function (req, res) {
             res.socket.setNoDelay();
             core.postHandler(req, res);
             mimeCore.catchMime(req, res);
