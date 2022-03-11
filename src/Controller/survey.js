@@ -251,6 +251,11 @@ var survey = {
                 render.renderData(res, {status:"completed"});
                 return;
             }
+            if (result[0].ExpiredAt < new Date()) {
+                render.renderData(res, {status:"expired"});
+                return;
+            }
+            
             pharmacyBusiness.getPharmacyById(parseInt(result[0].PharmacyId), function(pharmacy){
                 data.pharmacy = pharmacy[0].Name;
                 data.survey = result[0].SurveyId;
