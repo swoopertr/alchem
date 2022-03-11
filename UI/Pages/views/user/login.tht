@@ -11,7 +11,7 @@
                             <i class="bx bx-user-circle me-1 text-6 position-relative top-5"></i> Sistem Girişi
                         </h2>
 					</div>
-					<div class="card-body" style="background-color: #92c977;">
+					<div class="card-body" style="background-color: #f5fcec;">
 						<form action="index.html" method="post">
 							<div class="form-group mb-3">
 								<label>E-mail</label>
