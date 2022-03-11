@@ -12,7 +12,7 @@
                         </h2>
 					</div>
 					<div class="card-body" style="background-color: #f5fcec;">
-						<form action="index.html" method="post">
+						<form method="post">
 							<div class="form-group mb-3">
 								<label>E-mail</label>
 								<div class="input-group">

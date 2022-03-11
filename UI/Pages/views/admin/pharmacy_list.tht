@@ -66,7 +66,7 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/admin">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
                                     <span>Eczane Listesi</span>
                                 </a>
@@ -97,17 +97,13 @@
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
                         <li>
-                            <a href="index.html">
+                            <a href="/admin">
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
-
                         <li><span>Füd Sayfası</span></li>
-
                         <li><span>Eczane Listesi</span></li>
-
                     </ol>
-
                     <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
                 </div>
             </header>

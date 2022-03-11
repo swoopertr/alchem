@@ -23,7 +23,7 @@
                     <figure class="profile-picture">
                         <img src="virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="virt/img/!logged-user.jpg" />
                     </figure>
-                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                    <div class="profile-info" data-lock-name="" data-lock-email="">
                         <span id="login_user_name" class="name"></span>
                         <span class="role">Yönetici</span>
                     </div>
@@ -66,7 +66,7 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/admin">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
                                     <span>Admin Anasayfa</span>
                                 </a>
@@ -98,7 +98,7 @@
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
                         <li>
-                            <a href="index.html">
+                            <a href="/admin">
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
