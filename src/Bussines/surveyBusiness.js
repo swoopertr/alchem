@@ -1,9 +1,6 @@
-const core = require('../Core');
-var data_product = require('./../Data/Products/products');
 var data_survey = require('./../Data/Survey/survey');
 var SendedSurveys = require('./../Data/SendedSurvey/sendedSurvey');
 var surveyAnswers = require('./../Data/SurveyAnswers/surveyAnswers');
-var fs = require('fs');
 
 var survey_product = {
     getSurvey: function(id, cb, cbErr){
