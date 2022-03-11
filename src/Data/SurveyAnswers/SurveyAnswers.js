@@ -1,4 +1,4 @@
-var pg = require('./../Repository/postgre');
+var pg = require('../Repository/postgre');
 
 var answers_work = {
     saveAnswers :function(answer, cb, cbErr) {
