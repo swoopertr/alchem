@@ -66,9 +66,9 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/fud">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Admin Anasayfa</span>
+                                    <span>Füd Anasayfa</span>
                                 </a>
                                 <ul class="nav nav-children">
 
@@ -93,15 +93,12 @@
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
                         <li>
-                            <a href="index.html">
+                            <a href="/fud">
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
-
                         <li><span>Füd Sayfası</span></li>
-
                         <li><span>Ana Ekran</span></li>
-
                     </ol>
 
                     <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>

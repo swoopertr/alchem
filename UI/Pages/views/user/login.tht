@@ -17,7 +17,7 @@
 								<label>E-mail</label>
 								<div class="input-group">
 									<input name="username" type="text" class="form-control form-control-lg" />
-									<span class="input-group-text">
+									<span class="input-group-text" id="bgemail" >
 										<i class="bx bx-user text-4"></i>
 									</span>
 								</div>
@@ -30,7 +30,7 @@
 								</div>
 								<div class="input-group">
 									<input name="pwd" type="password" class="form-control form-control-lg" />
-									<span class="input-group-text">
+									<span class="input-group-text" id="bgpass" >
 										<i class="bx bx-lock text-4"></i>
 									</span>
 								</div>

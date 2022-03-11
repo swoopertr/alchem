@@ -36,9 +36,8 @@ var user_api = {
                 if(result.status != "not_found"){
                     render.renderData(res, result);
                 }else{
-                    render.renderFail(res, {status:"fail"});
+                    render.renderFail(res, 400, 'Status', "Status Error");
                 }
-                
             });
         });
     },

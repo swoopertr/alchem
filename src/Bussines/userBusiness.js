@@ -58,6 +58,10 @@ var userBusiness = {
                     });
                     return;
                 }
+            }else{
+                cb && cb({
+                    status: "not_found"
+                });
             }
             
             return;

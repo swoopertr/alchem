@@ -1,6 +1,6 @@
 var pg = require('./../Repository/postgre');
 
-var answers = {
+var answers_work = {
     saveAnswers :function(answers, cb, cbErr) {
 
         let query = {
@@ -14,6 +14,18 @@ var answers = {
         }, function (err) {
             cbErr && cbErr(err);
         });
+    },
+    async:{
+        saveAnswers : function (answers) {
+            return new Promise(function (resolve, reject) {
+                answers_work.saveAnswers(answers, function (result) {
+                    
+                },
+                function (err) {
+                    
+                }); 
+            });
+        }
     }
 
 
