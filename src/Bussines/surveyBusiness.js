@@ -1,6 +1,6 @@
 var data_survey = require('./../Data/Survey/survey');
 var SendedSurveys = require('./../Data/SendedSurvey/sendedSurvey');
-var surveyAnswers = require('./../Data/SurveyAnswers/surveyAnswers');
+var surveyAnswers = require('../Data/SurveyAnswers/SurveyAnswers');
 
 var survey_product = {
     getSurvey: function(id, cb, cbErr){
