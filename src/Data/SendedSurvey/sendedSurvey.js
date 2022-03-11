@@ -28,6 +28,20 @@ var survey_send= {
             console.log(error);
         }
     },
+    disableSendedSurvey: function(SendedSurveyId, cb, cbErr){
+        let query = {
+            text: `update "SendedSurveys" set "IsFinised" = 1 where "Id" = $1`,
+            values: [SendedSurveyId]
+        };
+    
+        pg.query(query, function (result) {
+            console.log("result", result);
+            cb && cb(result);
+        }, function (err) {
+            console.log(err);
+            cbErr && cbErr(err);
+        });
+    },
     get_sended_survey_by_id : function (id, cb, cbErr) {
         try {
             let query = {

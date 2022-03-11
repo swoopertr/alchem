@@ -1,14 +1,12 @@
 var pg = require('./../Repository/postgre');
 
 var answers_work = {
-    saveAnswers :function(answers, cb, cbErr) {
-
+    saveAnswers :function(answer, cb, cbErr) {
         let query = {
-            text: `insert into "Survey" ("Name", "Status", "ProductId") values ($1, $2, $3);`,
-            values: [data.surveyName, data.surveyStatus, data.productId]
+            text: `insert into "SurveyAnswers" ("QuestionId", "OptionId", "SendedSurveyId") values ($1, $2, $3);`,
+            values: [answer.QuestionId, answer.OptionId, answer.SendedSurveyId]
         };
        
-
         pg.query(query, function (result) {
             cb && cb(result);
         }, function (err) {
@@ -19,10 +17,10 @@ var answers_work = {
         saveAnswers : function (answers) {
             return new Promise(function (resolve, reject) {
                 answers_work.saveAnswers(answers, function (result) {
-                    
+                    resolve(result);
                 },
                 function (err) {
-                    
+                    reject(err);
                 }); 
             });
         }
@@ -30,4 +28,4 @@ var answers_work = {
 
 
 };
-module.exports = answers;
+module.exports = answers_work;

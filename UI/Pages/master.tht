@@ -17,7 +17,7 @@
     <%page.header%>
     <!-- PAGE HEADER END -->
 </head>
-<body>
+<body style="background-color: #f6fcec;">
   
 <!-- PAGE BODY START -->
 <%page.body%>

@@ -51,7 +51,7 @@
                                             <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                         </div>
-                                        <h2 class="card-title"><% this.questions[i].Question %> </h2>
+                                        <h2 class="card-title" data-question-id="<% this.questions[i].Id %>" ><% this.questions[i].Question %> </h2>
                                     </header>
                                     <div class="card-body">
                                         <div class="form-horizontal form-bordered" >
@@ -59,7 +59,7 @@
                                                 <div class="form-group row pb-4">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">
-                                                            <input name="optionsRadios_<%i%>" class="optionRadio"  type="radio" />
+                                                            <input data-question-id="<% this.questions[i].Id %>" data-option-id="<% this.questions[i].options[j].Id %>"  name="optionsRadios_<%i%>" class="optionRadio"  type="radio" />
                                                         </span>
                                                         <input type="text" class="form-control values" value="<% this.questions[i].options[j].Option %>" disabled>
                                                     </div>
@@ -77,7 +77,7 @@
                             <div class="form-group row pb-4">
                                 <label class="col-lg-6 control-label text-lg-end" for="inputDefault"></label>
                                 <div class="col-lg-6">
-                                    <input id="btnUpdSave" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Cevapları Gönder" />
+                                    <input id="btnUpdSave" data-sended-id="<% this.sendedId %>" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Cevapları Gönder" disabled />
                                 </div>
                             </div>
                         </div>

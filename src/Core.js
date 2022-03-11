@@ -281,7 +281,7 @@ var postHandler = function (req, res) {
                 var body = req.formData.toString('utf-8');
                 body = body.replace(/\+/g, ' ');
                 req.formData = JSON.parse(body);
-                //console.log(req.formData);
+                console.log(req.formData);
             });
         }
     }

@@ -250,5 +250,12 @@
       "function": "survey_evaluate",
       "isCached": false
     }
+  },
+  "surveySaveAnswer":{
+    "post":{
+      "controller": "survey",
+      "function": "survey_evaluate_post",
+      "isCached": false
+    }
   }
 }

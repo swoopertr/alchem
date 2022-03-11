@@ -1,20 +1,17 @@
 <!-- start: page -->
 		<section class="body-sign">
 			<div class="center-sign">
-				<a href="/" class="logo float-left">
-					<img src="virt/images/alchem_logo.jpeg" height="150" alt="Porto Admin" />
+				<a href="/" class="logo center">
+					<img src="virt/images/alchem_logo.png" alt="Porto Admin" style="padding-left: 60px;" height="350" />
+					
 				</a>
 
 				<div class="panel card-sign">
-					<div class="card-title-sign mt-3 text-end">
-						<h2 class="title text-uppercase font-weight-bold m-0" >
-                            <i class="bx bx-user-circle me-1 text-6 position-relative top-5"></i> Sistem Girişi
-                        </h2>
-					</div>
-					<div class="card-body" style="background-color: #f5fcec;">
+					
+					<div class="card-body" style="background-color: #7d990e;">
 						<form method="post">
 							<div class="form-group mb-3">
-								<label>E-mail</label>
+								<label style="color: #f6fcec;">E-mail</label>
 								<div class="input-group">
 									<input name="username" type="text" class="form-control form-control-lg" />
 									<span class="input-group-text" id="bgemail" >
@@ -25,8 +22,7 @@
 
 							<div class="form-group mb-3">
 								<div class="clearfix">
-									<label class="float-left">Şifre</label>
-									
+									<label class="float-left" style="color: #f6fcec;">Şifre</label>
 								</div>
 								<div class="input-group">
 									<input name="pwd" type="password" class="form-control form-control-lg" />
@@ -43,7 +39,7 @@
 									</div>
 								</div>
 								<div class="col-sm-4 text-end" >
-									<button id="btnLogin" type="button" class="btn btn-primary mt-2" style="background-color: #92c977;">Log In >></button>
+									<button id="btnLogin" type="button" class="btn btn-primary mt-2" style="background-color: #f6fcec; color: #7d990e;">Log In >></button>
 								</div>
 							</div>
 
@@ -51,7 +47,7 @@
 					</div>
 				</div>
 
-				<p class="text-center text-muted mt-3 mb-3">&copy; Copyright 2022. Alchem Techs</p>
+				<p class="text-center text-muted mt-3 mb-3">&copy; Copyright© 2021 Alchem International Pvt. Ltd.</p>
 				
 			</div>
 		</section>

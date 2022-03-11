@@ -7,6 +7,7 @@ var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
 var core = require('./../Core');
 var url = require('url');
 const { async } = require('../Data/Products/products');
+const { renderData } = require('./../Middleware/render');
 
 
 var survey = {
@@ -246,9 +247,14 @@ var survey = {
         let id = qs.id;
 
         surveyBussiness.getSendedInfo(id, function (result) {
+            if(result[0].IsFinised == 1){
+                render.renderData(res, {status:"completed"});
+                return;
+            }
             pharmacyBusiness.getPharmacyById(parseInt(result[0].PharmacyId), function(pharmacy){
                 data.pharmacy = pharmacy[0].Name;
                 data.survey = result[0].SurveyId;
+                data.sendedId= result[0].Id;
                 data.id = id;
                 surveyBussiness.getSurveyQuestions(result[0].SurveyId, async function (questions) {
                     data.questions = questions;                
@@ -267,9 +273,16 @@ var survey = {
     },
     survey_evaluate_post: function(req, res){
 
-        req.on('end', function () {
+        req.on('end', async function () {
             console.log(req.formData);
-           
+            var arr = req.formData;
+            for (let i = 0; i < arr.length; i++) {
+                const answer = arr[i];
+                await surveyBussiness.async.saveAnswer(answer);
+            }
+            await surveyBussiness.async.disableSendedSurvey(arr[0].SendedSurveyId);
+
+            render.renderData(res, {status:"success"});
         });
 
     }
