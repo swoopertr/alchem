@@ -4,7 +4,7 @@
     <header class="header">
         <div class="logo-container">
             <a href="" class="logo">
-                <img src="virt/images/alchem_logo.png" height="35" alt="Alchem Techs" />
+                <img src="/virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
             </a>
 
             <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
@@ -13,7 +13,7 @@
 
         </div>
 
-        <!-- start: search & user box -->
+        <!-- start: user box -->
         <div class="header-right">
 
             <span class="separator"></span>
@@ -21,9 +21,9 @@
             <div id="userbox" class="userbox">
                 <a href="#" data-bs-toggle="dropdown">
                     <figure class="profile-picture">
-                        <img src="virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="virt/img/!logged-user.jpg" />
+                        <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
                     </figure>
-                    <div class="profile-info" data-lock-name="" data-lock-email="">
+                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
                         <span id="login_user_name" class="name"></span>
                         <span class="role">Yönetici</span>
                     </div>
@@ -35,13 +35,13 @@
                     <ul class="list-unstyled mb-2">
                         <li class="divider"></li>
                         <li>
-                            <a id="btnLogout" role="menuitem" tabindex="-1" href="admin/logout"><i class="bx bx-power-off"></i> Logout</a>
+                            <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- end: search & user box -->
+        <!-- end: user box -->
     </header>
     <!-- end: header -->
 
@@ -66,32 +66,17 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="/admin">
+                                <a class="nav-link" href="#">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Admin Anasayfa</span>
+                                    <span>Füd Listesi</span>
                                 </a>
                                 <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="admin/urunler">- Ürün Listesi</a>
+                                    <li >
+                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
                                     </li>
-                                    <li>
+                                    <li class="nav-active">
                                         <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
                                     </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/pharmacy-list">- Eczaneler</a>
-                                    </li>
-                                    <li class="nav-parent">
-				                        <a class="nav-link" href="#">
-				                            <i class="bx bx-cube" aria-hidden="true"></i>
-				                            <span>Raporlar</span>
-				                        </a>
-				                        <ul class="nav nav-children">
-                                            <li>
-                                                <a class="nav-link" href="/admin/answers/report">Doğru Cevap Raporu</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    
                                    
                                 </ul>
                             </li>
@@ -105,19 +90,19 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Yönetici Sayfası</h2>
+                <h2>Rapor</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
                         <li>
-                            <a href="/admin">
+                            <a href="/fud">
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
 
-                        <li><span>Yönetici Sayfası</span></li>
+                        <li><span>Rapor Sayfası</span></li>
 
-                        <li><span>Ana Ekran</span></li>
+                        <li><span>Rapor</span></li>
 
                     </ol>
 
@@ -126,6 +111,48 @@
             </header>
 
             <!-- start: page -->
+           
+            <div class="col">
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Rapor</h2>
+                    </header>
+                    <div class="card-body">
+                        
+                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Teknisyen</th>
+                                    <th>Soru Sayısı</th>
+                                    <th>Doğru Sayısı</th>
+                                    <th>Tarih</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% for (var i = 0 ; i< this.list.length ;i++) { %>
+                                    <tr>
+                                        <td><% this.list[i].urun %></td>
+                                        <td><% this.list[i].teknisyen %></td>
+                                        <td><% this.list[i].questioncount %></td>
+                                        <td><% this.list[i].CorrectAnswerCount %></td>
+                                        <td><% this.list[i].CreatedAt %></td>
+                                     </tr>      
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+	      
             <!-- end: page -->
         </section>
     </div>
@@ -143,29 +170,25 @@
 </section>
 
 <!-- Vendor -->
-<script src="virt/vendor/jquery/jquery.js"></script>
-<script src="virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-<script src="virt/vendor/popper/umd/popper.min.js"></script>
-<script src="virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="virt/vendor/common/common.js"></script>
-<script src="virt/vendor/nanoscroller/nanoscroller.js"></script>
-<script src="virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
-<script src="virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
 <!-- Specific Page Vendor -->
 
 <!-- Theme Base, Components and Settings -->
-<script src="virt/js/theme.js"></script>
+<script src="/virt/js/theme.js"></script>
 
 <!-- Theme Custom -->
-<script src="virt/js/custom.js"></script>
+<script src="/virt/js/custom.js"></script>
 
 <!-- Theme Initialization Files -->
-<script src="virt/js/theme.init.js"></script>
+<script src="/virt/js/theme.init.js"></script>
 
-<script src="virt/scripts/admin_page.js"></script>
-
-
-
-</body>
+<script src="/virt/scripts/admin_survey_report.js"></script>

@@ -257,5 +257,12 @@
       "function": "survey_evaluate_post",
       "isCached": false
     }
+  },
+  "admin/answers/report":{
+    "get":{
+      "controller": "report",
+      "function": "survey_report",
+      "isCached": false
+    }
   }
 }
