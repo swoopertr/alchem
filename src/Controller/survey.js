@@ -284,9 +284,10 @@ var survey = {
             for (let i = 0; i < arr.length; i++) {
                 const answer = arr[i];
                 await surveyBussiness.async.saveAnswer(answer);
+                console.log('answer saved');
             }
             await surveyBussiness.async.disableSendedSurvey(arr[0].SendedSurveyId);
-
+            console.log('survey disabled');
             render.renderData(res, {status:"success"});
         });
 
