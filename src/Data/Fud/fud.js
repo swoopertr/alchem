@@ -74,7 +74,7 @@ var workDefinition = {
                 checkin.country,            // 9
                 checkin.city,               // 10
                 checkin.town,               // 11
-                checkin.street,              // 12
+                checkin.street,             // 12
                 checkin.quarter             // 13
             ]
         };
