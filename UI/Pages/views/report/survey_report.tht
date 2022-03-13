@@ -66,9 +66,9 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/admin">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Füd Listesi</span>
+                                    <span>Admin Anasyfa</span>
                                 </a>
                                 <ul class="nav nav-children">
                                     <li >
@@ -95,7 +95,7 @@
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
                         <li>
-                            <a href="/fud">
+                            <a href="/admin">
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
