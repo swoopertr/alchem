@@ -66,13 +66,13 @@
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/fud">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
                                     <span>Eczane Listesi</span>
                                 </a>
                                 <ul class="nav nav-children">
                                     <li >
-                                        <a class="nav-link" href="/fud/urunler">- Ürün Listesi</a>
+                                        <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
                                     </li>
                                 </ul>
                             </li>
@@ -121,6 +121,17 @@
                         <h2 class="card-title">Eczane Listesi</h2>
                     </header>
                     <div class="card-body">
+
+                        <div class="form-horizontal form-bordered" >
+
+                            <div class="form-group row pb-4">
+                                <label class="col-lg-3 control-label text-lg-end pt-2" for="searchPharmacy">Eczane Ara :</label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="searchPharmacy" id="searchPharmacy" />
+                                </div>
+                            </div>
+
+                        </div>
                        
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
@@ -164,6 +175,10 @@
         </div>
     </aside>
 </section>
+
+<script >
+    var pharmacies = <% JSON.stringify(this.pharmacies) %>;
+</script>
 
 <!-- Vendor -->
 <script src="/virt/vendor/jquery/jquery.js"></script>

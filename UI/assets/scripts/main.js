@@ -14,6 +14,8 @@ console.log('this is main.js');
             if(result.status == 'success'){
                 console.log('checktoken success');
                 document.getElementById('login_user_name').innerHTML = util.cookie.get('userName');
+                document.getElementsByClassName('role')[0].innerHTML = userPageType == 1 ?" Yönetici" : "Füd";
+                
             }else{
                 console.log('checktoken fail');
                  
