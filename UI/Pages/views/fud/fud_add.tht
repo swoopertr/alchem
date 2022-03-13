@@ -106,18 +106,19 @@
                             <div class="card-body">
                                 <div class="form-horizontal form-bordered" >
                                     
-                                    <input type="hidden" class="form-control" id="fudId" />
+                                    <input type="hidden" class="form-control" id="fudId" value="<% this.data.Id %>" />
+                                    
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="FudName">Füd Ad Soyad</label>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="FudName" />
+                                            <input type="text" class="form-control" id="FudName" value="<% this.data.Name %>" />
                                         </div>
                                     </div>
 
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="Email">E-mail</label>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control"  id="Email" />
+                                            <input type="text" class="form-control"  id="Email" value="<% this.data.email %>" />
                                         </div>
                                     </div>
 
@@ -131,22 +132,25 @@
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="phone">Telefon</label>
                                         <div class="col-lg-6">
-                                            <input type="text" class="form-control" id="phone" />
+                                            <input type="text" class="form-control" id="phone" value="<% this.data.PhoneNumber %>" />
                                         </div>
                                     </div>
                                    
                                     <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="selectStatus">Durum</label>
                                         <div class="col-lg-6">
-                                            <select name="selectStatus" class="form-control mb-3">
+                                            <select id="selectStatus" name="selectStatus" class="form-control mb-3">
                                                 <option value="1">Aktif</option>
                                                 <option value="0">Pasif</option>
                                             </select>
                                         </div>
+                                        <script>
+                                            document.getElementById('selectStatus').value = "<% this.data.Status %>";
+                                        </script>
                                     </div>
 
                                     <div class="form-group row pb-4">
-                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="btnFudAdd"></label>
                                         <div class="col-lg-6">
                                             <input id="btnFudAdd" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />
                                         </div>
@@ -169,11 +173,7 @@
                 <a href="#" class="mobile-close d-md-none">
                     Collapse <i class="fas fa-chevron-right"></i>
                 </a>
-
                 <div class="sidebar-right-wrapper">
-
-                    
-
                 </div>
             </div>
         </div>

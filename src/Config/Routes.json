@@ -120,6 +120,13 @@
       "isCached": false
     }
   },
+  "admin/fud-sil":{
+    "post":{
+      "controller": "fud",
+      "function": "fudDelete",
+      "isCached": false
+    }
+  },
   "delete_product": {
     "get": {
       "controller": "product",

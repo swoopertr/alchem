@@ -42,8 +42,14 @@ var fud = {
 
         let qs = url.parse(req.url, true).query;
         let id = qs.id;
+        fudBusiness.fudById(id, function(result){
+            var data = {
+                data: result[0]
+            };
+            render.renderHtml(res, view.views["fud"]["fud_add"], data);
+        })
 
-        render.renderHtml(res, view.views["fud"]["fud_add"], {});
+        
 
         
     },
@@ -66,8 +72,8 @@ var fud = {
                     
                 });
             } else { //update
-                fudBusiness.updateFud(req.formData, function (result) {d
-                    render.renderData(res, { newFudId });
+                fudBusiness.updateFud(req.formData, function (result) {
+                    render.renderData(res, { status:"success" });
                 });
             }
 

@@ -35,7 +35,7 @@ check_login();
             ];
 
             util.postJsonRequest('/admin/fud-ekle',post_obj, check_obj, function(result){
-                if(JSON.parse(result).newFudId){
+                if(JSON.parse(result).status == "success"){
                     window.location.href = '/admin/fud-listesi';
                 }else{
                     console.log(result);    

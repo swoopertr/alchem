@@ -4,6 +4,9 @@ var fudData = require('./../Data/Fud/fud');
 var checkInData = require('./../Data/Checkin/checkin');
 
 var fudBussiness = {
+    fudById: function(id, cb){
+        fudData.getById(id, cb);
+    },
     fuds: function(cb){
         fudData.getAll(function(result){
             cb && cb(result);
