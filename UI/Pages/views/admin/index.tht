@@ -126,6 +126,127 @@
             </header>
 
             <!-- start: page -->
+
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
+                                    <a href ="/admin/urunler" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/urunler.png" style="width: 60px;" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Ürün Listesi</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Ürün Listesi</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>  
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
+                                    <a href ="/admin/fud-listesi" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/fud.png" style="width: 60px;" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Füd Listesi</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Füd Listesi</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>  
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
+                                    <a href ="/admin/pharmacy-list" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/eczane.png" style="width: 60px;" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Eczaneler</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Eczaneler</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>  
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
+                                    <a href ="/admin/answers/report" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/rapor.png" style="width: 60px;" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Doğru Cevap Raporu</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Doğru Cevap Raporu</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>  
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
             <!-- end: page -->
         </section>
     </div>
