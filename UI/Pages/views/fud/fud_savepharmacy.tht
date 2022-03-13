@@ -131,7 +131,7 @@
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="officePhone">Ofis Telefon</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  id="officePhone" />
+                                                <input id="officePhone" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" />
                                             </div>
                                         </div>
 
@@ -152,7 +152,7 @@
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="country">Ülke</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  id="country" />
+                                                <input type="text" class="form-control" id="country" value="Türkiye" />
                                             </div>
                                         </div>
 
@@ -174,6 +174,13 @@
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde.</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="street" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Mah.</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="quarter" />
                                             </div>
                                         </div>
 

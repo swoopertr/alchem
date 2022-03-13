@@ -43,7 +43,7 @@ check_login();
         var street = $('#street').val();
         var town = $('#town').val();
         var coordinate = $('#coordinate').val();
-        var town = $('#town').val();
+        var quarter = $('#quarter').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -60,7 +60,8 @@ check_login();
             country,
             city,
             town,
-            street
+            street,
+            quarter
         };
         console.log({
             post_obj
