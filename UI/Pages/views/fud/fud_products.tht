@@ -130,6 +130,7 @@
                                     <th>Resim</th>
                                     <th>Sunum</th>
                                     <th>Ürün</th>
+                                    <th>Soru Sayısı</th>
                                     <th>Gönder</th>
                                 </tr>
                             </thead>
@@ -140,8 +141,9 @@
                                         <td><img style="width: 80px;" src="/virt/<% this.list[i].image %>" class="card-img-top" alt="<% this.list[i].image %>"></td>
                                         <td><a target="_blank" href="/virt/<% this.list[i].FilePath %>">-Sunum Dosyası-</a></td>
                                         <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].count %></td>
                                         <td>
-                                            <a href="/survey/send-survey?id=<% this.list[i].Id %>" target="_blank">Sunum Sorusu gönder<i class="far fa-ball-alt"></i></a>
+                                            <a class="sendQuestion" href="/survey/send-survey?id=<% this.list[i].Id %>" data-count="<% this.list[i].count %>" target="_blank">Sunum Sorusu gönder<i class="far fa-ball-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>

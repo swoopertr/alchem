@@ -15,7 +15,7 @@ var workDefinition = {
     },
     getproducts: function (cb, cbErr) {
         const query = {
-            text: 'select * from public."Products"',
+            text: 'select *, (select count(*) from "SurveyQuestions" where "SurveyId" = p."Id") as count from public."Products" as p',
             values: [],
         };
         pg.query(query, function (result) {
