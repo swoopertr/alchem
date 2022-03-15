@@ -9,7 +9,7 @@ check_login();
         e.preventDefault();
         generateLink(function (result) {
             console.log(result);
-            document.getElementById('urlTxt').value = 'http://alchemlifeegitim.com/survey/evaluate?id=' + JSON.parse(result).uniqueValue;
+            document.getElementById('urlTxt').value = 'https://alchemlifeegitim.com/survey/evaluate?id=' + JSON.parse(result).uniqueValue;
         })
     });
 
