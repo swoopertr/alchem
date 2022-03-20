@@ -133,7 +133,8 @@
                                     <th>Soru Sayısı</th>
                                     <th>Doğru Sayısı</th>
                                     <th>Çalışan</th>
-                                    <th>Tarih (gün-ay-yıl)</th>
+                                    <th>Tamamlanma Tarihi</th>
+                                    <th>Gönderim Tarihi</th>
                                 </tr>
                             </thead>
 
@@ -146,6 +147,7 @@
                                         <td><% this.list[i].CorrectAnswerCount %></td>
                                         <td><% this.list[i].Name %></td>
                                         <td><% this.list[i].CreatedAt %></td>
+                                        <td><% this.list[i].StartedDate %></td>
                                      </tr>      
                                 <% } %>
                             </tbody>

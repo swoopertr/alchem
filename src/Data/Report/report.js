@@ -14,7 +14,8 @@ var workReport = {
                     (select sa."CreatedAt" from "SurveyAnswers" sa
                 inner join "SurveyQuestionsOptions" sqo on sa."OptionId" = sqo."Id"
                 where "SendedSurveyId" = ss."Id" limit 1),
-                U."Name"
+                U."Name",
+                ss."CreatedAt" as "StartedDate"
                     from "SendedSurveys" ss
                 inner join "Survey" s on ss."SurveyId" = s."Id"
                 inner join "Pharmacies" p on ss."PharmacyId" = p."Id"

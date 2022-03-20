@@ -26,6 +26,7 @@ var report = {
 
             for (var i = 0; i < data.list.length; i++) {
                 data.list[i].CreatedAt = core.formatDate(data.list[i].CreatedAt);
+                data.list[i].StartedDate = core.formatDate(data.list[i].StartedDate);
             }
             render.renderHtml(res, view.views["report"]["survey_report"], data);
         });
