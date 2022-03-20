@@ -132,6 +132,7 @@
                                     <th>Teknisyen</th>
                                     <th>Soru Sayısı</th>
                                     <th>Doğru Sayısı</th>
+                                    <th>Çalışan</th>
                                     <th>Tarih</th>
                                 </tr>
                             </thead>
@@ -143,6 +144,7 @@
                                         <td><% this.list[i].teknisyen %></td>
                                         <td><% this.list[i].questioncount %></td>
                                         <td><% this.list[i].CorrectAnswerCount %></td>
+                                        <td><% this.list[i].Name %></td>
                                         <td><% this.list[i].CreatedAt %></td>
                                      </tr>      
                                 <% } %>

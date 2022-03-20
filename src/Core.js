@@ -367,9 +367,15 @@ var emitter_definitions = function(){
     global.events = emitter;
 };
 
+var formatDate = function(date){
+    var d = new Date(date);
+    var dformat = [d.getDate(), d.getMonth()+1, d.getFullYear()].join('-') + ' ' + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':');
+    return dformat;
+}
+
 
 var core = {
-
+    formatDate:formatDate,
     parseCookies:parseCookies,
     getfileContentAsync:getfileContentAsync,
     getfileContentImgAsync:getfileContentImgAsync,
