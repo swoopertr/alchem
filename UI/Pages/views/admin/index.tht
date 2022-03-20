@@ -90,6 +90,11 @@
                                                 <a class="nav-link" href="/admin/answers/report">Doğru Cevap Raporu</a>
                                             </li>
                                         </ul>
+                                        <ul class="nav nav-children">
+                                            <li>
+                                                <a class="nav-link" href="/admin/answers/report/checkin">Check-in Raporu</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     
                                    
@@ -229,6 +234,7 @@
                                                 <img src="virt/images/rapor.png" style="width: 60px;" alt="" />
                                             </div>
                                         </div>
+                                        
                                         <div class="widget-summary-col">
                                             <div class="summary">
                                                 <h4 class="title">Doğru Cevap Raporu</h4>
@@ -237,7 +243,6 @@
                                                     <span class="text-primary"> &ThickSpace; </span>
                                                 </div>
                                             </div>
-                                        
                                         </div>
                                     </a>
                                 </div>  

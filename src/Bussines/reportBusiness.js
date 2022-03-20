@@ -10,6 +10,13 @@ var bussines_report = {
             cbErr && cbErr(err);
         });
     },
+    getCheckinReport: function(cb, cbErr){
+        data_report.getCheckinReport(function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(err);
+        });
+    },
     async: {
       
     }

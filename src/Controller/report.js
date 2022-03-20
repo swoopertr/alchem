@@ -30,6 +30,27 @@ var report = {
             render.renderHtml(res, view.views["report"]["survey_report"], data);
         });
 
+    },
+    report_checkin: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        reportBussines.getCheckinReport(function (result) {
+            var data = {
+                list: result
+            };
+            for (var i = 0; i < data.list.length; i++) {
+                data.list[i].CreatedAt = core.formatDate(data.list[i].CreatedAt);
+            }
+            render.renderHtml(res, view.views["report"]["checkin_report"], data);
+            
+        });
+
+
     }
    
 };

@@ -28,8 +28,19 @@ var workReport = {
             cbErr && cbErr(err);
         });
     },
-  
-   
+    getCheckinReport: function (cb, cbErr) {
+        const query = {
+            text: `select c."CreatedAt", p."Name" as "Eczane", u."Name" as "Fud" from "CheckIns" c
+    inner join "Pharmacies" p on p."Id" =c."PhrmacyId"
+    inner join "Users" u on u."Id" = c."UserId"`,
+            values: []
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    }
 };
 
 module.exports = workReport;

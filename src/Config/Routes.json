@@ -278,5 +278,12 @@
       "function": "survey_report",
       "isCached": false
     }
+  },
+  "admin/answers/report/checkin":{
+    "get":{
+      "controller": "report",
+      "function": "report_checkin",
+      "isCached": false
+    }
   }
 }
