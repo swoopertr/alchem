@@ -26,8 +26,16 @@ var fud = {
             return;
         }
         fudBusiness.fuds(function (result) {
+            
+            let tmpList= [];
+            for (let i = 0; i < result.length; i++) {
+                var item = result[i];
+                if (item.Status != 3) {
+                    tmpList.push(item);
+                }
+            }
             var data = {
-                list: result
+                list: tmpList
             };
             render.renderHtml(res, view.views["fud"]["fud_list"], data);
         });
@@ -204,6 +212,25 @@ var fud = {
             }
 
         });
+    },
+    fudDelete: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function () {
+            userBusiness.updateUserDelete(req.formData.id, function(result) {   
+                if(result == 1 ) {
+                    render.renderData(res, {status: "success"});
+                }else{
+                    render.renderData(res, {status: "error"});
+                }
+            });
+        });
+
     }
     
 };

@@ -58,6 +58,15 @@ var workDefinition = {
             cb && cb(result);
         });
     },
+    deleteUser: function(id, cb){
+        const query = { 
+            text: 'update public."Users" set "Status"=3 where "Id"=$1;',
+            values: [id]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        });
+    },
     getUserByToken : function(token, cb){
         const query = {
             text: 'select * from public."Users" where "token" = $1',

@@ -133,7 +133,7 @@
                                     <th>Soru Sayısı</th>
                                     <th>Doğru Sayısı</th>
                                     <th>Çalışan</th>
-                                    <th>Tarih</th>
+                                    <th>Tarih (gün-ay-yıl)</th>
                                 </tr>
                             </thead>
 

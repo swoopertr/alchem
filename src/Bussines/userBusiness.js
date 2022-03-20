@@ -76,7 +76,12 @@ var userBusiness = {
         userData.getUserByToken(token, function(data){
             cb && cb(data);
         });
-    }   
+    },
+    updateUserDelete: function(fudId, cb){
+        userData.deleteUser(fudId, function(data){
+            cb && cb(data);
+        });
+    }  
 
 };
 
