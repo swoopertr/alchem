@@ -24,6 +24,15 @@ var workDefinition = {
             cbErr && cbErr(err);
         });
     },
+    deletePharmacy: function (id, cb) {
+        const query = {
+            text: 'update public."Pharmacies" set "Status"=3 where "Id"=$1;',
+            values: [id]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        });
+    },
   
     async: { // async versions of the above functions
      

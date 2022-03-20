@@ -204,6 +204,13 @@
       "isCached": false
     }
   },
+  "admin/delete_pharmacy": {
+    "post": {
+      "controller": "admin",
+      "function": "deletePharmacy",
+      "isCached": false
+    }
+  },
   "fud/savepharmacy": {
     "get": {
       "controller": "fud",
