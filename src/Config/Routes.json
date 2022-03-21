@@ -285,5 +285,19 @@
       "function": "report_checkin",
       "isCached": false
     }
+  },
+  "admin/pharmacy-edit":{
+    "get":{
+      "controller": "admin",
+      "function": "pharmacy_edit",
+      "isCached": false
+    }
+  },
+  "admin/updatepharmacy": {
+    "post": {
+      "controller": "admin",
+      "function": "pharmacy_edit_post",
+      "isCached": false
+    }
   }
 }

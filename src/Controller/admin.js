@@ -75,7 +75,51 @@ var admin = {
                 }
             });
         });
+ 
+ },
+    pharmacy_edit: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+         
+        let qs = url.parse(req.url, true).query;
+        let id = qs.id; //pharmacy id
+
+        if(id == undefined){ //insert
+           
+        } else { // update
+            pharmacyBusiness.getPharmacyById(id, function(result){
+                var data = {
+                    data: result[0]
+                }
+                render.renderHtml(res, view.views["admin"]["pharmacy_edit"], data);
+            });
+            
+        }
+    },
+    pharmacy_edit_post: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
         
+        req.on('end', function(){
+
+            pharmacyBusiness.updatePharmacy(req.formData, function(result){
+                if(result){
+                    render.renderData(res, { status: "success" });
+                }else{
+                    render.renderData(res, { status: "error" });
+                }
+            });
+        });
+
+
     }
   
     

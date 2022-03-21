@@ -46,25 +46,46 @@
             <div class="nano">
                 <div class="nano-content">
                     <nav id="menu" class="nav-main" role="navigation">
-    
+
                         <ul class="nav nav-main">
                             
                             <li class="nav-parent nav-expanded">
                                 
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/admin">
                                     <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Füd Anasayfa</span>
+                                    <span>Admin Anasayfa</span>
                                 </a>
                                 <ul class="nav nav-children">
                                     <li>
-                                        <a class="nav-link" href="/fud/savepharmacy">- Eczane Kayıt</a>
+                                        <a class="nav-link" href="admin/urunler">- Ürün Listesi</a>
                                     </li>
-
                                     <li>
-                                        <a class="nav-link" href="/fud/checkin">- Check-in</a>
+                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
                                     </li>
+                                    <li>
+                                        <a class="nav-link" href="/admin/pharmacy-list">- Eczaneler</a>
+                                    </li>
+                                    <li class="nav-parent">
+				                        <a class="nav-link" href="#">
+				                            <i class="bx bx-cube" aria-hidden="true"></i>
+				                            <span>Raporlar</span>
+				                        </a>
+				                        <ul class="nav nav-children">
+                                            <li>
+                                                <a class="nav-link" href="/admin/answers/report">Doğru Cevap Raporu</a>
+                                            </li>
+                                        </ul>
+                                        <ul class="nav nav-children">
+                                            <li>
+                                                <a class="nav-link" href="/admin/answers/report/checkin">Check-in Raporu</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                   
                                 </ul>
                             </li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -100,102 +121,125 @@
                                         <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                                         <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                                     </div>
-                                    <h2 class="card-title">Eczane Kayıt</h2>
+                                    <h2 class="card-title">Eczane Güncelle</h2>
                                 </header>
                                 <div class="card-body">
                                     <div class="form-horizontal form-bordered" >
-                                        
-                                        <input type="hidden" class="form-control" id="fudId" />
+                                        <input type="hidden" class="form-control" id="Id" value="<% this.data.Id %>"/>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="pharmacyName">Eczane</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="pharmacyName" />
+                                                <input type="text" class="form-control" id="pharmacyName" value="<% this.data.Name %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Adı Soyadı</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="nameSurname" />
+                                                <input type="text" class="form-control" id="nameSurname" value="<% this.data.Contact %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="gsm">GSM</label>
                                             <div class="col-lg-6">
-                                                <input id="gsm" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control">
+                                                <input id="gsm" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" value="<% this.data.CellPhone %>" />
                                             </div>
                                         </div>
                                        
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="officePhone">Ofis Telefon</label>
                                             <div class="col-lg-6">
-                                                <input id="officePhone" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" />
+                                                <input id="officePhone" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" value="<% this.data.Phone %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="email">Email</label>
                                             <div class="col-lg-6">
-                                                <input type="email" id="email" name="email" class="form-control" placeholder="eg.: email@email.com" required="" aria-invalid="true">
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="eg.: email@email.com" required="" aria-invalid="true" value="<% this.data.email %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="glnCode">GLN Kodu</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control"  id="glnCode" />
+                                                <input type="text" class="form-control"  id="glnCode" value="<% this.data.glncode %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="country">Ülke</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="country" value="Türkiye" />
+                                                <input type="text" class="form-control" id="country" value="<% this.data.Country %>" />
                                             </div>
                                         </div>
+
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="city">İl</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="city" />
+                                                <input type="text" class="form-control" id="city" value="<% this.data.City %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="town">İlçe</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="town" />
+                                                <input type="text" class="form-control" id="town" value="<% this.data.Town %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="quarter">Mah.</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="quarter" />
+                                                <input type="text" class="form-control" id="quarter" value="<% this.data.Quarter %>" />
                                             </div>
                                         </div>
 
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde.</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde/Sok/Numara/Apt</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="street" />
+                                                <input type="text" class="form-control" id="street" value="<% this.data.Street %>" />
                                             </div>
                                         </div>
 
-
-                                        <div class="form-group row pb-4" style="display: none;">
+                                        <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="coordinate">Koordinat</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="coordinate"  disabled/>
+                                                <input type="text" class="form-control" id="coordinate" value="<% this.data.lat %>, <% this.data.lng %>" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="Status">Durum</label>
+                                            <div class="col-lg-6">
+                                                <select id="status" name="Status" class="form-control mb-3" >
+                                                    <option value="1">Aktif</option>
+                                                    <option value="0">Pasif</option>
+                                                </select>
+                                            </div>
+                                            <script>
+                                                var status_select_value = "<% this.data.Status %>";
+                                                if(status_select_value == ""){
+                                                    status_select_value = "1";
+                                                }
+                                                document.getElementById('status').value = status_select_value;
+                                            </script>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="isChecked">Onaylandı mı?</label>
+                                            <div class="col-lg-6">
+                                                <input type="checkbox" id="isChecked" value="0" style="margin-top: 13px;">
                                             </div>
                                         </div>
     
                                         <div class="form-group row pb-4" >
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
                                             <div class="col-lg-6">
-                                                <input id="btnCheckin" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Eczane Kayıt" />
+                                                <input id="btnUpdatePharmacy" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Eczane Kayıt" />
                                                 <!--<input id="btnGoPresent" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Check-in"  disabled/>-->
                                             </div>
                                         </div>
@@ -273,4 +317,4 @@
     <!-- Theme Initialization Files -->
     <script src="/virt/js/theme.init.js"></script>
     
-    <script src="/virt/scripts/admin_fud_savepharmacy_page.js"></script>
+    <script src="/virt/scripts/admin_fud_updatepharmacy_page.js"></script>

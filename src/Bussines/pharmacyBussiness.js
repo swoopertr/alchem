@@ -16,6 +16,11 @@ var pharmacyBusiness = {
         pharmacyData.deletePharmacy(id, function (result) {
             cb && cb(result);
         });
+    },
+    updatePharmacy: function (data, cb) {
+        pharmacyData.updatePharmacy(data, function (result) {
+            cb && cb(result);
+        });
     }
 }
 

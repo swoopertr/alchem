@@ -163,7 +163,7 @@
                                         <td><% this.pharmacies[i].Phone %></td>
                                         <td><% this.pharmacies[i].CellPhone %></td>
                                         <td>
-                                            <a href="/admin/pharmacy-edit/<% this.pharmacies[i].Id %>" class="btn btn-primary">Düzenle</a>
+                                            <a href="/admin/pharmacy-edit?id=<% this.pharmacies[i].Id %>" class="btn btn-primary">Düzenle</a>
                                             <a href="#"  class="btn btn-danger btn-delete" data-id="<% this.pharmacies[i].Id %>">Sil</a>
                                         </td>
                                      </tr>      
