@@ -36,6 +36,14 @@ settings.postGreDb = {
     port: '5432',//home, desktop, mac
     dbname: 'alchemtech'
 };
+
+settings.emailConfig = {
+    email: 'alchemlifeegitim@gmail.com',
+    pass: '?=Wg5NJ7HN$g6Y)6'
+};
+
+
+
 settings.PostGreConnection = 'postgres://' + settings.postGreDb.user + ':' + settings.postGreDb.pass + '@' 
     + settings.postGreDb.ip + ':' + settings.postGreDb.port + '/' + settings.postGreDb.dbname ;//+ '?sslmode=yes';//+ '?sslmode=disable';
 module.exports = settings;

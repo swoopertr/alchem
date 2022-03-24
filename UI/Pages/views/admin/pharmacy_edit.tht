@@ -95,6 +95,7 @@
             <!-- end: sidebar -->
     
             <section role="main" class="content-body card-margin">
+                
                 <header class="page-header">
                     <h2>FÜD Eczane Kayıt</h2>
     
@@ -110,6 +111,7 @@
                         </ol>
                         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
                     </div>
+                    
                 </header>
     
                 <!-- start: page -->

@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "formidable": "^2.0.1",
+    "nodemailer": "^6.7.3",
     "pg": "8.7.3"
   }
 }
