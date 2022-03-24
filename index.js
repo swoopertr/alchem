@@ -6,6 +6,8 @@ var render = require('./src/Middleware/render');
 var cluster = require('cluster');
 var dataCache = require('./src/Data/Cache/dataCache');
 var fs = require('fs');
+var mail_helper = require('./src/Helper/mailHelper');
+
 
 if (cluster.isMaster) {
     for (var i = 0; i < setting.cpuCount; i++) {
@@ -13,6 +15,8 @@ if (cluster.isMaster) {
     }
 }else {    
     render.init();
+
+    mail_helper.send_mail('tunc.kiral@gmail.com', 'test', 'test');
     render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {

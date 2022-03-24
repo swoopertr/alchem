@@ -14,7 +14,11 @@ check_login();
     });
 
     document.getElementById('btnSendMail').addEventListener('click', function (e) {
-        alert('Mail Gönderildi');
+        e.preventDefault();
+        sendEmail('aa', 'bb',function (result) {
+            console.log(result);
+            alert(result);
+        });
     });
 
     document.getElementById('btnCopy').addEventListener('click', function (e) {
@@ -43,6 +47,13 @@ check_login();
                 cb && cb(result);
             } 
         });
+    }
+
+    function sendEmail(link, to, cb){
+        util.postJsonRequest('/fud/sendmail', {url: link, to: pharmacy.email} , [], function (result) {
+            cb && cb(result);
+        });
+        
     }
 
 })();

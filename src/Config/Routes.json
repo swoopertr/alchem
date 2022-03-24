@@ -299,5 +299,13 @@
       "function": "pharmacy_edit_post",
       "isCached": false
     }
+  },
+  "fud/sendmail":{
+    "post":{
+      "controller": "survey",
+      "function": "send_survey_email",
+      "isCached": false
+    }
   }
+  
 }

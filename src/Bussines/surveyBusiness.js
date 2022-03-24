@@ -52,6 +52,9 @@ var survey_product = {
             cbErr && cbErr(err);
         });
     },
+    sendSurveyEmail: function(data , cb , cbErr){
+        
+    },
     async: {
         getSurvey: function(id){
             return new Promise(function(resolve,reject){

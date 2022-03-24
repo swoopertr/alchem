@@ -291,6 +291,27 @@ var survey = {
             render.renderData(res, {status:"success"});
         });
 
+    },
+    send_survey_email: function(req, res){
+        var cookies = core.parseCookies(req);
+        if(cookies == undefined){
+            core.redirect(res, '/login');
+            return;
+        }
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function () {
+            console.log(req.formData);
+            surveyBussiness.sendSurveyEmail(req.formData, function (result) {
+                render.renderData(res, result);
+            });
+        });
+
+
     }
 
 };

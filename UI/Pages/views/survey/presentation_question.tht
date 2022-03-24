@@ -115,6 +115,7 @@
 											<label class="col-lg-3 control-label text-lg-end pt-2">Eczane</label>
 											<div class="col-lg-6" style="padding-top: 8px;">
                                                 <span class="text"><% this.pharmacy.Name %></span>
+                                                
 											</div>
 										</div>
                                        
@@ -211,4 +212,8 @@
     <!-- Theme Initialization Files -->
     <script src="/virt/js/theme.init.js"></script>
     
+    <script>
+        var pharmacy = <% JSON.stringify(this.pharmacy) %>;
+    </script>
+
     <script src="/virt/scripts/admin_fud_presentation_question_page.js"></script>

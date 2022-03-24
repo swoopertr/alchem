@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 let settings= require('../Config/setting');
 
 let mailManaager = {
-    send_mail: function (to, topic, body) {
+    send_mail: function (to, topic, body, cb) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -15,11 +15,16 @@ let mailManaager = {
           transporter.sendMail({
             from: settings.emailConfig.email, // sender address
             to: to, // list of receivers
-            subject: "Eğitim Soruları", // Subject line
-            html: "<b>Alchem Life Eğitimlerine katıldığınız için teşekkür ederiz, size atanan sorulara link üzerinden ulaşabilirsiniz.</b>", // html body
+            subject: topic, // Subject line
+            html: body, // html body
           }).then(info => {
-            console.log({info});
-          }).catch(console.error);
+            cb && cb(info);
+          }).catch((err)=>{
+            console.log(err);
+            cb && cb({status: 'err'});
+          }).finally(() => {
+            cb && cb(1);
+          });
     }
 };
 
