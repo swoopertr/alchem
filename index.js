@@ -16,7 +16,6 @@ if (cluster.isMaster) {
 }else {    
     render.init();
 
-    mail_helper.send_mail('tunc.kiral@gmail.com', 'test', 'test');
     render.initWatcher();
     dataCache.init().then(function(){console.log("dataCache init success")});
     core.initRouter(function () {

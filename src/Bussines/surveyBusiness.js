@@ -1,7 +1,7 @@
 var data_survey = require('./../Data/Survey/survey');
 var SendedSurveys = require('./../Data/SendedSurvey/sendedSurvey');
 var surveyAnswers = require('../Data/SurveyAnswers/SurveyAnswers');
-
+var mail_helper = require('./../Helper/mailHelper');
 var survey_product = {
     getSurvey: function(id, cb, cbErr){
         data_survey.get_survey_by_productId(id, function(result){
@@ -53,7 +53,9 @@ var survey_product = {
         });
     },
     sendSurveyEmail: function(data , cb , cbErr){
-        
+        mail_helper.send_mail(data.to, 'Eğitim Soruları','Size atanan sorular : ' + data.url, function(result){
+            cb && cb(result);
+        });
     },
     async: {
         getSurvey: function(id){
