@@ -1,0 +1,55 @@
+<!-- start: page -->
+<section class="body-sign">
+    <div class="center-sign">
+        <a href="/" class="logo center">
+            <img src="virt/images/alchem_logo.png" alt="Porto Admin" style="padding-left: 60px;" height="350" />
+            
+        </a>
+
+        <div class="panel card-sign">
+            <p>Teknisyen Login</p>
+            <div class="card-body" style="background-color: #7d990e;">
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label style="color: #f6fcec;">E-mail</label>
+                        <div class="input-group">
+                            <input name="username" type="text" class="form-control form-control-lg" />
+                            <span class="input-group-text" id="bgemail" >
+                                <i class="bx bx-user text-4"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <div class="clearfix">
+                            <label class="float-left" style="color: #f6fcec;">Şifre</label>
+                        </div>
+                        <div class="input-group">
+                            <input name="pwd" type="password" class="form-control form-control-lg" />
+                            <span class="input-group-text" id="bgpass" >
+                                <i class="bx bx-lock text-4"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="checkbox-custom checkbox-default">
+                    
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-end" >
+                            <button id="btnLogin" type="button" class="btn btn-primary mt-2" style="background-color: #f6fcec; color: #7d990e;">Log In >></button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <p class="text-center text-muted mt-3 mb-3">&copy; Copyright© 2021 Alchem International Pvt. Ltd.</p>
+        
+    </div>
+</section>
+<script src="virt/scripts/exlogin_page.js"></script>
+<!-- end: page -->

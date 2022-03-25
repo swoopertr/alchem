@@ -60,4 +60,9 @@ exports.TheHeaderPdf = {
   'Accept-Ranges': 'bytes',
   'Cache-Control': noCacheHeader
 }
+exports.TheHeaderSvg = {
+  'Content-Type': 'image/svg+xml',
+  'Accept-Ranges': 'bytes',
+  'Cache-Control': noCacheHeader
+}
 

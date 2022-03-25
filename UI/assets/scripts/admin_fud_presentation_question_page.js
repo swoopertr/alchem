@@ -4,7 +4,6 @@ check_login();
 
 (function () {
 
-
     document.getElementById('btnGenerateLink').addEventListener('click', function (e) {
         e.preventDefault();
         generateLink(function (result) {
@@ -17,7 +16,7 @@ check_login();
         e.preventDefault();
         sendEmail( document.getElementById('urlTxt').value, pharmacy.email ,function (result) {
             console.log(result);
-            alert(result);
+            alert('Olusturulan linki mail adresinize gonderdik.');
         });
     });
 

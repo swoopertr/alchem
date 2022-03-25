@@ -2,6 +2,17 @@ var pg = require('./../Repository/postgre');
 
 
 var workDefinition = {
+    getPharmacyByEmailPassword : function (email, password, cb) {
+        const query = {
+            text: 'select * from public."Pharmacies" where "email" = $1 and "Password" = $2 and "Status" = 1',
+            values: [email, password]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     getPharmacies: function (cb, cbErr) {
         const query = {
             text: 'select * from public."Pharmacies" ',

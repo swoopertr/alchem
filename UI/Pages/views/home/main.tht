@@ -1,4 +1,31 @@
-<div><% this.name %></div>
+<!--<div><% this.name %></div>
 <div><% this.restName %></div>
 <div><% this.orderData.orderName %></div>
 <div><% JSON.stringify(this.orderData) %></div>
+<!-- start: page -->
+<style>
+    .card a {
+        margin-bottom: 10px;
+    }
+</style>
+<section class="body-sign">
+    <div class="center-sign">
+
+        <div class="row">
+            <div class="col-12">
+                <section class="card" style="text-align: center;">
+                    <a href="/" class="logo center">
+                        <img src="virt/images/alchem_logo.png" alt="Porto Admin"  width="340" height="340" />     
+                    </a>
+                    <a href="login"><img src="virt/images/Admin.svg" width="350"/></a> 
+                    <a href="login"><img src="virt/images/fud-link.svg" width="350"/></a> 
+                    <a href="exlogin"><img src="virt/images/teknisyen.svg" width="350"/></a>
+                </section>
+            </div>
+        </div>
+
+        <p class="text-center text-muted mt-3 mb-3">&copy; Copyright© 2022 Alchem International Pvt. Ltd.</p>
+        
+    </div>
+</section>
+<!-- end: page -->

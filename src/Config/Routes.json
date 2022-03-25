@@ -1,8 +1,8 @@
 {
   "/": {
     "get": {
-      "controller": "data",
-      "function": "list",
+      "controller": "home",
+      "function": "main",
       "isCached": false
     }
   },
@@ -19,7 +19,6 @@
       "function": "getChars",
       "isCached": false
     }
-
   },
   "chars": {
     "get": {
@@ -306,6 +305,19 @@
       "function": "send_survey_email",
       "isCached": false
     }
+  },
+  "exlogin":{
+    "get":{
+      "controller": "exlogin",
+      "function": "login",
+      "isCached": false
+    }
+  },
+  "exlogin_post":{
+    "post":{
+      "controller": "exlogin",
+      "function": "login_post",
+      "isCached": false
+    }
   }
-  
 }

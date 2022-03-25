@@ -69,6 +69,10 @@ comodoca.com
                         res.writeHead(200, defaults.TheHeaderPdf);
                         await core.getfileContentImgAsync(res, filePath);
                         break;
+                    case 'svg':
+                        res.writeHead(200, defaults.TheHeaderSvg);
+                        await core.getfileContentImgAsync(res, filePath);
+                        break;
                 }
             }
             else {
