@@ -15,7 +15,7 @@ check_login();
 
     document.getElementById('btnSendMail').addEventListener('click', function (e) {
         e.preventDefault();
-        sendEmail('aa', 'bb',function (result) {
+        sendEmail( document.getElementById('urlTxt').value, pharmacy.email ,function (result) {
             console.log(result);
             alert(result);
         });

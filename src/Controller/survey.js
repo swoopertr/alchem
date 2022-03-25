@@ -305,13 +305,11 @@ var survey = {
         }
 
         req.on('end', function () {
-            console.log(req.formData);
+            
             surveyBussiness.sendSurveyEmail(req.formData, function (result) {
-                render.renderData(res, result);
+                render.renderData(res, result,);
             });
         });
-
-
     }
 
 };

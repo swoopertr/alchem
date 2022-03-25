@@ -23,7 +23,7 @@ let mailManaager = {
             console.log(err);
             cb && cb({status: 'err'});
           }).finally(() => {
-            cb && cb(1);
+           // cb && cb(1);
           });
     }
 };
