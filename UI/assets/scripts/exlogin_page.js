@@ -19,8 +19,7 @@ document.getElementById("btnLogin").onclick = function () {
             if (result.Status == 1) {
                 window.location.href = '/teknisyen';
             }
-        }
-        
+        } 
         console.log(result);
     });
 };
