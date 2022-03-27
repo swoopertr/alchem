@@ -50,12 +50,20 @@ var fud = {
 
         let qs = url.parse(req.url, true).query;
         let id = qs.id;
-        fudBusiness.fudById(id, function(result){
+        if(id == 0){
             var data = {
-                data: result[0]
+                data: {}
             };
             render.renderHtml(res, view.views["fud"]["fud_add"], data);
-        })
+        }else{
+            fudBusiness.fudById(id, function(result){
+                var data = {
+                    data: result[0]
+                };
+                render.renderHtml(res, view.views["fud"]["fud_add"], data);
+            });
+        }
+       
 
         
 
