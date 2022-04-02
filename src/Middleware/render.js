@@ -34,7 +34,8 @@ var render = {
         funcArr.push(
             getHtmlfooter,
             getHtmlheader,
-            getMaster);
+            getMaster,
+            getHtmlPartials);
 
         core.callMethods(funcArr, 0, function () {
             core.getFileNames(dir + setting.allViewFolder, function (listfiles) {
@@ -94,7 +95,15 @@ var render = {
 var preCache = function (content, cb) {
     var master = cache.get("::master");
     var headerData = cache.get("::header");
+    headerData = headerData.replace(new RegExp('<%%footer%%>', 'g'), footerData ? footerData : '');
     var footerData = cache.get("::footer");
+    footerData = footerData.replace(new RegExp('<%%header%%>', 'g'), headerData ? headerData : '');
+    
+    // regex /<%%(.*?)\%%>/gm;
+    var regexp = /<%%(.*?)\%%>/gm;
+    const partials = [...content.matchAll(regexp)];
+
+    //cache.list.
     master = master.replace(new RegExp('<%footer%>', 'g'), footerData ? footerData : '');
     master = master.replace(new RegExp('<%header%>', 'g'), headerData ? headerData : '');
     master = master.replace(new RegExp('<%page.body%>', 'g'), content);
@@ -102,6 +111,11 @@ var preCache = function (content, cb) {
     for (var prop in setting.proj) {
         master = master.replace(new RegExp('<%proj.' + prop + '%>', 'g'), setting.proj[prop]);
     }
+
+    for(let i = 0; i < partials.length; i++){
+        master = master.replace(new RegExp(partials[i][0], 'g'), cache.get("::partials::" + partials[i][1].trim())); 
+    }
+
     cb && cb(master);
 };
 
@@ -118,7 +132,7 @@ var tengine = function(html, options) {
 		code = 'with(obj) { var r=[];\n', 
 		cursor = 0, 
 		result,
-	    	match;
+	    match;
 	var add = function(line, js) {
 		js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
 			(code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
@@ -152,6 +166,16 @@ var getHtmlheader = function (cb) {
 var getHtmlfooter = function (cb) {
     core.readFile(dir + setting.viewFolder + 'footer.tht', function (content) {
         cache.set("::footer", content);
+        cb && cb();
+    });
+};
+
+var getHtmlPartials = function (cb) {
+    core.getFolderFiles(dir + setting.viewFolder + 'Partials', function (listfiles) {
+        for (var i = 0; i < listfiles.length; i++) {
+            var content = fs.readFileSync(dir + setting.viewFolder + 'Partials/' + listfiles[i] + '.tht', "utf8");
+            cache.set("::partials::" + listfiles[i], content);
+        }
         cb && cb();
     });
 };

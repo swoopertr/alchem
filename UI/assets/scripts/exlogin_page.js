@@ -7,16 +7,17 @@ document.getElementById("btnLogin").onclick = function () {
         password: password
     };
     util.postJsonRequest('exlogin_post', data, undefined, function (result) {
-        var result= JSON.parse(result);
-        util.cookie.add('token', result.token);
-        util.cookie.add('userName', result.userName);
-        util.cookie.add('email', result.email);
-        util.cookie.add('usertype', result.type);
+        var result = JSON.parse(result);
+        
         if(result.hasOwnProperty('error')){
             document.getElementById('bgemail').style.background = 'red'
             document.getElementById('bgpass').style.background = 'red'
         }else{
             if (result.Status == 1) {
+                util.cookie.add('token', result.token);
+                util.cookie.add('userName', result.Name);
+                util.cookie.add('email', result.email);
+                util.cookie.add('usertype', 3);
                 window.location.href = '/teknisyen';
             }
         } 

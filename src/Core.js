@@ -35,6 +35,16 @@ var getFileNames = function (directory, cb) {
     cb && cb(results);
 };
 
+var getFolderFiles = function (dir, cb) {
+    var results = [];
+    var files = fs.readdirSync(dir);
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i].replace(/\.[^/.]+$/, "");
+        results.push(file);
+    }
+    cb && cb(results);
+};
+
 var readFile = function (file, cb) {
     fs.readFile(file, 'utf-8', function (err, data) {
         if (err) {
@@ -375,6 +385,7 @@ var formatDate = function(date){
 
 
 var core = {
+    getFolderFiles:getFolderFiles,
     formatDate:formatDate,
     parseCookies:parseCookies,
     getfileContentAsync:getfileContentAsync,

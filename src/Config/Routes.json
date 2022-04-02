@@ -319,5 +319,20 @@
       "function": "login_post",
       "isCached": false
     }
+  },
+  "teknisyen":{
+    "get":{
+      "controller": "technician",
+      "function": "index",
+      "isCached": false
+    }
+  },
+  "checkextoken":{
+    "get":{
+      "controller": "technician",
+      "function": "check_token",
+      "isCached": false
+    }
   }
+  
 }

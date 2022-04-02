@@ -19,5 +19,8 @@ module.exports = {
     },
     list: function () {
         return cacheObj;
+    },
+    getAllKeys: function () {
+        return Object.keys(cacheObj);
     }
 };

@@ -70,6 +70,15 @@ var workDefinition = {
             cb && cb(result);
         });
     },
+    updateToken : function(data, cb){
+        const query = {
+            text: `update "Pharmacies" set "token" = $2 where "Id" = $1;`,
+            values: [data.Id, data.Token]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        });
+    },
     async: { // async versions of the above functions
      
     }

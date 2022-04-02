@@ -23,7 +23,31 @@ console.log('this is main.js');
                 util.cookie.remove('userName');
                 util.cookie.remove('email');
                 util.cookie.remove('usertype');
-                document.location.href = '/login';
+                document.location.href = '/';
+            }
+        });
+    };
+
+    window.check_exlogin= function(){
+        var token = util.cookie.get('token');
+        var check_obj  = [
+            { name : 'token',         value : token },
+            { name : 'userPageType',  value : userPageType}
+        ];
+        util.getRequest('/checkextoken', check_obj, function(result){
+            result = JSON.parse(result);
+            if(result.status == 'success'){
+                console.log('checktoken success');
+                document.getElementById('login_user_name').innerHTML = util.cookie.get('userName');
+                document.getElementsByClassName('role')[0].innerHTML = "Teknisyen";
+            }else{
+                console.log('checktoken fail');
+                 
+                util.cookie.remove('token');
+                util.cookie.remove('userName');
+                util.cookie.remove('email');
+                util.cookie.remove('usertype');
+                document.location.href = '/';
             }
         });
     };
@@ -37,7 +61,7 @@ console.log('this is main.js');
         util.cookie.remove('email');
         util.cookie.remove('usertype');
       
-        document.location.href = '/login';
+        document.location.href = '/';
     });
 
 
