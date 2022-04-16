@@ -333,6 +333,13 @@
       "function": "check_token",
       "isCached": false
     }
+  },
+  "technician/surveys":{
+    "get":{
+      "controller": "technician",
+      "function": "surveys",
+      "isCached": false
+    }
   }
   
 }

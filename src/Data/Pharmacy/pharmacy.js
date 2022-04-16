@@ -44,6 +44,21 @@ var workDefinition = {
             cb && cb(result);
         });
     },
+    getPharmacyByToken: function (token, cb, cbErr) {
+        const query = {
+            text: 'select * from public."Pharmacies" where "token" = $1',
+            values: [token]
+        };
+        pg.query(query, function (result) {
+            if (result.length == 0) {
+                cb && cb(false);
+                return;
+            }
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     updatePharmacy: function (data, cb) {
         const query = {
             text: `update "Pharmacies"
@@ -73,7 +88,7 @@ var workDefinition = {
     updateToken : function(data, cb){
         const query = {
             text: `update "Pharmacies" set "token" = $2 where "Id" = $1;`,
-            values: [data.Id, data.Token]
+            values: [data.Id, data.token]
         };
         pg.query(query, function (result) {
             cb && cb(result);

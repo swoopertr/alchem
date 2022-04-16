@@ -1,89 +1,16 @@
 <section class="body">
 
     <!-- start: header -->
-    <header class="header">
-        <div class="logo-container">
-            <a href="" class="logo">
-                <img src="virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
-            </a>
 
-            <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-                <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-            </div>
+    <%% header_fud %%>
 
-        </div>
-
-        <!-- start: search & user box -->
-        <div class="header-right">
-
-            <span class="separator"></span>
-
-            <div id="userbox" class="userbox">
-                <a href="#" data-bs-toggle="dropdown">
-                    <figure class="profile-picture">
-                        <img src="virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="virt/img/!logged-user.jpg" />
-                    </figure>
-                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-                        <span id="login_user_name" class="name"></span>
-                        <span class="role">Füd</span>
-                    </div>
-
-                    <i class="fa custom-caret"></i>
-                </a>
-
-                <div class="dropdown-menu">
-                    <ul class="list-unstyled mb-2">
-                        <li class="divider"></li>
-                        <li>
-                            <a id="btnLogout" role="menuitem" tabindex="-1" href="admin/logout"><i class="bx bx-power-off"></i> Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end: search & user box -->
-    </header>
     <!-- end: header -->
 
     <div class="inner-wrapper">
-        <!-- start: sidebar -->
-        <aside id="sidebar-left" class="sidebar-left">
-
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    Navigation
-                </div>
-                <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-                </div>
-            </div>
-
-            <div class="nano">
-                <div class="nano-content">
-                    <nav id="menu" class="nav-main" role="navigation">
-
-                        <ul class="nav nav-main">
-                            
-                            <li class="nav-parent nav-expanded">
-                                
-                                <a class="nav-link" href="/fud">
-                                    <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Füd Anasayfa</span>
-                                </a>
-                                <ul class="nav nav-children">
-
-                                    <li>
-                                        <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </aside>
+        <!-- start: sidebar ::partially loaded in rt -->
+        
+        <%% sidebar_fud %%>
+        
         <!-- end: sidebar -->
 
         <section role="main" class="content-body">
@@ -107,7 +34,6 @@
             </header>
 
             <!-- start: page -->
-
 
             <div class="col-lg-12">
                 <div class="row mb-12">
@@ -146,11 +72,13 @@
                             <div class="card-body">
                                 <div class="widget-summary">
                                     <a href ="/fud/checkin" >
+                                        
                                         <div class="widget-summary-col widget-summary-col-icon">
                                             <div class="summary-icon" style="background-color: #dce3cf;">
                                                 <img src="virt/images/check-in-alchem.png" style="width: 60px;" alt="" />
                                             </div>
                                         </div>
+                                        
                                         <div class="widget-summary-col">
                                             <div class="summary">
                                                 <h4 class="title">Check-in</h4>
@@ -159,8 +87,8 @@
                                                     <span class="text-primary"> &ThickSpace; </span>
                                                 </div>
                                             </div>
-                                        
                                         </div>
+                                        
                                     </a>
                                 </div>
                               
@@ -169,8 +97,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <!-- end: page -->
         </section>
@@ -182,10 +108,10 @@
                 <a href="#" class="mobile-close d-md-none">
                     Collapse <i class="fas fa-chevron-right"></i>
                 </a>
-
             </div>
         </div>
     </aside>
+
 </section>
 
 <!-- Vendor -->
@@ -211,7 +137,4 @@
 <script src="virt/js/theme.init.js"></script>
 
 <script src="virt/scripts/admin_fud_presentation_page.js"></script>
-
-
-
 </body>

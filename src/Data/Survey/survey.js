@@ -44,6 +44,17 @@ var survey_data= {
             cbErr && cbErr(err);
         });
     },
+    get_surveys_by_pharmacy_id: function(pharmacyId, cb, cbErr){
+        const query = {
+            text: 'select s."Name" surveyname, ss.* from "SendedSurveys" ss inner join "Survey" s on s."Id" =ss."SurveyId" where "PharmacyId" = $1 order by "ExpiredAt" desc', 
+            values: [pharmacyId]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         get_survey_by_productId : function(id){
             return new Promise(function(resolve,reject){
@@ -57,6 +68,15 @@ var survey_data= {
         get_survey_questions: function(surveyId){
             return new Promise(function(resolve,reject){
                 survey_data.get_survey_questions(surveyId, function(result){
+                    resolve(result);
+                },function(err){
+                    reject(err);
+                });
+            });
+        },
+        get_surveys_by_pharmacy_id: function(pharmacyId){
+            return new Promise(function(resolve,reject){
+                survey_data.get_surveys_by_pharmacy_id(pharmacyId, function(result){
                     resolve(result);
                 },function(err){
                     reject(err);

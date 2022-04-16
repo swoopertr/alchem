@@ -111,11 +111,9 @@ var preCache = function (content, cb) {
     for (var prop in setting.proj) {
         master = master.replace(new RegExp('<%proj.' + prop + '%>', 'g'), setting.proj[prop]);
     }
-
     for(let i = 0; i < partials.length; i++){
-        master = master.replace(new RegExp(partials[i][0], 'g'), cache.get("::partials::" + partials[i][1].trim())); 
+        master = master.replace(new RegExp(partials[i][0], 'g'), cache.get("::partials::" + partials[i][1].trim()));     
     }
-
     cb && cb(master);
 };
 
