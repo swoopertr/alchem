@@ -25,9 +25,7 @@ var technician = {
         var cookies = core.parseCookies(req);
         var token = cookies.token;
         if(token == undefined){
-            render.renderData(res, {
-                status: "fail"
-            }, 'json');
+            core.redirect(res, '/exlogin');
         }else{
             exuserBusiness.checkToken(token, function(result){
                 if(result == false){
@@ -44,9 +42,7 @@ var technician = {
         var cookies = core.parseCookies(req);
         var token = cookies.token;
         if(token == undefined){
-            render.renderData(res, {
-                status: "fail"
-            }, 'json');
+            core.redirect(res, '/exlogin');
         }else{
             exuserBusiness.checkToken(token, function(result){
                 if(result == false){
@@ -60,11 +56,75 @@ var technician = {
                     });
                 }
             }, function(err){
+                core.redirect(res, '/exlogin');
+            });
+        }
+    },
+    feedback: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if(token == undefined){
+            core.redirect(res, '/exlogin');
+        }else{
+            exuserBusiness.checkToken(token, function(result){
+                if(result == false){
+                    core.redirect(res, '/exlogin');
+                }else{
+                    render.renderHtml(res, view.views["technician"]["feedback"], {});
+                }
+            }, function(err){
                 render.renderData(res, {
                     status: "fail"
                 }, 'json');
             });
         }
+    },
+    feedback_post: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if(token == undefined){
+            core.redirect(res, '/exlogin');
+            return;
+        }
+
+        req.on('end', function(){
+            exuserBusiness.checkToken(token, function(result){
+                if(result == false){
+                    core.redirect(res, '/exlogin');
+                }else{
+                    exuserBusiness.addFeedback(req.formData, function(result){
+                        render.renderData(res, {
+                            status: "success"
+                        }, 'json');
+                    }, function(err){
+                        core.redirect(res, '/exlogin');
+                    });
+                }
+            }, function(err){
+                core.redirect(res, '/exlogin');
+            });
+        });
+    },
+    point_report: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if(token == undefined){
+            core.redirect(res, '/exlogin');
+            return;
+        }
+
+        exuserBusiness.checkToken(token, function(result){
+            if(result == false){
+                core.redirect(res, '/exlogin');
+            }else{
+                render.renderHtml(res, view.views["technician"]["pointreport"], {});
+            }
+        }, function(err){
+            render.renderData(res, {
+                status: "fail"
+            }, 'json');
+        });
+
     }
 }
 

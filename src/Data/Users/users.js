@@ -1,6 +1,17 @@
 var pg =  require('./../Repository/postgre');
 
 var workDefinition = {
+    getAllAdminsEmails : function(cb, cbErr){
+        const query = { // change the query
+            text: 'SELECT email, "Name" FROM public."Users" where "Type" = 1 and "Status"=1',
+            values: [],
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     getAll: function(cb, cbErr){
         const query = { // change the query
             text: 'SELECT * FROM public."Users"',
@@ -108,6 +119,13 @@ var workDefinition = {
         getUserByTokenAsync: function(token){
             return new Promise((resolve, reject) => {
                 workDefinition.getUserByToken(token, function (result) {
+                    resolve(result);
+                });
+            });
+        },
+        getAllAdminsEmailsAsync: function(){
+            return new Promise((resolve, reject) => {
+                workDefinition.getAllAdminsEmails(function (result) {
                     resolve(result);
                 });
             });

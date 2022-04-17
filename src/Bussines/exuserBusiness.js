@@ -1,6 +1,10 @@
 const core = require('../Core');
 var pharmacyData = require('./../Data/Pharmacy/pharmacy');
 var surveysData = require('./../Data/Survey/survey');
+var feedbackData = require('./../Data/Feedback/feedback');
+var userData = require('./../Data/Users/users');
+var mail_helper = require('./../Helper/mailHelper');
+
 
 let pharmacyBusiness = {
     login: function (email, pass, cb) {
@@ -26,6 +30,15 @@ let pharmacyBusiness = {
             for (let i = 0; i < result.length; i++) {
                 result[i].ExpiredAt = result[i].ExpiredAt.getTime();
             }
+            cb && cb(result);
+        });
+    },
+    addFeedback :  function(data, cb){
+        feedbackData.add_feedback(data, async function(result){
+            let adminUsers = await userData.async.getAllAdminsEmailsAsync();
+            let adminsEmail = adminUsers.map(x => x.email);
+            let body = 'Başlik : '+ data.topic + '<br>' + 'Mesaj : ' + data.description;
+            await mail_helper.send_mail_async(adminsEmail, 'AlchemLife Eğitim Geribildirim', body);
             cb && cb(result);
         });
     }

@@ -1,0 +1,113 @@
+<section class="body">
+    <%% header_tech %%>
+    
+    <div class="inner-wrapper">
+        <!-- start: sidebar -->
+       <%% sidebar_teknisyen %%>
+        <!-- end: sidebar -->
+            <section role="main" class="content-body card-margin">
+                <header class="page-header">
+                    <h2>Geribildirim</h2>
+    
+                    <div class="right-wrapper text-end">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="/teknisyen">
+                                    <i class="bx bx-home-alt"></i>
+                                </a>
+                            </li>
+    
+                            <li><span>Teknisyen</span></li>
+    
+                            <li><span>Geribildirim</span></li>
+    
+                        </ol>
+    
+                        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                    </div>
+                </header>
+    
+                <!-- start: page -->
+                    <div class="row">
+                        <div class="col">
+                            <section class="card">
+                                <header class="card-header">
+                                    <div class="card-actions">
+                                        <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                        <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                                    </div>
+    
+                                    <h2 class="card-title">Geribildirim</h2>
+                                </header>
+                                <div class="card-body">
+                                    <div class="form-horizontal form-bordered" >
+                                        
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Başlık</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" name="topic" id="topic" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="ProductName">Açıklama</label>
+                                            <div class="col-lg-6">
+                                                <textarea type="text" class="form-control" name="description" id="description" ></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
+                                            <div class="col-lg-6">
+                                                <input id="btnSave" type="submit" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet" />
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+    
+                 
+                <!-- end: page -->
+            </section>
+        </div>
+    
+        <aside id="sidebar-right" class="sidebar-right">
+            <div class="nano">
+                <div class="nano-content">
+                    <a href="#" class="mobile-close d-md-none">
+                        Collapse <i class="fas fa-chevron-right"></i>
+                    </a>
+    
+                </div>
+            </div>
+        </aside>
+    </section>
+    
+    <!-- Vendor -->
+    <script src="/virt/vendor/jquery/jquery.js"></script>
+    <script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/virt/vendor/popper/umd/popper.min.js"></script>
+    <script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/virt/vendor/common/common.js"></script>
+    <script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    
+    <!-- Specific Page Vendor -->
+    <script src="/virt/vendor/autosize/autosize.js"></script>
+    <script src="/virt/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+    
+    <!-- Theme Base, Components and Settings -->
+    <script src="/virt/js/theme.js"></script>
+    
+    <!-- Theme Custom -->
+    <script src="/virt/js/custom.js"></script>
+    
+    <!-- Theme Initialization Files -->
+    <script src="/virt/js/theme.init.js"></script>
+    
+    <script src="/virt/scripts/technician_feedback.js"></script>

@@ -340,6 +340,27 @@
       "function": "surveys",
       "isCached": false
     }
+  },
+  "technician/feedback":{
+    "get":{
+      "controller": "technician",
+      "function": "feedback",
+      "isCached": false
+    }
+  },
+  "feedback_post":{
+    "post":{
+      "controller": "technician",
+      "function": "feedback_post",
+      "isCached": false
+    }
+  },
+  "technician/pointreport":{
+    "get":{
+      "controller": "technician",
+      "function": "point_report",
+      "isCached": false
+    }
   }
   
 }
