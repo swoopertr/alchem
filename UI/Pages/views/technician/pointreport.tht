@@ -1,0 +1,49 @@
+<section class="body">
+    <%% header_tech %%>
+    
+    <div class="inner-wrapper">
+        <!-- start: sidebar -->
+       <%% sidebar_teknisyen %%>
+        <!-- end: sidebar -->
+
+        <section role="main" class="content-body card-margin">
+            <header class="page-header">
+                <h2>Puan Durumu</h2>               
+            </header>
+
+            <!-- start: page -->
+     
+            <!-- end: page -->
+        </section>
+    </div>
+
+  
+</section>
+<script>
+    var data_  = <% JSON.stringify(this.data) %>;
+</script>
+<!-- Vendor -->
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+<!-- Specific Page Vendor -->
+<script src="/virt/vendor/autosize/autosize.js"></script>
+<script src="/virt/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="/virt/js/theme.js"></script>
+
+<!-- Theme Custom -->
+<script src="/virt/js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="/virt/js/theme.init.js"></script>
+
+<script src="/virt/scripts/technician_survey_list.js"></script>
