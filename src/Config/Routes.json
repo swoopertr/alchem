@@ -361,6 +361,27 @@
       "function": "point_report",
       "isCached": false
     }
+  },
+  "fud/checkins":{
+    "get":{
+      "controller": "fud",
+      "function": "fud_checkins",
+      "isCached": false
+    }
+  },
+  "fud/participation-ratio":{
+    "get":{
+      "controller": "fud",
+      "function": "fud_participation_ratio",
+      "isCached": false
+    }
+  },
+  "fud/correctness-ratio":{
+    "get":{
+      "controller": "fud",
+      "function": "fud_correctness_ratio",
+      "isCached": false
+    }
   }
   
 }

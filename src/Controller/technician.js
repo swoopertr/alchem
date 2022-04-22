@@ -117,7 +117,13 @@ var technician = {
             if(result == false){
                 core.redirect(res, '/exlogin');
             }else{
-                render.renderHtml(res, view.views["technician"]["pointreport"], {});
+                //todo calculate points
+                exuserBusiness.calculatePoints(result[0].Id, function(result){
+                    render.renderHtml(res, view.views["technician"]["pointreport"], {result});
+                }, function(err){
+
+                });
+                
             }
         }, function(err){
             render.renderData(res, {

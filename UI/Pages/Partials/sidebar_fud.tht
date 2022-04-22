@@ -26,7 +26,24 @@
                             <li>
                                 <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
                             </li>
-
+                            <li class="nav-parent">
+                                <a class="nav-link" href="#">
+                                    <i class="bx bx-cube" aria-hidden="true"></i>
+                                    <span>Raporlar</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                    <li>
+                                        <a class="nav-link" href="/fud/checkins">Check-in Raporu</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="/fud/participation-ratio">Katılım Raporu</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="/fud/correctness-ratio">Anketlere Doğru Yanıt Verme Raporu</a>
+                                    </li>
+                                </ul>
+                                
+                            </li>
                         </ul>
                     </li>
                 </ul>

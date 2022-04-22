@@ -43,7 +43,7 @@ var survey_questions = {
     },
     deleteQuestion: function(questionId, cb, cbErr){
         const query = {
-            text: 'delete from public."SurveyQuestions" where "Id" = $1',
+            text: 'update public."SurveyQuestions" set "Status"=3 where "Id" = $1',
             values: [questionId]
         };
         pg.query(query, function (result) {

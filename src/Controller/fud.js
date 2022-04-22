@@ -239,6 +239,19 @@ var fud = {
             });
         });
 
+    },
+    fud_checkins: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        userBusiness.getUserByToken(token, async function (user) {
+            if (user.length > 0) {
+                
+            }
+        });
     }
     
 };

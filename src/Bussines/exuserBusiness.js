@@ -9,6 +9,7 @@ var mail_helper = require('./../Helper/mailHelper');
 let pharmacyBusiness = {
     login: function (email, pass, cb) {
         pharmacyData.getPharmacyByEmailPassword(email, pass, function (result) {
+            
             let token = core.GenerateToken();
             let data = {};
             if (result.length != 0) {
@@ -39,6 +40,11 @@ let pharmacyBusiness = {
             let adminsEmail = adminUsers.map(x => x.email);
             let body = 'Başlik : '+ data.topic + '<br>' + 'Mesaj : ' + data.description;
             await mail_helper.send_mail_async(adminsEmail, 'AlchemLife Eğitim Geribildirim', body);
+            cb && cb(result);
+        });
+    },
+    calculatePoints : function(pharmacyId, cb){
+        surveysData.get_surveys_by_pharmacy_id(pharmacyId, async function(result){
             cb && cb(result);
         });
     }

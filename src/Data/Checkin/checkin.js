@@ -15,6 +15,15 @@ var workDefinition = {
         pg.query(query, function (result) {
             cb && cb(result[0].Id);
         });
+    },
+    getCheckin: function(userId, cb){
+        const query = { 
+            text: `select * from "CheckIns" where "UserId" = $1`, 
+            values: [userId]
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        });
     }
  };
 

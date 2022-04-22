@@ -12,7 +12,39 @@
             </header>
 
             <!-- start: page -->
-     
+            <div class="col">
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Rapor</h2>
+                    </header>
+                    <div class="card-body">
+                        
+                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+
+                            <thead>
+                                <tr>
+                                    <th>Girilen Anketler</th>
+                                    <th>Puan</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <% for (var i = 0 ; i< this.result.length ;i++) { %>
+                                    <tr>
+                                        <td><span><% this.result[i].surveyname %></span></td>
+                                        <td><span><% this.result[i].point %></span></td>
+                                     </tr>      
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
             <!-- end: page -->
         </section>
     </div>
@@ -20,7 +52,7 @@
   
 </section>
 <script>
-    var data_  = <% JSON.stringify(this.data) %>;
+    var data_  = <% JSON.stringify(this.result) %>;
 </script>
 <!-- Vendor -->
 <script src="/virt/vendor/jquery/jquery.js"></script>
