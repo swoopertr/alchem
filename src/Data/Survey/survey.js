@@ -55,6 +55,22 @@ var survey_data= {
             cbErr && cbErr(err);
         });
     },
+    get_surveys_score_bySendedSurveyIDs: function(sendedSurveyIds, cb){
+        let ids = sendedSurveyIds.join(',');
+        const query = {
+            text: `select sum(sqo."IsCorrect"), "SendedSurveyId"  from "SurveyAnswers" sa
+                        inner join "SurveyQuestions" sq on sa."QuestionId" = sq."Id"
+                        inner join "SurveyQuestionsOptions" sqo on sqo."Id" = sa."OptionId"
+                    where "SendedSurveyId" in (${ids})
+                    group by "SendedSurveyId";`, 
+            values: []
+        };
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async: {
         get_survey_by_productId : function(id){
             return new Promise(function(resolve,reject){

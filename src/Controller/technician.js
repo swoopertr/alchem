@@ -119,6 +119,7 @@ var technician = {
             }else{
                 //todo calculate points
                 exuserBusiness.calculatePoints(result[0].Id, function(result){
+                   
                     render.renderHtml(res, view.views["technician"]["pointreport"], {result});
                 }, function(err){
 

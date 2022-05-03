@@ -36,6 +36,11 @@ var fudBussiness = {
         checkInData.saveCheckin(checkin, function(result){
             cb && cb(result);
         });
+    },
+    getCheckin : function(userId, cb){
+        checkInData.getCheckin(userId, function(result){
+            cb && cb(result);
+        });
     }
     
 };

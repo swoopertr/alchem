@@ -37,7 +37,7 @@
                                 <% for (var i = 0 ; i< this.result.length ;i++) { %>
                                     <tr>
                                         <td><span><% this.result[i].surveyname %></span></td>
-                                        <td><span><% this.result[i].point %></span></td>
+                                        <td><span><% this.result[i].Score %></span></td>
                                      </tr>      
                                 <% } %>
                             </tbody>

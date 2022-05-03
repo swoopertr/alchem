@@ -45,7 +45,20 @@ let pharmacyBusiness = {
     },
     calculatePoints : function(pharmacyId, cb){
         surveysData.get_surveys_by_pharmacy_id(pharmacyId, async function(result){
-            cb && cb(result);
+            let ids = result.map(x => x.Id);
+            surveysData.get_surveys_score_bySendedSurveyIDs(ids, function(scores){
+                for (let i = 0; i < result.length; i++) {
+                    result[i].Score=0;
+                   for (let j = 0; j < scores.length; j++) {
+                       const score = scores[j];
+                       if(result[i].Id == score.SendedSurveyId){
+                            result[i].Score = score.sum * 20;
+                       }
+                   }    
+                }
+                cb && cb(result);
+            });
+            
         });
     }
 };
