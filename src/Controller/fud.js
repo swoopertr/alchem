@@ -247,11 +247,21 @@ var fud = {
             core.redirect(res, '/login');
             return;
         }
+        //todo: to check if user is login and authorize to make this request. make it work for global usage
         userBusiness.getUserByToken(token, async function (user) {
             if (user.length > 0) {
+                var data = {
+                    userId: user[0].Id
+                };
+                fudBusiness.getCheckin(data.userId, function (result) {
+                    data.list = result;
+                    render.renderHtml(res, view.views["fud"]["fud_checkin"], data);
+                });
+                
                 
             }
         });
+
     }
     
 };

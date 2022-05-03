@@ -1,4 +1,4 @@
-console.log('admin_fud_savepharmacy_page.js');
+console.log('admin_fud_checkin_page.js');
 userPageType = 2;
 check_login();
 

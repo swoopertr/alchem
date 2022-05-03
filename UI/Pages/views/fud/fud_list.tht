@@ -1,114 +1,17 @@
 <section class="body">
 
     <!-- start: header -->
-    <header class="header">
-        <div class="logo-container">
-            <a href="" class="logo">
-                <img src="/virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
-            </a>
 
-            <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-                <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-            </div>
+    <%% header_fud %%>
 
-        </div>
-
-        <!-- start: user box -->
-        <div class="header-right">
-
-            <span class="separator"></span>
-
-            <div id="userbox" class="userbox">
-                <a href="#" data-bs-toggle="dropdown">
-                    <figure class="profile-picture">
-                        <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
-                    </figure>
-                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-                        <span id="login_user_name" class="name"></span>
-                        <span class="role">Yönetici</span>
-                    </div>
-
-                    <i class="fa custom-caret"></i>
-                </a>
-
-                <div class="dropdown-menu">
-                    <ul class="list-unstyled mb-2">
-                        <li class="divider"></li>
-                        <li>
-                            <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end: user box -->
-    </header>
     <!-- end: header -->
 
     <div class="inner-wrapper">
-        <!-- start: sidebar -->
-        <aside id="sidebar-left" class="sidebar-left">
-
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    Navigation
-                </div>
-                <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-                </div>
-            </div>
-
-         
-            <div class="nano">
-                <div class="nano-content">
-                    <nav id="menu" class="nav-main" role="navigation">
-
-                        <ul class="nav nav-main">
-                            
-                            <li class="nav-parent nav-expanded">
-                                
-                                <a class="nav-link" href="/admin">
-                                    <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Admin Anasayfa</span>
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="/admin/urunler">- Ürün Listesi</a>
-                                    </li>
-                                    <li class="nav-active">
-                                        <a class="nav-link" href="/admin/fud-listesi">- Füd Listesi</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="/admin/pharmacy-list">- Eczaneler</a>
-                                    </li>
-                                    <li class="nav-parent">
-				                        <a class="nav-link" href="#">
-				                            <i class="bx bx-cube" aria-hidden="true"></i>
-				                            <span>Raporlar</span>
-				                        </a>
-				                        <ul class="nav nav-children">
-                                            <li>
-                                                <a class="nav-link" href="/admin/answers/report">Doğru Cevap Raporu</a>
-                                            </li>
-                                        </ul>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a class="nav-link" href="/admin/answers/report/checkin">Check-in Raporu</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    
-                                   
-                                </ul>
-                            </li>
-                            
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-        </aside>
-        <!-- end: sidebar -->
+     <!-- start: sidebar ::partially loaded in rt -->
+        
+     <%% sidebar_fud %%>
+        
+     <!-- end: sidebar -->
 
         <section role="main" class="content-body">
             <header class="page-header">
@@ -121,11 +24,8 @@
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
-
-                        <li><span>Yönetici Sayfası</span></li>
-
-                        <li><span>Füd Listesi</span></li>
-
+                        <li><span>Füd Sayfası</span></li>
+                        <li><span>Ana Ekran</span></li>
                     </ol>
 
                     <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>

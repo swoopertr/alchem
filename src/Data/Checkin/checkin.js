@@ -18,7 +18,7 @@ var workDefinition = {
     },
     getCheckin: function(userId, cb){
         const query = { 
-            text: `select * from "CheckIns" where "UserId" = $1`, 
+            text: `SELECT p."Name",c.* FROM public."CheckIns" c inner join "Pharmacies" p on p."Id"=c."PhrmacyId" WHERE "UserId"= $1`, 
             values: [userId]
         };
         pg.query(query, function (result) {
