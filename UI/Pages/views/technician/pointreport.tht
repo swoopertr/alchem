@@ -11,40 +11,69 @@
                 <h2>Puan Durumu</h2>               
             </header>
 
+        
             <!-- start: page -->
-            <div class="col">
-                <section class="card">
-                    <header class="card-header">
-                        <div class="card-actions">
-                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                        </div>
+            <div class="row">
+                <div class="col">
+                    <section class="card">
+                        <header class="card-header">
+                            <div class="card-actions">
+                                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                            </div>
 
-                        <h2 class="card-title">Rapor</h2>
-                    </header>
-                    <div class="card-body">
-                        
-                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+                            <h2 class="card-title">Rapor</h2>
+                        </header>
+                        <div class="card-body">
+                            
+                            <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
-                            <thead>
-                                <tr>
-                                    <th>Girilen Anketler</th>
-                                    <th>Puan</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <% for (var i = 0 ; i< this.result.length ;i++) { %>
+                                <thead>
                                     <tr>
-                                        <td><span><% this.result[i].surveyname %></span></td>
-                                        <td><span><% this.result[i].Score %></span></td>
-                                     </tr>      
-                                <% } %>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+                                        <th>Girilen Anketler</th>
+                                        <th>Zaman</th>
+                                        <th>Puan</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <% for (var i = 0 ; i< this.result.length ;i++) { %>
+                                        <tr>
+                                            <td><span><% this.result[i].surveyname %></span></td>
+                                            <td><span><% this.result[i].CreatedAt.toLocaleDateString() %></span></td>
+                                            <td><span><% this.result[i].Score %></span></td>
+                                        </tr>      
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="card">
+                        <header class="card-header">
+                            <div class="card-actions">
+                                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                            </div>
+
+                            <h2 class="card-title">Puan Grafiği</h2>
+                            <p class="card-subtitle"></p>
+                        </header>
+                        <div class="card-body">
+
+                            <!-- Flot: Bars -->
+                            <div class="chart chart-md" id="flotBars"></div>
+                            
+                        </div>
+                    </section>
+                </div>
+              
+            </div>
+
             <!-- end: page -->
         </section>
     </div>
@@ -53,6 +82,11 @@
 </section>
 <script>
     var data_  = <% JSON.stringify(this.result) %>;
+    debugger;
+    var chart_data=[]; 
+    for (let i = 0; i < data_.length; i++) {    
+        chart_data.push([data_[i].surveyname+'('+ data_[i].CreatedAt.split('T')[0]+')' ,data_[i].Score]);
+    }
 </script>
 <!-- Vendor -->
 <script src="/virt/vendor/jquery/jquery.js"></script>
@@ -64,6 +98,22 @@
 <script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
 <script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 <script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+
+<script src="/virt/vendor/jquery.easy-pie-chart/jquery.easypiechart.js"></script>
+<script src="/virt/vendor/flot/jquery.flot.js"></script>
+<script src="/virt/vendor/flot.tooltip/jquery.flot.tooltip.js"></script>
+<script src="/virt/vendor/flot/jquery.flot.pie.js"></script>
+<script src="/virt/vendor/flot/jquery.flot.categories.js"></script>
+<script src="/virt/vendor/flot/jquery.flot.resize.js"></script>
+<script src="/virt/vendor/jquery-sparkline/jquery.sparkline.js"></script>
+<script src="/virt/vendor/raphael/raphael.js"></script>
+<script src="/virt/vendor/morris/morris.js"></script>
+<script src="/virt/vendor/gauge/gauge.js"></script>
+<script src="/virt/vendor/snap.svg/snap.svg.js"></script>
+<script src="/virt/vendor/liquid-meter/liquid.meter.js"></script>
+<script src="/virt/vendor/chartist/chartist.js"></script>
+
 
 <!-- Specific Page Vendor -->
 <script src="/virt/vendor/autosize/autosize.js"></script>
