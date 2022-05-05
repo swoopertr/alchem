@@ -12,39 +12,29 @@ var plot;
         }
     }
 
-    if( $('#flotBars').get(0) ) {
-        plot = $.plot('#flotBars', [chart_data], {
-            colors: ['#8CC9E8'],
+
+
+    if( $('#flotPie').get(0) ) {
+        var plot = $.plot('#flotPie', pie_chart_data, {
             series: {
-                bars: {
+                pie: {
                     show: true,
-                    barWidth: 0.8,
-                    align: 'center'
+                    combine: {
+                        color: '#999',
+                        threshold: 0.1
+                    }
                 }
             },
-            xaxis: {
-                mode: 'categories',
-                tickLength: 0
+            legend: {
+                show: false
             },
             grid: {
                 hoverable: true,
-                clickable: true,
-                borderColor: 'rgba(0,0,0,0.1)',
-                borderWidth: 1,
-                labelMargin: 15,
-                backgroundColor: 'transparent'
-            },
-            tooltip: true,
-            tooltipOpts: {
-                content: '%y',
-                shifts: {
-                    x: -10,
-                    y: 20
-                },
-                defaultTheme: false
+                clickable: true
             }
         });
     }
+
 
 
 

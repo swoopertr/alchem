@@ -23,13 +23,14 @@
                                 <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                             </div>
 
-                            <h2 class="card-title">Puan Grafiği</h2>
+                            <h2 class="card-title title-score">Puan Grafiği</h2>
                             <p class="card-subtitle"></p>
                         </header>
                         <div class="card-body">
 
                             <!-- Flot: Bars -->
-                            <div class="chart chart-md" id="flotBars"></div>
+                            <!--<div class="chart chart-md" id="flotBars"></div>-->
+                            <div class="chart chart-md" id="flotPie"></div>
                             
                         </div>
                     </section>
@@ -87,9 +88,22 @@
     var data_  = <% JSON.stringify(this.result) %>;
     debugger;
     var chart_data=[]; 
+    var pie_chart_data=[];
+    var total_score =0;
     for (let i = 0; i < data_.length; i++) {    
+        pie_chart_data.push({
+                label: data_[i].surveyname+'('+ data_[i].CreatedAt.split('T')[0]+')',
+                data: [
+                    [1, data_[i].Score]
+                ],
+                color: '#'+ Math.floor(Math.random()*16777215).toString(16)
+            });
         chart_data.push([data_[i].surveyname+'('+ data_[i].CreatedAt.split('T')[0]+')' ,data_[i].Score]);
+        total_score += data_[i].Score;
     }
+    document.getElementsByClassName('title-score')[0].innerHTML = 'Toplam Puan: '+total_score;
+
+
 </script>
 <!-- Vendor -->
 <script src="/virt/vendor/jquery/jquery.js"></script>
