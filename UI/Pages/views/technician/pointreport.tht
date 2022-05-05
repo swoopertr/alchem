@@ -13,6 +13,30 @@
 
         
             <!-- start: page -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="card">
+                        <header class="card-header">
+                            <div class="card-actions">
+                                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                            </div>
+
+                            <h2 class="card-title">Puan Grafiği</h2>
+                            <p class="card-subtitle"></p>
+                        </header>
+                        <div class="card-body">
+
+                            <!-- Flot: Bars -->
+                            <div class="chart chart-md" id="flotBars"></div>
+                            
+                        </div>
+                    </section>
+                </div>
+              
+            </div>
+
             <div class="row">
                 <div class="col">
                     <section class="card">
@@ -51,28 +75,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <section class="card">
-                        <header class="card-header">
-                            <div class="card-actions">
-                                <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                                <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                            </div>
-
-                            <h2 class="card-title">Puan Grafiği</h2>
-                            <p class="card-subtitle"></p>
-                        </header>
-                        <div class="card-body">
-
-                            <!-- Flot: Bars -->
-                            <div class="chart chart-md" id="flotBars"></div>
-                            
-                        </div>
-                    </section>
-                </div>
-              
-            </div>
+           
 
             <!-- end: page -->
         </section>
