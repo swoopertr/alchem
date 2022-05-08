@@ -255,7 +255,7 @@ var fud = {
                 };
                 fudBusiness.getCheckin(data.userId, function (result) {
                     data.list = result;
-                    render.renderHtml(res, view.views["fud"]["fud_checkin"], data);
+                    render.renderHtml(res, view.views["fud"]["fud_checkins"], data);
                 });
                 
                 
