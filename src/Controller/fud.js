@@ -257,8 +257,6 @@ var fud = {
                     data.list = result;
                     render.renderHtml(res, view.views["fud"]["fud_checkins"], data);
                 });
-                
-                
             }
         });
 

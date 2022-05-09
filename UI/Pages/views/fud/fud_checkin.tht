@@ -115,7 +115,7 @@
 													<option value="">Eczane Seç</option>
                                                     <% for(var i = 0 ; i <this.pharmacies.length; i++){ %>
                                                         <option value="<% this.pharmacies[i].Id %>" lng="<% this.pharmacies[i].lng %>" lat = "<% this.pharmacies[i].lat %>" ><% this.pharmacies[i].Name %></option>
-                                                    <% } %>  
+                                                    <% } %>
 												</select>
 											</div>
 										</div>
