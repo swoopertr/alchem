@@ -14,6 +14,29 @@ check_login();
         });
     });
 
+    document.getElementById('btnSendPassword').addEventListener('click', function (e) {
+        sendPasswordEmail(function(result){ 
+            alert(result);
+        });
+    });
+
+    function sendPasswordEmail(cb){
+        var token = util.cookie.get('token');
+        var check_obj = [
+            { name: 'token',  value: token },
+            { name: 'userPageType',  value: userPageType }
+        ];
+        var post_obj = {
+            id: $('#Id').val()
+        };
+
+        util.postJsonRequest('/admin/sendpharmacypasswordmail', post_obj, check_obj, function (result) {
+            if (result != "0") {
+                cb && cb(result);
+            } 
+        });
+    }
+
     function updatePharmacy(cb) {
         var Id = $('#Id').val();
         var pharmacyName = $('#pharmacyName').val();
@@ -29,6 +52,7 @@ check_login();
         var coordinate = $('#coordinate').val();
         var quarter = $('#quarter').val();
         var status = $('#status').val();
+        var password = $('#password').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -48,7 +72,8 @@ check_login();
             city,
             town,
             street,
-            quarter
+            quarter,
+            password
         };
         console.log({
             post_obj

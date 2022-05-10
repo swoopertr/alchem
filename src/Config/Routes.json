@@ -292,6 +292,15 @@
       "isCached": false
     }
   },
+
+  "admin/sendpharmacypasswordmail": {
+    "post": {
+      "controller": "admin",
+      "function": "pharmacy_send_password_post",
+      "isCached": false
+    }
+  },
+
   "admin/updatepharmacy": {
     "post": {
       "controller": "admin",
@@ -299,6 +308,7 @@
       "isCached": false
     }
   },
+
   "fud/sendmail":{
     "post":{
       "controller": "survey",

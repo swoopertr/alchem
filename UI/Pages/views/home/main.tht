@@ -13,8 +13,8 @@
                     <a href="/" class="logo center">
                         <img src="virt/images/alchem_logo.png" alt="Porto Admin"  width="340" height="340" />     
                     </a>
-                    <a href="login"><img src="virt/images/Admin.svg" width="350"/></a> 
-                    <a href="login"><img src="virt/images/fud-link.svg" width="350"/></a> 
+                    <a href="login?h=adm"><img src="virt/images/Admin.svg" width="350"/></a> 
+                    <a href="login?h=fud"><img src="virt/images/fud-link.svg" width="350"/></a> 
                     <a href="exlogin"><img src="virt/images/teknisyen.svg" width="350"/></a>
                 </section>
             </div>

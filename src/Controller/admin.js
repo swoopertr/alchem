@@ -120,6 +120,27 @@ var admin = {
         });
 
 
+    },
+    pharmacy_send_password_post: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function(){
+            pharmacyBusiness.getPharmacyById(req.formData.id, function(result){
+                if(result.length > 0){
+                    pharmacyBusiness.sendPharmacyPasswordMail(result[0].email, result[0].Password, function(result){
+                        render.renderData(res, { status: "success" });
+                    });
+                }else{
+                    render.renderData(res, { status: "Account not found!!!" });
+                }
+            });
+            
+        });
     }
   
 };

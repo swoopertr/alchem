@@ -165,6 +165,16 @@
                                         </div>
 
                                         <div class="form-group row pb-4">
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Şifre</label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="password" name="password" value="<% this.data.Password %>" />
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <input type="button" class="form-control" id="btnSendPassword" name="btnSendPassword" value="Şifreyi Mail At" style="background: #22ffb2;" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="glnCode">GLN Kodu</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control"  id="glnCode" value="<% this.data.glncode %>" />
@@ -206,6 +216,7 @@
                                                 <input type="text" class="form-control" id="street" value="<% this.data.Street %>" />
                                             </div>
                                         </div>
+
 
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="coordinate">Koordinat</label>

@@ -1,5 +1,6 @@
 const core = require('../Core');
 var pharmacyData = require('./../Data/Pharmacy/pharmacy');
+var email_helper = require('./../Helper/mailHelper');
 
 var pharmacyBusiness = {
     getAllPharmacies: function (cb) {
@@ -19,6 +20,11 @@ var pharmacyBusiness = {
     },
     updatePharmacy: function (data, cb) {
         pharmacyData.updatePharmacy(data, function (result) {
+            cb && cb(result);
+        });
+    },
+    sendPharmacyPasswordMail : function(email, password, cb){
+        email_helper.send_mail(email, "Eczane Teknisyeni Şifresi", "Şifreniz : " + password, function(result){
             cb && cb(result);
         });
     }
