@@ -4,6 +4,7 @@ var fudData = require('./../Data/Fud/fud');
 var checkInData = require('./../Data/Checkin/checkin');
 var mail_helper = require('./../Helper/mailHelper');
 
+
 var fudBussiness = {
     fudById: function(id, cb){
         fudData.getById(id, cb);
@@ -30,7 +31,7 @@ var fudBussiness = {
     },
     addPharmacy : function(fud_obj, cb){
         fud_obj.password = core.GeneratePassword();
-        fudData.addPharmacy(fud_obj, function(result){
+        fudData.addPharmacy(fud_obj, async function(result){
             if(result>0){
                await mail_helper.send_mail_async(fud_obj.email, 'Eczane Teknisyen şifreniz', 'Alchemlife Eğitim sistemine hoş geldiniz. Şifreniz : ' +fud_obj.password);
             }

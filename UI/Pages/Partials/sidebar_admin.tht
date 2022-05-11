@@ -31,6 +31,9 @@
                             <li>
                                 <a class="nav-link" href="/admin/pharmacy-list">- Eczaneler</a>
                             </li>
+                            <li>
+                                <a class="nav-link" href="/admin/allgoals">-Tüm Hedefler</a>
+                            </li>
                             <li class="nav-parent">
                                 <a class="nav-link" href="#">
                                     <i class="bx bx-cube" aria-hidden="true"></i>

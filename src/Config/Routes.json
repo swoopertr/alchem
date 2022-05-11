@@ -86,7 +86,7 @@
   },
   "admin/fud-listesi": {
     "get": {
-      "controller": "fud",
+      "controller": "admin",
       "function": "fuds",
       "isCached": false
     }
@@ -392,6 +392,12 @@
       "function": "fud_correctness_ratio",
       "isCached": false
     }
+  },
+  "admin/allgoals":{
+    "get":{
+      "controller": "admin",
+      "function": "allgoals",
+      "isCached": false
+    }
   }
-  
 }
