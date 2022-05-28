@@ -182,8 +182,15 @@ var admin = {
                 });
                 core.redirect(res, '/login');
             }else{
-                render.renderHtml(res, view.views["admin"]["allgoals"], {});
+                adminBussiness.getAllGoals(function(result){
+                    let data= {
+                        list:result
+                    };
+                    render.renderHtml(res, view.views["admin"]["allgoals"], data);
+                });
+                
             }
+        });
     },
     goal_appoint: function(req, res){
         var cookies = core.parseCookies(req);

@@ -1,0 +1,137 @@
+<section class="body">
+
+    <!-- start: header -->
+
+    <%% header_fud %%>
+
+    <!-- end: header -->
+
+    <div class="inner-wrapper">
+     <!-- start: sidebar ::partially loaded in rt -->
+        
+     <%% sidebar_admin %%>
+        
+     <!-- end: sidebar -->
+
+        <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>Hedefler</h2>
+
+                <div class="right-wrapper text-end">
+                    <ol class="breadcrumbs">
+                        <li>
+                            <a href="/admin">
+                                <i class="bx bx-home-alt"></i>
+                            </a>
+                        </li>
+                        <li><span>Füd Hefedleri</span></li>
+                    </ol>
+
+                    <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                </div>
+            </header>
+
+            <!-- start: page -->
+            
+            <div class="col">
+                <section class="card">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                        </div>
+
+                        <h2 class="card-title">Hedefler</h2>
+                    </header>
+                    <div class="card-body">
+                        
+                        <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
+
+                            <thead>
+                                <tr>
+                                    <th>Füd</th>
+                                    <th>Hedef</th>
+                                    <th>Başlık</th>
+                                    <th>Başlangıç</th>
+                                    <th>Bitiş</th>
+                                    <th>Açıklama</th>
+                                    <th>Aksiyon</th>
+                                </tr>
+                            </thead>
+
+<!-- 
+Appointer:54
+CreatedAt:Tue Apr 19 2022 15:00:00 GMT+0300 (GMT+03:00)
+Description:'Hedefine ulaşman dileğiyle başarılar dilerim'
+EndDate:Fri May 20 2022 00:00:00 GMT+0300 (GMT+03:00)
+GoalCount:5
+Id:1
+IsFinished:0
+StartDate:Wed Apr 20 2022 00:00:00 GMT+0300 (GMT+03:00)
+Status:1
+Title:'Küçük Hedef'
+UserId:22 
+-->
+
+
+                            <tbody id="goal_list">
+                                <% for (var i = 0 ; i< this.list.length ;i++) { %>
+                                    <tr data-id="<% this.list[i].Id %>" >
+                                        <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].Status ==1 ? 'Aktif':'Pasif' %></td>
+                                        <td class="actions">
+                                            <a href="/admin/fud/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
+                                            <span>|</span>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_fud" class="on-default"><i class="far fa-trash-alt"></i></a>
+                                            <span>|</span>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="edit_fud_goal" class="on-default">HEDEF KOY</a>
+                                        </td>
+                                     </tr>      
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+	      
+            <!-- end: page -->
+        </section>
+    </div>
+
+    <aside id="sidebar-right" class="sidebar-right">
+        <div class="nano">
+            <div class="nano-content">
+                <a href="#" class="mobile-close d-md-none">
+                    Collapse <i class="fas fa-chevron-right"></i>
+                </a>
+
+            </div>
+        </div>
+    </aside>
+</section>
+
+<!-- Vendor -->
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="/virt/vendor/popper/umd/popper.min.js"></script>
+<script src="/virt/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/virt/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="/virt/vendor/common/common.js"></script>
+<script src="/virt/vendor/nanoscroller/nanoscroller.js"></script>
+<script src="/virt/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/virt/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+<!-- Specific Page Vendor -->
+
+<!-- Theme Base, Components and Settings -->
+<script src="/virt/js/theme.js"></script>
+
+<!-- Theme Custom -->
+<script src="/virt/js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="/virt/js/theme.init.js"></script>
+
+<script src="/virt/scripts/admin_goal_list_page.js"></script>
+

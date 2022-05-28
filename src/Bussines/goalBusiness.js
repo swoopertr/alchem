@@ -5,6 +5,7 @@ var mail_helper = require('./../Helper/mailHelper');
 let goals_business = {
     getAllPharmacies: function (cb) {
         pharmacyData.getPharmacies(function (result) {
+            
             cb && cb(result);
         });
     }
