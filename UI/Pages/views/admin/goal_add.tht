@@ -1,0 +1,17 @@
+<section class="body">
+    <!-- start: header -->
+
+    <%% header_fud %%>
+
+    <!-- end: header -->
+    <div class="inner-wrapper">
+    <!-- start: sidebar ::partially loaded in rt -->
+        
+    <%% sidebar_admin %%>
+        
+     <!-- end: sidebar -->
+    </div>
+
+
+
+</section>

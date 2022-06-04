@@ -44,47 +44,45 @@
                         <h2 class="card-title">Hedefler</h2>
                     </header>
                     <div class="card-body">
-                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <a id="btn-add-product" class="btn btn-primary" href="/admin/add_goal" role="button">Ekle <i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>                        
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
                             <thead>
                                 <tr>
+                                    <th>Atayan</th>
                                     <th>Füd</th>
                                     <th>Hedef</th>
                                     <th>Başlık</th>
+                                    <th>Açıklama</th>
                                     <th>Başlangıç</th>
                                     <th>Bitiş</th>
-                                    <th>Açıklama</th>
+                                    <th>Durum</th>
                                     <th>Aksiyon</th>
                                 </tr>
                             </thead>
 
-<!-- 
-Appointer:54
-CreatedAt:Tue Apr 19 2022 15:00:00 GMT+0300 (GMT+03:00)
-Description:'Hedefine ulaşman dileğiyle başarılar dilerim'
-EndDate:Fri May 20 2022 00:00:00 GMT+0300 (GMT+03:00)
-GoalCount:5
-Id:1
-IsFinished:0
-StartDate:Wed Apr 20 2022 00:00:00 GMT+0300 (GMT+03:00)
-Status:1
-Title:'Küçük Hedef'
-UserId:22 
--->
 
 
                             <tbody id="goal_list">
                                 <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                     <tr data-id="<% this.list[i].Id %>" >
+                                        <td><% this.list[i].atayan %></td>
                                         <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].GoalCount %></td>
+                                        <td><% this.list[i].Title %></td>
+                                        <td><% this.list[i].Description %></td>
+                                        <td><% this.list[i].StartDate %></td>
+                                        <td><% this.list[i].EndDate %></td>
+                                        
                                         <td><% this.list[i].Status ==1 ? 'Aktif':'Pasif' %></td>
                                         <td class="actions">
-                                            <a href="/admin/fud/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>
-                                            <span>|</span>
-                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_fud" class="on-default"><i class="far fa-trash-alt"></i></a>
-                                            <span>|</span>
-                                            <a href="#" data-id="<% this.list[i].Id %>" class="edit_fud_goal" class="on-default">HEDEF KOY</a>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delete_fud on-default"><i class="far fa-trash-alt"></i></a>
                                         </td>
                                      </tr>      
                                 <% } %>
@@ -110,6 +108,9 @@ UserId:22
         </div>
     </aside>
 </section>
+<script type="text/javascript">
+   var dat = <% JSON.stringify(this.list) %>;
+</script>
 
 <!-- Vendor -->
 <script src="/virt/vendor/jquery/jquery.js"></script>

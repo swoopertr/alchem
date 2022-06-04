@@ -28,6 +28,13 @@ var adminBussiness = {
         }, function(err){
             cbErr && cbErr(err);
         });
+    },
+    deleteGoal: function(id, cb, cbErr){
+        goalsData.deleteGoal(id, function(result){
+            cb && cb(result);
+        }, function(err){
+            cbErr && cbErr(result);
+        });
     }
 };
 

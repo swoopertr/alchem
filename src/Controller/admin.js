@@ -182,7 +182,7 @@ var admin = {
                 });
                 core.redirect(res, '/login');
             }else{
-                adminBussiness.getAllGoals(function(result){
+                adminBussiness.getAvailableGoals(function(result){
                     let data= {
                         list:result
                     };
@@ -225,6 +225,57 @@ var admin = {
             }
         });
     },
+    delete_goal: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+
+        req.on('end', function(){
+            userBusiness.checkToken(token, function(result){
+                if(result == false){
+                    render.renderData(res, {
+                        page: "admin",
+                        auth: "fail"
+                    });
+                    core.redirect(res, '/login');
+                }else{
+                    var goalId = req.formData.id;
+                    adminBussiness.deleteGoal(goalId, function(result){
+                        console.log(result);
+                        render.renderData(res, { result });
+                    });
+                }
+            }); 
+        });   
+    },
+
+    add_goal: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        } 
+        
+        userBusiness.checkToken(token, function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{  
+                render.renderHtml(res, view.views["admin"]["add_goal"], {
+                    pharmacies: tmpPharmacyList
+                });
+            }
+        });
+
+
+    }
   
 };
 

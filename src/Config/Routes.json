@@ -399,5 +399,19 @@
       "function": "allgoals",
       "isCached": false
     }
+  },
+  "admin/delete_goal":{
+    "post":{
+      "controller": "admin",
+      "function": "delete_goal",
+      "isCached": false
+    }
+  },
+  "admin/add_goal":{
+    "get":{
+      "controller": "admin",
+      "function": "add_goal",
+      "isCached": false
+    }
   }
 }
