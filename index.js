@@ -8,7 +8,6 @@ var dataCache = require('./src/Data/Cache/dataCache');
 var fs = require('fs');
 var mail_helper = require('./src/Helper/mailHelper');
 
-
 if (cluster.isMaster) {
     for (var i = 0; i < setting.cpuCount; i++) {
         cluster.fork();
