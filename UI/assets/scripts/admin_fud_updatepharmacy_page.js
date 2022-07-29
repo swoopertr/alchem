@@ -53,6 +53,7 @@ check_login();
         var quarter = $('#quarter').val();
         var status = $('#status').val();
         var password = $('#password').val();
+        var technician = $('#nameTechnician').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -73,8 +74,10 @@ check_login();
             town,
             street,
             quarter,
-            password
+            password,
+            technician
         };
+        
         console.log({
             post_obj
         });

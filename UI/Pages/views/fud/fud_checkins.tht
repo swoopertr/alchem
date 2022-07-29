@@ -59,8 +59,8 @@
                                     <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                         <tr data-id="<% this.list[i].Id %>" >
                                             <td><% this.list[i].Name %></td>
-                                            <td><% this.list[i].CreatedAt %></td>
-                                            <td><span class="coord" ><% this.list[i].lat +","+ this.list[i].lng %></span></td>
+                                            <td><% this.list[i].CreatedAt.toLocaleString() %></td>
+                                            <td><span class="coord" ><% this.list[i].lat +", "+ this.list[i].lng %></span></td>
                                          </tr>      
                                     <% } %>
                                 </tbody>
@@ -90,6 +90,10 @@
         </aside>
 
     </section>
+
+    <script>
+        let data = JSON.parse('<% JSON.stringify(this.list) %>');
+    </script>
     
     <!-- Vendor -->
     <script src="/virt/vendor/jquery/jquery.js"></script>

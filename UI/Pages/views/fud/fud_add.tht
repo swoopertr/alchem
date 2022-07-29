@@ -150,6 +150,21 @@
                                     </div>
 
                                     <div class="form-group row pb-4">
+                                        <label class="col-lg-3 control-label text-lg-end pt-2" for="selectRegion">Bölgeler</label>
+                                        <div class="col-lg-6">
+                                            <select id="selectRegion" name="selectRegion" class="form-control mb-3">
+                                                <option value="Anadolu">Anadolu</option>
+                                                <option value="Avrupa">Avrupa</option>
+                                                <option value="Ege-Akdeniz">Ege-Akdeniz</option>
+                                                <option value="Ankara-Adana">Ankara-Adana</option>
+                                            </select>
+                                        </div>
+                                        <script>
+                                            document.getElementById('selectRegion').value = "<% this.data.region %>";
+                                        </script>
+                                    </div>
+
+                                    <div class="form-group row pb-4">
                                         <label class="col-lg-3 control-label text-lg-end pt-2" for="btnFudAdd"></label>
                                         <div class="col-lg-6">
                                             <input id="btnFudAdd" type="button" class="mb-1 mt-1 me-1 modal-basic btn btn-primary" value="Kaydet / Güncelle" />

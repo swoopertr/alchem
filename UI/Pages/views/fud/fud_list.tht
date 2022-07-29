@@ -59,6 +59,7 @@
                             <thead>
                                 <tr>
                                     <th>İsim</th>
+                                    <th>Bölge</th>
                                     <th>Durumu</th>
                                     <th>Aksiyon</th>
                                 </tr>
@@ -68,6 +69,7 @@
                                 <% for (var i = 0 ; i< this.list.length ;i++) { %>
                                     <tr data-id="<% this.list[i].Id %>" >
                                         <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].region %></td>
                                         <td><% this.list[i].Status ==1 ? 'Aktif':'Pasif' %></td>
                                         <td>
                                             <a href="/admin/fud/guncelle?id=<% this.list[i].Id %>" class="on-default edit-row"><i class="fas fa-pencil-alt"></i></a>

@@ -32,9 +32,9 @@ var workDefinition = {
     },
     insertUser: function(user, cb){
         const query = { 
-            text: `INSERT INTO public."Users" ("Name", "Type", "Status", email, password, "lastLogin", token, token_exp, "PhoneNumber") 
-                VALUES ($1, 2, 1, $2, $3, null, null, null, $4) RETURNING "Id";`, 
-            values: [user.name, user.email, user.password, user.phone]
+            text: `INSERT INTO public."Users" ("Name", "Type", "Status", email, password, "lastLogin", token, token_exp, "PhoneNumber", "region") 
+                VALUES ($1, 2, 1, $2, $3, null, null, null, $4, $5) RETURNING "Id";`, 
+            values: [user.name, user.email, user.password, user.phone, user.region]
         };
         pg.query(query, function (result) {
             cb && cb(result[0].Id);
@@ -51,8 +51,8 @@ var workDefinition = {
     },
     updateUser: function(user, cb){
         const query = { // change the query
-            text: 'update public."Users" set "email"=$2, "password"=$3, "PhoneNumber"=$4, "Status"=$5, "Name"=$6 where "Id"=$1;',
-            values: [user.id, user.email, user.password, user.phone, user.status, user.name]
+            text: 'update public."Users" set "email"=$2, "password"=$3, "PhoneNumber"=$4, "Status"=$5, "Name"=$6, "region"=$6 where "Id"=$1;',
+            values: [user.id, user.email, user.password, user.phone, user.status, user.name, user.region]
         };
         pg.query(query, function (result) {
             cb && cb(result);
@@ -60,8 +60,8 @@ var workDefinition = {
     },
     addPharmacy: function(checkin, cb){
         const query = { 
-            text: `insert into "Pharmacies" ("Name", "Contact", "Phone", "Status", "lng", "lat", "isChecked", "CellPhone", "email", "glncode", "Country", "City", "Town", "Street", "Quarter", "Password") 
-                                     values ($1,     $2,        $3,      1,        $4,    $5,    0,            $6,          $7,     $8,        $9,        $10,    $11,    $12,      $13,       $14) RETURNING "Id";`, 
+            text: `insert into "Pharmacies" ("Name", "Contact", "Phone", "Status", "lng", "lat", "isChecked", "CellPhone", "email", "glncode", "Country", "City", "Town", "Street", "Quarter", "Password", "technician") 
+                                     values ($1,     $2,        $3,      1,        $4,    $5,    0,            $6,          $7,     $8,        $9,        $10,    $11,    $12,      $13,       $14       ,$15) RETURNING "Id";`, 
             values: [
                 checkin.pharmacyName,       // 1
                 checkin.nameSurname,        // 2
@@ -76,7 +76,8 @@ var workDefinition = {
                 checkin.town,               // 11
                 checkin.street,             // 12
                 checkin.quarter,            // 13
-                checkin.password            // 14
+                checkin.password,           // 14
+                checkin.technician          // 15
             ]
         };
         pg.query(query, function (result) {

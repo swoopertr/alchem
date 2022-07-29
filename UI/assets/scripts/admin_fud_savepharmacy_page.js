@@ -63,6 +63,7 @@ check_login();
         var town = $('#town').val();
         var coordinate = $('#coordinate').val();
         var quarter = $('#quarter').val();
+        var technician = $('#nameTechnician').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -80,7 +81,8 @@ check_login();
             city,
             town,
             street,
-            quarter
+            quarter,
+            technician
         };
         console.log({
             post_obj

@@ -17,6 +17,7 @@ check_login();
             var pass = $('#password').val();
             var phone = $('#phone').val();
             var status = $('[name="selectStatus"]').val();
+            var region = $('[name="selectRegion"]').val();
 
             var post_obj = {
                 id: (fud_id == "") ? 0 : fud_id,
@@ -24,10 +25,12 @@ check_login();
                 email: fud_email,
                 password: pass,
                 phone: phone,
-                status: status
+                status: status,
+                region:region
             };
             console.log({post_obj});
             
+
             var token = util.cookie.get('token');
             var check_obj  = [
                 { name : 'token',         value : token },
@@ -35,7 +38,8 @@ check_login();
             ];
 
             util.postJsonRequest('/admin/fud-ekle',post_obj, check_obj, function(result){
-                if(JSON.parse(result).status == "success"){
+                if(JSON.parse(result).hasOwnProperty('newFudId')){
+                    alert('Başarılı bir şekilde kayıt yapıldı');
                     window.location.href = '/admin/fud-listesi';
                 }else{
                     console.log(result);    
