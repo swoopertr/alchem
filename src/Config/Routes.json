@@ -413,5 +413,13 @@
       "function": "add_goal",
       "isCached": false
     }
+  },
+  "admin/fud/excel":{
+    "get":{
+      "controller":"admin",
+      "function":"fud_excel",
+      "isCached":false
+    }
   }
+
 }

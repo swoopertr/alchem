@@ -178,16 +178,6 @@ var request = {
         //todo
         var http = require("http");
 
-        /*var options = {
-            "method": "POST",
-            "hostname": "localhost",
-            "port": "8040",
-            "path": "/user",
-            "headers": {
-                "content-type": "application/json",
-            }
-        };*/
-
         var options = {
             "method": "POST",
             "hostname": baseUri,
@@ -221,9 +211,28 @@ var request = {
                 resolve(result);
             });
         });
-
     },
-    postAsync: function (){}
+    postAsync: function (){
+        //todo..
+    }
+};
+
+
+var returnFile = function (fileName, res) {
+    fs.access(fileName, fs.constants.F_OK, function (err) {
+        var sendFileName = fileName.substring(fileName.lastIndexOf('/') + 1);
+        if (err) {
+            res.writeHead(400, {"Content-Type": "text/plain"});
+            res.end("ERROR File does not exist");
+            
+        } else {
+            res.writeHead(200, {
+                "Content-Type": "application/octet-stream",
+                "Content-Disposition": "attachment; filename=" + sendFileName
+            });
+            fs.createReadStream(fileName).pipe(res);
+        }
+    });
 };
 
 var getDictionaryFormData = function (formData, fields, cb) {
@@ -394,6 +403,7 @@ var core = {
     queryStringToObject:queryStringToObject,
     getfileContentImg: getfileContentImg,
     getfileContent: getfileContent,
+    returnFile:returnFile,
     callMethods: callMethods,
     readFile: readFile,
     getFileNames: getFileNames,

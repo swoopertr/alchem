@@ -1,4 +1,4 @@
-const reader = require("xlsx");
+var ExcelJS = require('exceljs');
 const setting  = require('./../Config/setting');
 // Reading our test file
 
@@ -42,7 +42,7 @@ let excelHelper = {
     },
     GenerateExcelFileAsync : function(filename, sheetName, data){
         return new Promise((resolve, reject)=>{
-            excelHelper.GenerateExcelFile (filename, sheetName, data, function (result) {
+            excelHelper.GenerateExcelFile (filename, sheetName, data, function (err, result) {
                 resolve(result);
             });
         });

@@ -4,12 +4,14 @@ var header = require('./../Middleware/header');
 var userBusiness = require('./../Bussines/userBusiness');
 var adminBussiness = require('./../Bussines/adminBusiness');
 var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
+var reportBussines = require('./../Bussines/reportBusiness');
 var fudBusiness = require('./../Bussines/fudBussiness');
 var core = require('./../Core');
 var url = require('url');
 var formidable = require('formidable');
 var fs = require('fs');
 var settings = require('./../Config/setting');
+var excelHelper = require('./../Helper/excelHelper');
 
 
 var admin = {
@@ -275,6 +277,36 @@ var admin = {
         });
 
 
+    },
+    fud_excel: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        } 
+
+        userBusiness.checkToken(token, function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{  
+
+                reportBussines.getCheckinReport(async function (result) {
+                    var data =result;
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].CreatedAt = core.formatDate(data[i].CreatedAt);
+                    }
+                    let file = await excelHelper.GenerateExcelFileAsync('fud_rapor.xlsx','fud',data);
+                
+                    core.returnFile(settings.downloadFolder + 'fud_rapor.xlsx', res);    
+                });
+                
+            }
+        });
     }
   
 };
