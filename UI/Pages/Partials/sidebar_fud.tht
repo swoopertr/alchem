@@ -24,9 +24,19 @@
                         <ul class="nav nav-children">
 
                             <li>
+                                <a class="nav-link" href="/fud/savepharmacy">- Eczane Kayıt</a>
+                            </li>
+
+                            <li>
                                 <a class="nav-link" href="/fud/pharmacylist">- Eczane Listesi</a>
                             </li>
-                            <li class="nav-parent">
+
+                            <li>
+                                <a class="nav-link" href="/fud/checkin">- Eczane Check-in</a>
+                            </li>
+
+                            
+                            <!--<li class="nav-parent">
                                 <a class="nav-link" href="#">
                                     <i class="bx bx-cube" aria-hidden="true"></i>
                                     <span>Raporlar</span>
@@ -43,7 +53,7 @@
                                     </li>
                                 </ul>
                                 
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                 </ul>

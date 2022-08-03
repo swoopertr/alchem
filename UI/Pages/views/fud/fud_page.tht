@@ -71,6 +71,36 @@
                         <section class="card card-featured-left card-featured-primary mb-3">
                             <div class="card-body">
                                 <div class="widget-summary">
+                                    <a href ="/fud/pharmacylist" >
+                                        <div class="widget-summary-col widget-summary-col-icon">
+                                            <div class="summary-icon" style="background-color: #dce3cf;">
+                                                <img src="virt/images/pharmacy_list.png" style="width: 60px; margin-bottom: 5px;" alt="" />
+                                            </div>
+                                        </div>
+                                        <div class="widget-summary-col">
+                                            <div class="summary">
+                                                <h4 class="title">Eczane Listesi</h4>
+                                                <div class="info">
+                                                    <strong class="amount" style="color: #7d990e;">Eczane Listesi</strong>
+                                                    <span class="text-primary"> &ThickSpace; </span>
+                                                </div>
+                                            </div>
+                                        
+                                        </div>
+                                    </a>
+                                </div>  
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="row mb-12">
+                    <div class="col-xl-12">
+                        <section class="card card-featured-left card-featured-primary mb-3">
+                            <div class="card-body">
+                                <div class="widget-summary">
                                     <a href ="/fud/checkin" >
                                         
                                         <div class="widget-summary-col widget-summary-col-icon">

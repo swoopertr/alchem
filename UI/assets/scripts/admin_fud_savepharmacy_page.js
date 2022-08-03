@@ -59,11 +59,12 @@ check_login();
         var glnCode = $('#glnCode').val();
         var country = $('#country').val();
         var city = $('#city').val();
-        var street = $('#street').val();
+        //var street = $('#street').val();
         var town = $('#town').val();
         var coordinate = $('#coordinate').val();
-        var quarter = $('#quarter').val();
+        //var quarter = $('#quarter').val();
         var technician = $('#nameTechnician').val();
+        var adress = $('#adress').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -80,8 +81,7 @@ check_login();
             country,
             city,
             town,
-            street,
-            quarter,
+            adress,    
             technician
         };
         console.log({

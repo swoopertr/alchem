@@ -32,45 +32,7 @@
     
         <div class="inner-wrapper">
             <!-- start: sidebar -->
-            <aside id="sidebar-left" class="sidebar-left">
-    
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    Navigation
-                </div>
-                <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
-                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-                </div>
-            </div>
-    
-            <div class="nano">
-                <div class="nano-content">
-                    <nav id="menu" class="nav-main" role="navigation">
-    
-                        <ul class="nav nav-main">
-                            
-                            <li class="nav-parent nav-expanded">
-                                
-                                <a class="nav-link" href="#">
-                                    <i class="bx bx-home-alt" aria-hidden="true"></i>
-                                    <span>Füd Anasayfa</span>
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="/fud/savepharmacy">- Eczane Kayıt</a>
-                                    </li>
-
-                                    <li>
-                                        <a class="nav-link" href="/fud/checkin">- Check-in</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-    
-            </aside>
+            <%% sidebar_fud %%>
             <!-- end: sidebar -->
     
             <section role="main" class="content-body card-margin">
@@ -80,7 +42,7 @@
                     <div class="right-wrapper text-end">
                         <ol class="breadcrumbs">
                             <li>
-                                <a href="/admin">
+                                <a href="/fud">
                                     <i class="bx bx-home-alt"></i>
                                 </a>
                             </li>
@@ -115,7 +77,7 @@
                                         </div>
 
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Eczacı Adı</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Eczacı Adı Soyadı</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="nameSurname" />
                                             </div>
@@ -136,7 +98,7 @@
                                         </div>
                                        
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="officePhone">Ofis Telefon</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="officePhone">Telefon</label>
                                             <div class="col-lg-6">
                                                 <input id="officePhone" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" />
                                             </div>
@@ -178,19 +140,19 @@
                                         </div>
 
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="quarter">Mah.</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="adress">Adres</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="quarter" />
+                                                <input type="text" class="form-control" id="adress" />
                                             </div>
                                         </div>
-
-                                        <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde.</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="street" />
+                                        <!--
+                                            <div class="form-group row pb-4">
+                                                <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde.</label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="street" />
+                                                </div>
                                             </div>
-                                        </div>
-
+                                        -->
 
                                         <div class="form-group row pb-4" style="display: none;">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="coordinate">Koordinat</label>

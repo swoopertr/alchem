@@ -137,7 +137,7 @@
                                         </div>
 
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Eczacının Adi</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Eczacının Adı Soyadı</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="nameSurname" value="<% this.data.Contact %>" />
                                             </div>
@@ -211,16 +211,9 @@
                                         </div>
 
                                         <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="quarter">Mah.</label>
+                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="quarter">Adres</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="quarter" value="<% this.data.Quarter %>" />
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row pb-4">
-                                            <label class="col-lg-3 control-label text-lg-end pt-2" for="street">Cadde/Sok/Numara/Apt</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="street" value="<% this.data.Street %>" />
+                                                <input type="text" class="form-control" id="adress" value="<% this.data.Adress %>" />
                                             </div>
                                         </div>
 

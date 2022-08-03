@@ -47,10 +47,10 @@ check_login();
         var glnCode = $('#glnCode').val();
         var country = $('#country').val();
         var city = $('#city').val();
-        var street = $('#street').val();
+        var adress = $('#adress').val();
         var town = $('#town').val();
         var coordinate = $('#coordinate').val();
-        var quarter = $('#quarter').val();
+        
         var status = $('#status').val();
         var password = $('#password').val();
         var technician = $('#nameTechnician').val();
@@ -72,8 +72,7 @@ check_login();
             country,
             city,
             town,
-            street,
-            quarter,
+            adress,
             password,
             technician
         };

@@ -60,8 +60,8 @@ var workDefinition = {
     },
     addPharmacy: function(checkin, cb){
         const query = { 
-            text: `insert into "Pharmacies" ("Name", "Contact", "Phone", "Status", "lng", "lat", "isChecked", "CellPhone", "email", "glncode", "Country", "City", "Town", "Street", "Quarter", "Password", "technician") 
-                                     values ($1,     $2,        $3,      1,        $4,    $5,    0,            $6,          $7,     $8,        $9,        $10,    $11,    $12,      $13,       $14       ,$15) RETURNING "Id";`, 
+            text: `insert into "Pharmacies" ("Name", "Contact", "Phone", "Status", "lng", "lat", "isChecked", "CellPhone", "email", "glncode", "Country", "City", "Town", "Adress", "Password", "technician") 
+                                     values ($1,     $2,        $3,      1,        $4,    $5,    0,            $6,          $7,     $8,        $9,        $10,    $11,    $12,      $13,       $14) RETURNING "Id";`, 
             values: [
                 checkin.pharmacyName,       // 1
                 checkin.nameSurname,        // 2
@@ -74,10 +74,9 @@ var workDefinition = {
                 checkin.country,            // 9
                 checkin.city,               // 10
                 checkin.town,               // 11
-                checkin.street,             // 12
-                checkin.quarter,            // 13
-                checkin.password,           // 14
-                checkin.technician          // 15
+                checkin.adress,             // 12
+                checkin.password,           // 13
+                checkin.technician          // 14
             ]
         };
         pg.query(query, function (result) {
