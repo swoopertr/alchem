@@ -420,6 +420,13 @@
       "function":"fud_excel",
       "isCached":false
     }
+  },
+  "admin/answers/excel":{
+    "get":{
+      "controller":"admin",
+      "function":"answers_excel",
+      "isCached":false    
+    }
   }
 
 }

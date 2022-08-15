@@ -306,7 +306,7 @@ var admin = {
             }
         });
     },
-    asnwers_excel : function (req, res) {
+    answers_excel : function (req, res) {
 
      var cookies = core.parseCookies(req);
         var token = cookies.token;
@@ -324,7 +324,7 @@ var admin = {
                 core.redirect(res, '/login');
             }else{  
 
-                reportBussines.getAnswerReport(function (result) {
+                reportBussines.getAnswerReport(async function (result) {
                     var data = {
                         list: result
                     };
