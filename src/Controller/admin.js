@@ -270,9 +270,7 @@ var admin = {
                 });
                 core.redirect(res, '/login');
             }else{  
-                render.renderHtml(res, view.views["admin"]["add_goal"], {
-                    pharmacies: tmpPharmacyList
-                });
+                render.renderHtml(res, view.views["admin"]["goal_add"], {});
             }
         });
 

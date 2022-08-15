@@ -168,7 +168,7 @@
                                         <td><% this.list[i].Fud %></td>
                                         <td><% this.list[i].Eczane %></td>
                                         <td><% this.list[i].CreatedAt %></td>
-                                        <td><% this.list[i].lat %>, <% this.list[i].lng %></td>
+                                        <td><a href="http://www.google.com/maps/place/<% this.list[i].lat %>,<% this.list[i].lng %>" target="_blank">Map</a></td>
                                      </tr>      
                                 <% } %>
                             </tbody>
