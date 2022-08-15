@@ -130,7 +130,7 @@
                                             <label class="col-lg-6 control-label text-lg-end pt-2" for="inputDefault"></label>
                                             <div class="col-lg-12">
                                                 <input id="btnGenerateLink" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Link Oluştur" />
-                                                <input id="btnSendMail" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Mail Gönder" /> 
+                                               <!-- <input id="btnSendMail" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Mail Gönder" /> -->
                                                 <input id="btnCopy" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Kopyala" /> 
                                                
                                             </div>
