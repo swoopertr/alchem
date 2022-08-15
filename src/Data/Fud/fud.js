@@ -51,7 +51,7 @@ var workDefinition = {
     },
     updateUser: function(user, cb){
         const query = { // change the query
-            text: 'update public."Users" set "email"=$2, "password"=$3, "PhoneNumber"=$4, "Status"=$5, "Name"=$6, "region"=$6 where "Id"=$1;',
+            text: 'update public."Users" set "email"=$2, "password"=$3, "PhoneNumber"=$4, "Status"=$5, "Name"=$6, "region"=$7 where "Id"=$1;',
             values: [user.id, user.email, user.password, user.phone, user.status, user.name, user.region]
         };
         pg.query(query, function (result) {

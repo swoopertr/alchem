@@ -38,7 +38,7 @@ check_login();
             ];
 
             util.postJsonRequest('/admin/fud-ekle',post_obj, check_obj, function(result){
-                if(JSON.parse(result).hasOwnProperty('newFudId')){
+                if(JSON.parse(result).hasOwnProperty('status')){
                     alert('Başarılı bir şekilde kayıt yapıldı');
                     window.location.href = '/admin/fud-listesi';
                 }else{

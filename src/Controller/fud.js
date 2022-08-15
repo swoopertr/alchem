@@ -84,7 +84,7 @@ var fud = {
                 req.formData.id = id;
                 fudBusiness.addFud(req.formData, function (result) {
                     let newFudId = result;
-                    render.renderData(res, { newFudId });
+                    render.renderData(res, {status:"success", newFudId });
                     
                 });
             } else { //update
