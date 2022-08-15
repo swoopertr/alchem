@@ -15,7 +15,7 @@ var workDefinition = {
     },
     getPharmacies: function (cb, cbErr) {
         const query = {
-            text: 'select * from public."Pharmacies" ',
+            text: 'select p.*, u."Name" fud_name from public."Pharmacies" p left outer join "Users" u on (p.fudid = u."Id")',
             values: []
         };
         pg.query(query, function (result) {

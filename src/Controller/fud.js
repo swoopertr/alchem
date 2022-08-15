@@ -129,10 +129,14 @@ var fud = {
         }
 
         req.on('end', function () {
-            fudBusiness.addPharmacy(req.formData, function (result) {
-                render.renderData(res, result );
+            userBusiness.getUserByToken(token, function (data) {
+                req.formData.fudId = data[0].Id;
+                fudBusiness.addPharmacy(req.formData, function (result) {
+                    render.renderData(res, result );
+                });    
             });
         });
+
     },
     fud_checkin: function (req, res) {
         var cookies = core.parseCookies(req);

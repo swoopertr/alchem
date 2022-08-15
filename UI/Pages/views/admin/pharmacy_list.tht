@@ -89,6 +89,7 @@
                             <thead>
                                 <tr>
                                     <th>İsim</th>
+                                    <th>FÜD</th>
                                     <th>Kontak</th>
                                     <th>Telefon</th>
                                     <th>Mobil</th>
@@ -100,6 +101,7 @@
                                 <% for (var i = 0 ; i< this.pharmacies.length ;i++) { %>
                                     <tr data-id="<% this.pharmacies[i].Id %>" >
                                         <td><% this.pharmacies[i].Name %></td>
+                                        <td><% this.pharmacies[i].fud_name %></td>
                                         <td><% this.pharmacies[i].Contact %></td>
                                         <td><% this.pharmacies[i].Phone %></td>
                                         <td><% this.pharmacies[i].CellPhone %></td>
