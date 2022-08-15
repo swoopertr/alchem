@@ -333,7 +333,7 @@ var admin = {
                         data.list[i].StartedDate = core.formatDate(data.list[i].StartedDate);
                     }
                     
-                    let file = await excelHelper.GenerateExcelFileAsync('cevap_rapor.xlsx','fud', data);
+                    let file = await excelHelper.GenerateExcelFileAsync('cevap_rapor.xlsx','fud', data.list);
                     core.returnFile(settings.downloadFolder + 'cevap_rapor.xlsx', res);   
                 });
 
