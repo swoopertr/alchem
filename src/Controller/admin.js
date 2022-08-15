@@ -305,6 +305,43 @@ var admin = {
                 
             }
         });
+    },
+    asnwers_excel : function (req, res) {
+
+     var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        } 
+
+        userBusiness.checkToken(token, function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{  
+
+                reportBussines.getAnswerReport(function (result) {
+                    var data = {
+                        list: result
+                    };
+                    for (var i = 0; i < data.list.length; i++) {
+                        data.list[i].CreatedAt = core.formatDate(data.list[i].CreatedAt);
+                        data.list[i].StartedDate = core.formatDate(data.list[i].StartedDate);
+                    }
+                    
+                    let file = await excelHelper.GenerateExcelFileAsync('cevap_rapor.xlsx','fud', data);
+                    core.returnFile(settings.downloadFolder + 'cevap_rapor.xlsx', res);   
+                });
+
+                
+            }
+        });
+
+      
     }
   
 };
