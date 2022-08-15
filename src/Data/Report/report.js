@@ -31,7 +31,7 @@ var workReport = {
     },
     getCheckinReport: function (cb, cbErr) {
         const query = {
-            text: `select c."CreatedAt", p."Name" as "Eczane", u."Name" as "Fud" from "CheckIns" c
+            text: `select c."CreatedAt", p."Name" as "Eczane", u."Name" as "Fud", c."lat", c."lng" from "CheckIns" c
     inner join "Pharmacies" p on p."Id" =c."PhrmacyId"
     inner join "Users" u on u."Id" = c."UserId"`,
             values: []
