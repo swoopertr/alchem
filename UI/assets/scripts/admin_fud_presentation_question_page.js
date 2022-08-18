@@ -12,14 +12,14 @@ check_login();
         })
     });
 
-    document.getElementById('btnSendMail').addEventListener('click', function (e) {
+    /* document.getElementById('btnSendMail').addEventListener('click', function (e) {
         e.preventDefault();
         sendEmail( document.getElementById('urlTxt').value, pharmacy.email ,function (result) {
             console.log(result);
             alert('Olusturulan linki mail adresinize gonderdik.');
         });
     });
-
+ */
     document.getElementById('btnCopy').addEventListener('click', function (e) {
         navigator.clipboard.writeText(document.getElementById('urlTxt').value);
     });

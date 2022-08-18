@@ -427,6 +427,20 @@
       "function":"answers_excel",
       "isCached":false    
     }
+  },
+  "getpharmacytech":{
+    "get":{
+      "controller":"fud",
+      "function":"get_pharmacy_technican",
+      "isCached":false
+    }
+  },
+  "admin_pharmacy_technicians" : {
+    "get": {
+      "controller" : "admin",
+      "function" : "get_pharmacy_technican_admin",
+      "isCached" : false
+    }
   }
 
 }

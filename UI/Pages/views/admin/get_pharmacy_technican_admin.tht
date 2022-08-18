@@ -52,7 +52,7 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Eczane Listesi</h2>
+                <h2>Teknisyen Listesi</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
@@ -61,8 +61,8 @@
                                 <i class="bx bx-home-alt"></i>
                             </a>
                         </li>
-                        <li><span>Füd Sayfası</span></li>
-                        <li><span>Eczane Listesi</span></li>
+                        <li><span>Admin Sayfası</span></li>
+                        <li><span>Teknisyen Listesi</span></li>
                     </ol>
                     <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
                 </div>
@@ -70,7 +70,7 @@
 
             <!-- start: page -->
             <div class="alert alert-info">
-                Bu sayfada Eczaneleri göreceksiniz.
+                Bu sayfada Teknisyenleri göreceksiniz.
             </div>
             <div class="col">
                 <section class="card">
@@ -80,7 +80,7 @@
                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
 
-                        <h2 class="card-title">Eczane Listesi</h2>
+                        <h2 class="card-title">Teknisyen Listesi</h2>
                     </header>
                     <div class="card-body">
                        
@@ -89,8 +89,6 @@
                             <thead>
                                 <tr>
                                     <th>İsim</th>
-                                    <th>FÜD</th>
-                                    <th>Kontak</th>
                                     <th>Telefon</th>
                                     <th>Mobil</th>
                                     <th>Aksiyon</th>
@@ -98,19 +96,13 @@
                             </thead>
 
                             <tbody id="pharmacies_list">
-                                <% for (var i = 0 ; i< this.pharmacies.length ;i++) { %>
-                                    <tr data-id="<% this.pharmacies[i].Id %>" >
-                                        <td><% this.pharmacies[i].Name %></td>
-                                        <td><% this.pharmacies[i].fud_name %></td>
-                                        <td><% this.pharmacies[i].Contact %></td>
-                                        <td><% this.pharmacies[i].Phone %></td>
-                                        <td><% this.pharmacies[i].CellPhone %></td>
-                                        <td>
-                                            <a href="/admin_pharmacy_technicians?id=<% this.pharmacies[i].Id %>" class="btn btn-primary">Teknisyenler</a>
-                                            <span> </span>
-                                            <a href="/admin/pharmacy-edit?id=<% this.pharmacies[i].Id %>" class="btn btn-primary">Düzenle</a>
-                                            <a href="#"  class="btn btn-danger btn-delete" data-id="<% this.pharmacies[i].Id %>">Sil</a>
-                                        </td>
+                                <% for (var i = 0 ; i< this.list.length ;i++) { %>
+                                    <tr data-id="<% this.list[i].Id %>" >
+                                        <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].Phone %></td>
+                                        <td><% this.list[i].Email %></td>
+                                        <td><a href="/edittechnician_admin?id=<% this.list[i].Id %>" class="btn btn-primary">Edit</a>
+                                            <a href="/edittechnician_admin?id=<% this.list[i].Id %>" class="btn btn-warning">Sil</a></td>
                                      </tr>      
                                 <% } %>
                             </tbody>
@@ -119,7 +111,7 @@
                 </section>
             </div>
 
-	      
+
             <!-- end: page -->
         </section>
     </div>

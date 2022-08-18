@@ -1,49 +1,9 @@
 <section class="body">
+ <!-- start: header -->
 
-    <!-- start: header -->
-    <header class="header">
-        <div class="logo-container">
-            <a href="" class="logo">
-                <img src="/virt/images/alchem_logo.jpeg" height="35" alt="Alchem Techs" />
-            </a>
+ <%% header_fud %%>
 
-            <div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-                <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
-            </div>
-
-        </div>
-
-        <!-- start: user box -->
-        <div class="header-right">
-
-            <span class="separator"></span>
-
-            <div id="userbox" class="userbox">
-                <a href="#" data-bs-toggle="dropdown">
-                    <figure class="profile-picture">
-                        <img src="/virt/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="/virt/img/!logged-user.jpg" />
-                    </figure>
-                    <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-                        <span id="login_user_name" class="name"></span>
-                        <span class="role">Yönetici</span>
-                    </div>
-
-                    <i class="fa custom-caret"></i>
-                </a>
-
-                <div class="dropdown-menu">
-                    <ul class="list-unstyled mb-2">
-                        <li class="divider"></li>
-                        <li>
-                            <a id="btnLogout" role="menuitem" tabindex="-1" href="/admin/logout"><i class="bx bx-power-off"></i> Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end: user box -->
-    </header>
-    <!-- end: header -->
+ <!-- end: header -->
 
     <div class="inner-wrapper">
         <!-- start: sidebar -->
@@ -52,7 +12,7 @@
 
         <section role="main" class="content-body">
             <header class="page-header">
-                <h2>Eczane Listesi</h2>
+                <h2>Teknisyen Listesi</h2>
 
                 <div class="right-wrapper text-end">
                     <ol class="breadcrumbs">
@@ -64,7 +24,7 @@
 
                         <li><span>Füd Sayfası</span></li>
 
-                        <li><span>Eczane Listesi</span></li>
+                        <li><span>Teknisyen Listesi</span></li>
 
                     </ol>
 
@@ -74,7 +34,7 @@
 
             <!-- start: page -->
             <div class="alert alert-info">
-                Bu sayfada Eczaneleri göreceksiniz.
+                Bu sayfada Teknisyenleri göreceksiniz.
             </div>
             <div class="col">
                 <section class="card">
@@ -84,41 +44,30 @@
                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
 
-                        <h2 class="card-title">Eczane Listesi</h2>
+                        <h2 class="card-title">Teknisyen Listesi</h2>
                     </header>
                     <div class="card-body">
 
-                        <div class="form-horizontal form-bordered" >
-
-                            <div class="form-group row pb-4">
-                                <label class="col-lg-3 control-label text-lg-end pt-2" for="searchPharmacy">Eczane Ara :</label>
-                                <div class="col-lg-6">
-                                    <input type="text" class="form-control" name="searchPharmacy" id="searchPharmacy" />
-                                </div>
-                            </div>
-
-                        </div>
+                      
                        
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
                             <thead>
                                 <tr>
                                     <th>İsim</th>
-                                    <th>Kontak</th>
                                     <th>Telefon</th>
-                                    <th>Mobil</th>
-                                    <th>Teknisyen</th>
+                                    <th>Email</th>
+                                    <th>Aksiyon</th>
                                 </tr>
                             </thead>
 
                             <tbody id="pharmacies_list">
-                                <% for (var i = 0 ; i< this.pharmacies.length ;i++) { %>
-                                    <tr data-id="<% this.pharmacies[i].Id %>" >
-                                        <td><% this.pharmacies[i].Name %></td>
-                                        <td><% this.pharmacies[i].Contact %></td>
-                                        <td><% this.pharmacies[i].Phone %></td>
-                                        <td><% this.pharmacies[i].CellPhone %></td>
-                                        <td><a href="/getpharmacytech?id=<% this.pharmacies[i].Id %>">Teknisyenler</a></td>
+                                <% for (var i = 0 ; i< this.list.length ;i++) { %>
+                                    <tr data-id="<% this.list[i].Id %>" >
+                                        <td><% this.list[i].Name %></td>
+                                        <td><% this.list[i].Phone %></td>
+                                        <td><% this.list[i].Email %></td>
+                                        <td><a href="/edittechnician?id=<% this.list[i].Id %>">Edit</a></td>
                                      </tr>      
                                 <% } %>
                             </tbody>

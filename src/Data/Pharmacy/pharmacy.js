@@ -76,11 +76,10 @@ var workDefinition = {
                 "lat" = $13,
                 "isChecked"= $14,
                 "Adress"= $15,
-                "Password"= $16,
-                "technician"=$17
+                "Password"= $16
                 where "Id" = $1;`,
             values: [data.Id, data.pharmacyName, data.status, data.email, data.officePhone, data.gsm, data.city, data.nameSurname, data.country, data.glncode,
-                data.town, data.lng, data.lat, data.isChecked, data.adress, data.password, data.technician]
+                data.town, data.lng, data.lat, data.isChecked, data.adress, data.password]
         };
         pg.query(query, function (result) {
             cb && cb(result);

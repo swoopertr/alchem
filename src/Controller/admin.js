@@ -6,6 +6,7 @@ var adminBussiness = require('./../Bussines/adminBusiness');
 var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
 var reportBussines = require('./../Bussines/reportBusiness');
 var fudBusiness = require('./../Bussines/fudBussiness');
+var technicianBusiness = require('./../Bussines/technicianBusiness');
 var core = require('./../Core');
 var url = require('url');
 var formidable = require('formidable');
@@ -342,6 +343,35 @@ var admin = {
         });
 
       
+    },
+    get_pharmacy_technican_admin: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        } 
+
+        userBusiness.checkToken(token, function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{  
+
+                let qs = url.parse(req.url, true).query;
+
+                var data = {
+                   
+                };
+                technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
+                    data.list = result;
+                    render.renderHtml(res, view.views["admin"]["get_pharmacy_technican_admin"], data);
+                });
+            }
+        });
     }
   
 };

@@ -53,7 +53,7 @@ check_login();
         
         var status = $('#status').val();
         var password = $('#password').val();
-        var technician = $('#nameTechnician').val();
+        //var technician = $('#nameTechnician').val();
 
         var coordinates = coordinate.split(',');
         var lat = coordinates[0];
@@ -73,8 +73,8 @@ check_login();
             city,
             town,
             adress,
-            password,
-            technician
+            password
+            //technician
         };
         
         console.log({

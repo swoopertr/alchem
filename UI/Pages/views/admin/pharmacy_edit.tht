@@ -143,13 +143,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group row pb-4">
+                                      <!--   <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="nameTechnician">Teknisyen Adı Soyadı</label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="nameTechnician" name="nameTechnician" value="<% this.data.technician %>" />
                                             </div>
                                         </div>
-
+ -->
                                         <div class="form-group row pb-4">
                                             <label class="col-lg-3 control-label text-lg-end pt-2" for="gsm">GSM</label>
                                             <div class="col-lg-6">

@@ -4,6 +4,8 @@ var fudBusiness = require('./../Bussines/fudBussiness');
 var pharmacyBusiness = require('./../Bussines/pharmacyBussiness');
 var userBusiness = require('./../Bussines/userBusiness');
 var surveyBusiness = require('./../Bussines/surveyBusiness');
+var technicianBusiness = require('./../Bussines/technicianBusiness');
+
 
 var core = require('./../Core');
 var url = require('url');
@@ -63,10 +65,6 @@ var fud = {
                 render.renderHtml(res, view.views["fud"]["fud_add"], data);
             });
         }
-       
-
-        
-
         
     },
     fudUpdate_post: function (req, res) {
@@ -181,8 +179,15 @@ var fud = {
         }
         
         pharmacyBusiness.getAllPharmacies(function (result) {
+            let availables = [];
+            for(let i = 0; i< result.length;i++){
+                let item = result[i];
+                if(item.Status == 1){
+                    availables.push(item);
+                }    
+            }
             var data = {
-                pharmacies: result
+                pharmacies: availables
             };
             render.renderHtml(res, view.views["fud"]["fud_pharmacylist"], data);
         });
@@ -264,6 +269,28 @@ var fud = {
             }
         });
 
+    },
+    get_pharmacy_technican: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        //todo: to check if user is login and authorize to make this request. make it work for global usage
+        let qs = url.parse(req.url, true).query;
+        userBusiness.getUserByToken(token, async function (user) {
+            if (user.length > 0) {
+                var data = {
+                    userId: user[0].Id
+                };
+                technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
+                    data.list = result;
+                    render.renderHtml(res, view.views["fud"]["fud_pharmacy_technican_list"], data);
+                });
+
+            }
+        });
     }
     
 };
