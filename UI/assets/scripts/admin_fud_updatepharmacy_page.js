@@ -77,9 +77,7 @@ check_login();
             //technician
         };
         
-        console.log({
-            post_obj
-        });
+       
 
         var token = util.cookie.get('token');
         var check_obj = [

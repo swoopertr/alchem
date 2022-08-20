@@ -79,11 +79,16 @@
                             <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
                             <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
-
                         <h2 class="card-title">Teknisyen Listesi</h2>
                     </header>
                     <div class="card-body">
-                       
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <a class="btn btn-primary" href="/edittechnician_admin?id=0&pharmacyid=<% this.pharmacyId %>" role="button">Ekle <i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>  
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
                             <thead>
@@ -101,8 +106,8 @@
                                         <td><% this.list[i].Name %></td>
                                         <td><% this.list[i].Phone %></td>
                                         <td><% this.list[i].Email %></td>
-                                        <td><a href="/edittechnician_admin?id=<% this.list[i].Id %>" class="btn btn-primary">Edit</a>
-                                            <a href="/edittechnician_admin?id=<% this.list[i].Id %>" class="btn btn-warning">Sil</a></td>
+                                        <td><a href="/edittechnician_admin?id=<% this.list[i].Id %>&pharmacyid=<% this.pharmacyId %>" class="btn btn-primary">Edit</a>
+                                            <a href="/deletetechnician_admin?id=<% this.list[i].Id %>" class="btn btn-warning">Sil</a></td>
                                      </tr>      
                                 <% } %>
                             </tbody>

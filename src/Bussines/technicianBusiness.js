@@ -11,6 +11,22 @@ var technicianBusiness = {
         technicianData.getByPharmacyId(PharmacyId, function (result) {
             cb && cb(result);
         });
+    },
+    getOne : function(id, cb){
+        technicianData.getOne(id, function(result){
+            cb && cb(result);
+        });
+    },
+    upsert: function(data, cb){
+        if(data.Id == 0){
+            technicianData.insert(data, function (result) {
+                cb && cb(result);
+            });
+        }else{
+            technicianData.update(data, function (result) {
+                cb && cb(result);
+            });
+        }
     }
 };
 

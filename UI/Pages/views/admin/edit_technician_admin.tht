@@ -1,0 +1,133 @@
+<section class="body">
+    <!-- start: header -->
+
+    <%% header_fud %%>
+
+    <!-- end: header -->
+    <div class="inner-wrapper">
+    <!-- start: sidebar ::partially loaded in rt -->
+        
+     <%% sidebar_admin %%>
+        
+     <!-- end: sidebar -->
+
+     <section role="main" class="content-body">
+        <header class="page-header">
+            <h2>Teknisyen</h2>
+
+            <div class="right-wrapper text-end">
+                <ol class="breadcrumbs">
+                    <li>
+                        <a href="/admin">
+                            <i class="bx bx-home-alt"></i>
+                        </a>
+                    </li>
+                    <li><span>Teknisyen</span></li>
+                </ol>
+
+                <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+            </div>
+        </header>
+
+    <!-- start : page -->
+   <!-- start: page -->
+   <div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="card-actions">
+                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                </div>
+                <h2 class="card-title">Eczane Güncelle</h2>
+            </header>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="mb-3">
+                            <a class="btn btn-primary" href="/admin_pharmacy_technicians?id=<% this.pharmacy.Id %>" role="button">Geri<i class="fas"></i></a>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="form-horizontal form-bordered" >
+                    <input type="hidden" class="form-control" id="PharmacyId" value="<% this.pharmacy.Id %>"/>
+                    <input type="hidden" class="form-control" id="Id" value="<% this.technician.Id %>"/>
+
+                    <div class="form-group row pb-4">
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="pharmacyName">Eczane</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="pharmacyName" value="<% this.pharmacy.Name %>" disabled />
+                        </div>
+                    </div>
+
+                    <div class="form-group row pb-4">
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="nameSurname">Teknisyen</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" id="nameSurname" value="<% this.technician.Name %>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row pb-4">
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="phone">Telefon</label>
+                        <div class="col-lg-6">
+                            <input id="phone" data-plugin-masked-input="" data-input-mask="(999) 999-9999" placeholder="(123) 123-1234" class="form-control" value="<% this.technician.Phone %>" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row pb-4">
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="email">Email</label>
+                        <div class="col-lg-6">
+                            <input id="email"  class="form-control" value="<% this.technician.Email %>" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row pb-4">
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="Status">Durum</label>
+                        <div class="col-lg-6">
+                            <select id="status" name="Status" class="form-control mb-3" >
+                                <option value="1">Aktif</option>
+                                <option value="0">Pasif</option>
+                            </select>
+                        </div>
+                        <script>
+                            var status_select_value = "<% this.technician.Status %>";
+                            if(status_select_value == ""){
+                                status_select_value = "1";
+                            }
+                            document.getElementById('status').value = status_select_value;
+                        </script>
+                    </div>
+
+            
+
+                    <div class="form-group row pb-4" >
+                        <label class="col-lg-3 control-label text-lg-end pt-2" for="inputDefault"></label>
+                        <div class="col-lg-6">
+                            <input id="btnUpdateTechnician" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Teknisyen Kayıt" />
+                            <!--<input id="btnGoPresent" type="button" class="mb-1 mt-1 me-1 modal-basic btn" style="background-color: #7d990e;" value="Check-in"  disabled/>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!-- end: page -->
+
+     </section>
+
+
+    </div>
+
+
+
+</section>
+<script src="/virt/vendor/jquery/jquery.js"></script>
+<script src="/virt/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+
+<script src="/virt/scripts/admin_technician_upsert.js"></script>

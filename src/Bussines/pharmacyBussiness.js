@@ -13,6 +13,13 @@ var pharmacyBusiness = {
             cb && cb(result);
         });
     },
+    getPharmacyByIdAsync: function(id){
+        return new Promise((resolve, reject) =>{
+            pharmacyBusiness.getPharmacyById(id, function(result){
+                resolve(result);
+            });
+        })
+    },
     deletePharmacy: function (id, cb) {
         pharmacyData.deletePharmacy(id, function (result) {
             cb && cb(result);

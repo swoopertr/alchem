@@ -441,6 +441,20 @@
       "function" : "get_pharmacy_technican_admin",
       "isCached" : false
     }
+  },
+  "edittechnician_admin": {
+    "get": {
+      "controller":"admin",
+      "function":"edit_technician_admin",
+      "isCached":false
+    }
+  },
+  "admin/upsert_technician_admin":{
+    "post": {
+      "controller": "admin",
+      "function" : "upsert_technician_admin",
+      "isCached" : false
+    }
   }
 
 }

@@ -360,17 +360,88 @@ var admin = {
                 });
                 core.redirect(res, '/login');
             }else{  
-
                 let qs = url.parse(req.url, true).query;
-
-                var data = {
-                   
-                };
                 technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
-                    data.list = result;
+                    var data = {
+                        list : result,
+                        pharmacyId: qs.id
+                    };
                     render.renderHtml(res, view.views["admin"]["get_pharmacy_technican_admin"], data);
                 });
             }
+        });
+    },
+    edit_technician_admin: function (req, res) {
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        } 
+
+        userBusiness.checkToken(token, async function(result){
+            if(result == false){
+                render.renderData(res, {
+                    page: "admin",
+                    auth: "fail"
+                });
+                core.redirect(res, '/login');
+            }else{  
+                let qs = url.parse(req.url, true).query;
+                if(qs.pharmacyid == undefined){
+                    core.redirect(res, '/admin');
+                    return;
+                }
+                if(parseInt(qs.id)==0){
+
+                    let pharmacy = await pharmacyBusiness.getPharmacyByIdAsync(qs.pharmacyid);
+                    if(pharmacy.length == 0){
+                        core.redirect(res, '/admin');
+                        return;    
+                    }
+                    var data = {
+                        technician : {},
+                        pharmacy : pharmacy[0]
+                    };
+                    render.renderHtml(res, view.views["admin"]["edit_technician_admin"], data);
+                    return;
+                }
+                technicianBusiness.getOne(parseInt(qs.id), function (technician) {
+                    if(technician.length==0){
+                        var data = {
+                            technician : {},
+                            pharmacy : {}
+                        };
+                        render.renderHtml(res, view.views["admin"]["edit_technician_admin"], data);
+                        return;
+                    }
+                    pharmacyBusiness.getPharmacyById(technician[0].PharmacyId, function (pharmacy) {
+                        var data = {
+                            technician : technician[0],
+                            pharmacy:pharmacy[0]
+                        };
+                        render.renderHtml(res, view.views["admin"]["edit_technician_admin"], data);
+                    });
+                });
+            }
+        });
+    },
+    upsert_technician_admin : function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function(){
+            technicianBusiness.upsert(req.formData, function(result){
+                if(result){
+                    render.renderData(res, { status: "success" });
+                }else{
+                    render.renderData(res, { status: "error" });
+                }
+            });
         });
     }
   
