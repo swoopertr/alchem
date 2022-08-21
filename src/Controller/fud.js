@@ -286,10 +286,70 @@ var fud = {
                 };
                 technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
                     data.list = result;
+                    data.pharmacyId = qs.id;
                     render.renderHtml(res, view.views["fud"]["fud_pharmacy_technican_list"], data);
                 });
 
             }
+        });
+    },
+    edittechnician : function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        let qs = url.parse(req.url, true).query;
+        userBusiness.getUserByToken(token, async function (user) {
+            if (user.length > 0) {
+                var data = {
+                    userId: user[0].Id
+                };
+                if(qs.pharmacyid == undefined){
+                    core.redirect(res, '/fud');
+                    return;
+                }
+                let pharmacy = await pharmacyBusiness.getPharmacyByIdAsync(qs.pharmacyid);
+                    if(pharmacy.length == 0){
+                        core.redirect(res, '/fud');
+                        return;    
+                    }
+                if(parseInt(qs.id) == 0){
+                    var data = {
+                        technician : {},
+                        pharmacy : pharmacy[0]
+                    };
+                    render.renderHtml(res, view.views["fud"]["fud_edit_technician"], data);
+                    return;
+                    
+                } else {
+                    technicianBusiness.getOne(parseInt(qs.id), function (result) {
+                        data.pharmacy = pharmacy[0];
+                        data.technician = result[0]
+                        render.renderHtml(res, view.views["fud"]["fud_edit_technician"], data);
+                    });
+                }
+                
+            }
+        });
+    },
+    upsert_technician : function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function(){
+            technicianBusiness.upsert(req.formData, function(result){
+                if(result){
+                    render.renderData(res, { status: "success" });
+                }else{
+                    render.renderData(res, { status: "error" });
+                }
+            });
         });
     }
     

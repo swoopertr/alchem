@@ -27,6 +27,11 @@ var technicianBusiness = {
                 cb && cb(result);
             });
         }
+    },
+    delete : function(data, cb){
+        technicianData.delete(data, function(result){
+            cb && cb(result);
+        });
     }
 };
 

@@ -362,8 +362,15 @@ var admin = {
             }else{  
                 let qs = url.parse(req.url, true).query;
                 technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
+                    let lastResult = [];
+                    for (let i = 0; i < result.length; i++) {
+                        let item = result[i];
+                        if(item.Status != 3){
+                            lastResult.push(item);
+                        }
+                    }
                     var data = {
-                        list : result,
+                        list : lastResult,
                         pharmacyId: qs.id
                     };
                     render.renderHtml(res, view.views["admin"]["get_pharmacy_technican_admin"], data);
@@ -393,7 +400,6 @@ var admin = {
                     return;
                 }
                 if(parseInt(qs.id)==0){
-
                     let pharmacy = await pharmacyBusiness.getPharmacyByIdAsync(qs.pharmacyid);
                     if(pharmacy.length == 0){
                         core.redirect(res, '/admin');
@@ -443,8 +449,25 @@ var admin = {
                 }
             });
         });
+    },
+    delete_technician: function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function(){
+            technicianBusiness.delete(req.formData, function(result){
+                if(result){
+                    render.renderData(res, { status: "success" });
+                }else{
+                    render.renderData(res, { status: "error" });
+                }
+            });
+        });
     }
-  
 };
 
 module.exports= admin;

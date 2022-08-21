@@ -47,9 +47,15 @@
                         <h2 class="card-title">Teknisyen Listesi</h2>
                     </header>
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <a class="btn btn-primary" href="/fud/pharmacylist" role="button">Geri<i class="fas fa-green"></i></a>
+                                    <a class="btn btn-primary" href="/edittechnician?id=0&&pharmacyid=<% this.pharmacyId %>" role="button">Ekle<i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>  
 
-                      
-                       
                         <table class="table table-bordered table-striped mb-0" id="datatable-tabletools">
 
                             <thead>
@@ -67,10 +73,14 @@
                                         <td><% this.list[i].Name %></td>
                                         <td><% this.list[i].Phone %></td>
                                         <td><% this.list[i].Email %></td>
-                                        <td><a href="/edittechnician?id=<% this.list[i].Id %>">Edit</a></td>
+                                        <td>
+                                            <a href="/edittechnician?id=<% this.list[i].Id %>&&pharmacyid=<% this.pharmacyId %>">Edit</a>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delTechnician">Sil</a>
+                                        </td>
                                      </tr>      
                                 <% } %>
                             </tbody>
+                            
                         </table>
                     </div>
                 </section>
@@ -119,5 +129,5 @@
 <!-- Theme Initialization Files -->
 <script src="/virt/js/theme.init.js"></script>
 
-<script src="/virt/scripts/admin_fud_pharmacy_list_page.js"></script>
+<script src="/virt/scripts/fud_pharmacy_list_page.js"></script>
 

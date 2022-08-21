@@ -61,6 +61,18 @@ var technician_work = {
             cbErr && cbErr(err);
         });
     },
+    delete: function(data, cb,cbErr){
+        let query = {
+            text : `UPDATE public."Technician" SET "Status"=3, WHERE "Id"=$1`,
+            values: [data.Id]
+        };
+
+        pg.query(query, function (result) {
+            cb && cb(result);
+        }, function (err) {
+            cbErr && cbErr(err);
+        });
+    },
     async:{
         getAll : function () {
             return new Promise(function (resolve, reject) {

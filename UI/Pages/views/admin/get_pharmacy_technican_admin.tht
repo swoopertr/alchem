@@ -107,7 +107,7 @@
                                         <td><% this.list[i].Phone %></td>
                                         <td><% this.list[i].Email %></td>
                                         <td><a href="/edittechnician_admin?id=<% this.list[i].Id %>&pharmacyid=<% this.pharmacyId %>" class="btn btn-primary">Edit</a>
-                                            <a href="/deletetechnician_admin?id=<% this.list[i].Id %>" class="btn btn-warning">Sil</a></td>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="btn btn-warning deleteTechnician">Sil</a></td>
                                      </tr>      
                                 <% } %>
                             </tbody>
@@ -155,5 +155,5 @@
 <!-- Theme Initialization Files -->
 <script src="/virt/js/theme.init.js"></script>
 
-<script src="/virt/scripts/pharmacy_list.js"></script>
+<script src="/virt/scripts/admin_get_pharmacy_technican_list.js"></script>
 

@@ -455,6 +455,27 @@
       "function" : "upsert_technician_admin",
       "isCached" : false
     }
+  },
+  "edittechnician": {
+    "get": {
+      "controller" : "fud",
+      "function" : "edittechnician",
+      "isCached" : false
+    }
+  },
+  "fud/upsert_technician":{
+    "post": {
+      "controller" : "fud",
+      "function": "upsert_technician",
+      "isCached": false
+    }
+  },
+  "admin/delete_technician":{
+    "post": {
+      "controller" : "admin",
+      "function" : "admin/delete_technician",
+      "isCached" : false
+    }
   }
 
 }
