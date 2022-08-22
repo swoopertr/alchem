@@ -12,7 +12,7 @@ check_login();
             let html_links = '<ul>';
             for (let i = 0; i < result.length; i++) {
                 const element = result[i];
-                html_links +='<li style="padding: 5px;">'+ element.technicianName + ' - https://alchemlifeegitim.com/survey/evaluate?id=' + element.uniqueValue + '</li>';
+                html_links +='<li style="padding: 5px;"><strong>'+ element.technicianName + '</strong> </br> https://alchemlifeegitim.com/survey/evaluate?id=' + element.uniqueValue + '</li>';
             }
             html_links += '<ul>';
             $('#links').html(html_links);
