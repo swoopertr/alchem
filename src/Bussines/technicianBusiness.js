@@ -32,6 +32,15 @@ var technicianBusiness = {
         technicianData.delete(data, function(result){
             cb && cb(result);
         });
+    },
+    async : {
+        getPharmacyId : function(PharmacyId){
+            return new Promise((resolve, reject)=>{
+                technicianBusiness.getPharmacyId(PharmacyId, function(result){
+                    resolve(result);
+                });
+            });
+        }
     }
 };
 

@@ -58,6 +58,15 @@ var survey_product = {
         });
     },
     async: {
+        generateLink: function(data){
+            return new Promise(function(resolve,reject){
+                SendedSurveys.insert(data, function(result){
+                    resolve(result);
+                }, function(err){
+                    reject(err);
+                });
+            });
+        },
         getSurvey: function(id){
             return new Promise(function(resolve,reject){
                 survey_product.getSurvey(id,function(result){

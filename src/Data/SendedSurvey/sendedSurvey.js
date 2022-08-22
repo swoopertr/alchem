@@ -6,14 +6,15 @@ var survey_send= {
         //values ();
         try {
             let query = {
-                text: `insert into "SendedSurveys" ("SurveyId", "ExpiredAt", "UniqueValue", "LastAnsweredQuestion", "IsStarted", "IsFinised", "PharmacyId", "CreatedBy")
-                                            values ($1,         $2,          $3,            0,                     0,            0,           $4,           $5) returning "Id"`,
+                text: `insert into "SendedSurveys" ("SurveyId", "ExpiredAt", "UniqueValue", "LastAnsweredQuestion", "IsStarted", "IsFinised", "PharmacyId", "CreatedBy", "TechnicianId")
+                                            values ($1,         $2,          $3,            0,                     0,            0,           $4,           $5,          $6) returning "Id"`,
                 values: [
                     surveyToSend.surveyId, 
                     surveyToSend.expiredAt, 
                     surveyToSend.uniqueValue,
                     surveyToSend.PharmacyId,
-                    surveyToSend.userId
+                    surveyToSend.userId,
+                    surveyToSend.technicianId
                 ]
             };
         

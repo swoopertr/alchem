@@ -7,8 +7,15 @@ check_login();
     document.getElementById('btnGenerateLink').addEventListener('click', function (e) {
         e.preventDefault();
         generateLink(function (result) {
-            console.log(result);
-            document.getElementById('urlTxt').value = 'https://alchemlifeegitim.com/survey/evaluate?id=' + JSON.parse(result).uniqueValue;
+            //console.log(result);
+            result = JSON.parse(result).result_links;
+            let html_links = '<ul>';
+            for (let i = 0; i < result.length; i++) {
+                const element = result[i];
+                html_links +='<li style="padding: 5px;">'+ element.technicianName + ' - https://alchemlifeegitim.com/survey/evaluate?id=' + element.uniqueValue + '</li>';
+            }
+            html_links += '<ul>';
+            $('#links').html(html_links);
         })
     });
 
@@ -20,9 +27,9 @@ check_login();
         });
     });
  */
-    document.getElementById('btnCopy').addEventListener('click', function (e) {
+   /*  document.getElementById('btnCopy').addEventListener('click', function (e) {
         navigator.clipboard.writeText(document.getElementById('urlTxt').value);
-    });
+    }); */
 
     function generateLink(cb) {
         

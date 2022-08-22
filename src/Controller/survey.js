@@ -229,7 +229,7 @@ var survey = {
         var data = {
             data: {}
         };
-        ;
+        
         pharmacyBusiness.getPharmacyById(parseInt(cookies.selected_pharmacy), function(pharmacy){
             data.pharmacy = pharmacy[0];
             render.renderHtml(res, view.views["survey"]["presentation_question"], data);
