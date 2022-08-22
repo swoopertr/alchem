@@ -462,8 +462,10 @@ var admin = {
             technicianBusiness.delete(req.formData, function(result){
                 if(result){
                     render.renderData(res, { status: "success" });
+                    return;
                 }else{
                     render.renderData(res, { status: "error" });
+                    return;
                 }
             });
         });

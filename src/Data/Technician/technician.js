@@ -51,7 +51,7 @@ var technician_work = {
     },
     update: function(data, cb, cbErr){
         let query = {
-            text : `UPDATE public."Technician" SET "Email"=$2, "Name"=$3, "Phone"=$4, "Status"=$5, "PharmacyId"=$6 WHERE "Id"=$1`,
+            text : `UPDATE public."Technician" SET "Email"=$2, "Name"=$3, "Phone"=$4, "Status"=$5, "PharmacyId"=$6 WHERE "Id"=$1;`,
             values: [data.Id, data.email, data.nameSurName, data.phone, data.status, data.PharmacyId]
         };
 
@@ -63,10 +63,9 @@ var technician_work = {
     },
     delete: function(data, cb,cbErr){
         let query = {
-            text : `UPDATE public."Technician" SET "Status"=3, WHERE "Id"=$1`,
+            text : `UPDATE public."Technician" SET "Status"=3 WHERE "Id"=$1;`,
             values: [data.Id]
         };
-
         pg.query(query, function (result) {
             cb && cb(result);
         }, function (err) {

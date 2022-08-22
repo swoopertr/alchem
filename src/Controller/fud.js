@@ -285,7 +285,15 @@ var fud = {
                     userId: user[0].Id
                 };
                 technicianBusiness.getPharmacyId(parseInt(qs.id), function (result) {
-                    data.list = result;
+                    let lastResult = [];
+                    for (let i = 0; i < result.length; i++) {
+                        let item = result[i];
+                        if(item.Status == 1){
+                            lastResult.push(item);
+                        }
+                        
+                    }
+                    data.list = lastResult;
                     data.pharmacyId = qs.id;
                     render.renderHtml(res, view.views["fud"]["fud_pharmacy_technican_list"], data);
                 });
@@ -348,6 +356,26 @@ var fud = {
                     render.renderData(res, { status: "success" });
                 }else{
                     render.renderData(res, { status: "error" });
+                }
+            });
+        });
+    },
+    delete_technician : function(req, res){
+        var cookies = core.parseCookies(req);
+        var token = cookies.token;
+        if (token == undefined) {
+            core.redirect(res, '/login');
+            return;
+        }
+        
+        req.on('end', function(){
+            technicianBusiness.delete(req.formData, function(result){
+                if(result){
+                    render.renderData(res, { status: "success" });
+                    return;
+                }else{
+                    render.renderData(res, { status: "error" });
+                    return;
                 }
             });
         });

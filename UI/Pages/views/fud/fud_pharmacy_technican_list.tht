@@ -74,10 +74,11 @@
                                         <td><% this.list[i].Phone %></td>
                                         <td><% this.list[i].Email %></td>
                                         <td>
-                                            <a href="/edittechnician?id=<% this.list[i].Id %>&&pharmacyid=<% this.pharmacyId %>">Edit</a>
-                                            <a href="#" data-id="<% this.list[i].Id %>" class="delTechnician">Sil</a>
+                                            <a href="/edittechnician?id=<% this.list[i].Id %>&&pharmacyid=<% this.pharmacyId %>" class="btn btn-primary">Edit</a>
+                                            <span> | </span>
+                                            <a href="#" data-id="<% this.list[i].Id %>" class="delTechnician btn btn-warning">Sil</a>
                                         </td>
-                                     </tr>      
+                                    </tr>
                                 <% } %>
                             </tbody>
                             

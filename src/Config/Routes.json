@@ -473,7 +473,14 @@
   "admin/delete_technician":{
     "post": {
       "controller" : "admin",
-      "function" : "admin/delete_technician",
+      "function" : "delete_technician",
+      "isCached" : false
+    }
+  },
+  "fud/delete_technician": {
+    "post":{
+      "controller" : "fud",
+      "function" : "delete_technician",
       "isCached" : false
     }
   }
