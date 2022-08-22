@@ -76,8 +76,15 @@ var survey = {
         let id = qs.id;
 
         surveyQuestionsBusiness.getQuestionsBySurveyId(id, function (result) {
+            let lastResult = [];
+            for (let i = 0; i < result.length; i++) {
+                let item = result[i];
+                if(item.Status ==1){
+                    lastResult.push(item);
+                }
+            }
             data.id = id;
-            data.list = result;
+            data.list = lastResult;
             render.renderHtml(res, view.views["surveyQuestions"]["survey_question_list"], data);
         }, function (err) {
             render.renderFail(res, 500, err);
